@@ -1,0 +1,1 @@
+// export { dataFromSearch } from './dataFromSearch'
