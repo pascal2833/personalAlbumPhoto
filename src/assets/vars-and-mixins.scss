@@ -1,1 +1,17 @@
-// --------------- General : --------------- //
+@mixin homeMadeButton ($width: 50px, $height: 25px, $color: white, $color-hov: white, $backgroundC: rgb(150,150,150), $backgroundC-hov: rgb(50,50,50), $paddings: .2em, $borderR: .3em, $font-size: .9em)
+{
+  height: $height;
+  width: $width;
+  color: $color;
+  padding: $paddings;
+  border-radius: .3em;
+  font-size: $font-size;
+  cursor: pointer;
+  border-style: none;
+  background-color: $backgroundC;
+  &:hover {
+    background-color: $backgroundC-hov;
+    color: $color-hov;
+  }
+
+}

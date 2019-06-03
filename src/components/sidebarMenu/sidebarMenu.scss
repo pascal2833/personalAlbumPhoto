@@ -1,0 +1,30 @@
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding-bottom: 50px;
+  z-index: 999;
+  display: flex;
+  background-color: rgb(50,50,70);
+  &:hover {
+  cursor: pointer;
+}
+  // -webkit-transition: 0.3s width;
+  // transition: 0.3s width;
+  &__little {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4vh;
+    color: white;
+    font-size: 150%;
+  }
+  &__extended {
+    width: 150px;
+  }
+}
+
