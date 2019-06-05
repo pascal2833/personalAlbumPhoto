@@ -1,0 +1,25 @@
+@import "../../assets/vars-and-mixins";
+.add-photos {
+  display: flex;
+  flex-direction: column;
+  &__labels {
+    color: white;
+    margin: 1em 0 .2em 0;
+  }
+  &__inputs {
+    padding: .7em .7em .7em .3em;
+    font-size: 1rem;
+
+    &.multiselect {
+      height: 2em;
+      &:hover {
+        height: 9em;
+      }
+    }
+  }
+  &__submit-button {
+    @include homeMadeButton(11em, 2.5em, white, white, #e87a48, #85330d, .2em, .3em, 1em);
+    margin-top: 1em;
+  }
+}
+/*homeMadeButton ($width: 50px, $height: 25px, $color: white, $color-hov: white, $backgroundC: rgb(150,150,150), $backgroundC-hov: rgb(50,50,50), $paddings: .2em, $borderR: .3em, $font-size: .9em)*/

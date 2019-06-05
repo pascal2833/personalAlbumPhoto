@@ -10,7 +10,6 @@
     </div>
     <div
       class="sidebar-menu__extended"
-      v-if="hoverOnSideBarMenu"
     >
       <search-photos></search-photos>
       <add-photos></add-photos>

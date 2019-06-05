@@ -1,6 +1,6 @@
 <template>
   <div>
-    form to search photos
+
   </div>
 </template>
 
