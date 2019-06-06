@@ -1,5 +1,9 @@
 # albums_photos_antoine_2
 
+##  Done to improve the old one, with photos retrieved only from the front end part. The idea is to retrieve and to cretae them with an API.
+
+## At the moment, it's clearly a WIP ... 
+
 > A Vue.js project
 
 ## Build Setup
