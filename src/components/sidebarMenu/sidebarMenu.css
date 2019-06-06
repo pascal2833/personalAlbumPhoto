@@ -1,0 +1,26 @@
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding-bottom: 50px;
+  z-index: 999;
+  display: flex;
+  background-color: #323246; }
+  .sidebar-menu:hover {
+    cursor: pointer; }
+  .sidebar-menu__little {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4vh;
+    color: white;
+    font-size: 120%; }
+  .sidebar-menu__extended {
+    padding-right: 1em;
+    width: 380px; }
+
+/*# sourceMappingURL=sidebarMenu.css.map */
