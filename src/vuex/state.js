@@ -1,3 +1,3 @@
 export const state = {
-  // clubsData: clubsData
+  photoDownloadedToShow: null
 }

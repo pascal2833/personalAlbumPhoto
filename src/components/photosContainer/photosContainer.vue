@@ -1,6 +1,6 @@
 <template>
   <div class="photos-container">
-    jfvorkjfoi
+    <img src="" height="200" alt="Image preview...">
   </div>
 </template>
 

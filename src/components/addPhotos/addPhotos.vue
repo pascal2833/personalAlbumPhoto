@@ -1,14 +1,8 @@
 <template>
   <div class="add-photos">
     <h2>Ici, tu peux ajouter ta photo :)</h2>
-    <form @submit.prevent="submit" enctype="multipart/form-data">
-      <label class="add-photos__labels" for="photoUploadInput">Choisi ta photo :(*)</label>
-          <input
-            id="photoUploadInput"
-            type="file"
-            @change="uploadPhotos($event.target.files)"
-            accept="image/*"
-          >
+    <form @submit.prevent="submit">
+      <download-image></download-image>
       <label class="add-photos__labels" for="photoTitleInput">Titre de la photo :(*)</label>
       <input class="add-photos__inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
       <label class="add-photos__labels" for="photoDateInput">Date de la photo :(*)</label>
@@ -56,12 +50,14 @@ import 'vue-date-pick/dist/vueDatePick.css'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import { required } from 'vuelidate/lib/validators'
+import downloadImage from '../downloadImage/downloadImage'
 import { AsynRequests } from '../../services/Asyn_requests'
 export default {
   name: 'addPhotos',
   components: {
     DatePick,
-    Loading
+    Loading,
+    downloadImage
   },
   data: function () {
     return {
@@ -89,7 +85,6 @@ export default {
   methods: {
     uploadPhotos (fileInfo) {
       this.form.photoDownloaded = new FormData()
-      console.log(this.form.photoDownloaded)
     },
     submit () {
       this.$v.form.$touch()
