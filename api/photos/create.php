@@ -17,31 +17,33 @@ $db = $database->getConnection();
 
 $photos = new Photos($db);
 
-// get posted data
+// get posted data:
 $data = json_decode(file_get_contents("php://input"));
 
-// make sure data is not empty
+// make sure data is not empty (set mandatory data send by client):
 if(
-    !empty($data->name) &&
     !empty($data->title) &&
-    !empty($data->description)
+    !empty($data->date) &&
+    !empty($data->category)
 ) {
 
     // set photos property values
-    $photos->name = $data->name;
     $photos->title = $data->title;
+    $photos->date = $data->date;
+    $photos->category = $data->category;
     $photos->description = $data->description;
+    $creation_date = date('Y-m-d H:i:s');
+    $photos->creation_date = $creation_date;
+    $photos->name = 'photo_'.$creation_date;
     // create the photos
-    if($photos->create()){
+    if($photos->create()) {
         // set response code - 201 created
         http_response_code(201);
         // tell the user
         echo json_encode(array("message" => "Product was created."));
     }
-
     // if unable to create the photos, tell the user
-    else{
-
+    else {
         // set response code - 503 service unavailable
         http_response_code(503);
         // tell the user
@@ -53,6 +55,6 @@ else {
     // set response code - 400 bad request
     http_response_code(400);
     // tell the user
-    echo json_encode(array("message" => "Unable to create photos. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to create photos. Data is incomplete.".$data->title.$data->description));
 }
 ?>
