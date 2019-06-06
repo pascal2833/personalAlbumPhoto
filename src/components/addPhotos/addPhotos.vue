@@ -1,13 +1,21 @@
 <template>
   <div class="add-photos">
-    <form @submit.prevent="submit">
-      <label class="add-photos__labels" for="photoTitleInput">Titre de la photo : (*)</label>
+    <h2>Ici, tu peux ajouter ta photo :)</h2>
+    <form @submit.prevent="submit" enctype="multipart/form-data">
+      <label class="add-photos__labels" for="photoUploadInput">Choisi ta photo :(*)</label>
+          <input
+            id="photoUploadInput"
+            type="file"
+            @change="uploadPhotos($event.target.files)"
+            accept="image/*"
+          >
+      <label class="add-photos__labels" for="photoTitleInput">Titre de la photo :(*)</label>
       <input class="add-photos__inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
-      <label class="add-photos__labels" for="photoDateInput">Date de la photo : (*)</label>
+      <label class="add-photos__labels" for="photoDateInput">Date de la photo :(*)</label>
       <template>
         <date-pick v-model="form.date" class="add-photos__inputs" id="photoDateInput"></date-pick>
       </template>
-      <label class="add-photos__labels" for="photoCategoriesInput">Categorie : (*)</label>
+      <label class="add-photos__labels" for="photoCategoriesInput">Categorie :(*)</label>
       <select class="add-photos__inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
         <option>Toutes les photos</option>
         <option>Les potos</option>
@@ -17,7 +25,7 @@
       </select>
       <label class="add-photos__labels" for="photoDescriptionInput">Description :</label>
       <textarea
-        class="add-photos__inputs"
+        class="add-photos__inputs text-area"
         cols="30" rows="10"
         v-model="form.description"
         placeholder="Si tu veux, tu peux entrer une description"
@@ -43,11 +51,12 @@
 
 <script>
 import DatePick from 'vue-date-pick'
-import axios from 'axios'
+// import axios from 'axios'
 import 'vue-date-pick/dist/vueDatePick.css'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import { required } from 'vuelidate/lib/validators'
+import { AsynRequests } from '../../services/Asyn_requests'
 export default {
   name: 'addPhotos',
   components: {
@@ -58,9 +67,10 @@ export default {
     return {
       form: {
         photoTitle: '',
-        date: this.getActualDate(),
+        date: '',
         description: '',
-        categoriesSelected: ''
+        categoriesSelected: '',
+        photoDownloaded: null
       },
       loading: {
         isLoading: false,
@@ -72,10 +82,15 @@ export default {
     form: {
       photoTitle: { required },
       date: { required },
-      categoriesSelected: { required }
+      categoriesSelected: { required },
+      photoDownloaded: { required }
     }
   },
   methods: {
+    uploadPhotos (fileInfo) {
+      this.form.photoDownloaded = new FormData()
+      console.log(this.form.photoDownloaded)
+    },
     submit () {
       this.$v.form.$touch()
       if (!this.$v.form.$error) {
@@ -83,18 +98,12 @@ export default {
         const paramsToPass = {
           title: this.form.photoTitle,
           date: this.form.date,
-          category: this.form.categoriesSelected[0],
-          description: this.form.description
+          category: this.form.categoriesSelected,
+          description: this.form.description,
+          photoDownloaded: this.form.photoDownloaded
         }
-        const url = 'http://pascal-evano.org/album_photo_antoine_2/api/photos/create'
-        fetch(url, {
-          method: 'POST',
-          body: JSON.stringify(paramsToPass)
-        })
-        // axios.post('api/photos/create', paramsToPass) // Replace by this axios call in prod.
+        AsynRequests.createPhotos(paramsToPass)
           .then((response) => {
-            console.log(axios)
-            console.log(response.message)
             // TODO: show success message.
             this.loading.isLoading = false
           })

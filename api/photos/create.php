@@ -27,6 +27,12 @@ if(
     !empty($data->category)
 ) {
 
+
+  if (move_uploaded_file($_FILES['file1']['tmp_name'], $dest))
+  {
+     echo 'File Has Been Uploaded !';
+  }
+
     // set photos property values
     $photos->title = $data->title;
     $photos->date = $data->date;

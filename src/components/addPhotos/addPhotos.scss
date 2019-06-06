@@ -1,15 +1,19 @@
 @import "../../assets/vars-and-mixins";
 .add-photos {
+  color: white;
   form {
     display: flex;
     flex-direction: column;
     .add-photos__labels {
-      color: white;
       margin: 1em 0 .2em 0;
     }
     .add-photos__inputs {
-      padding: .7em .7em .7em .3em;
+      padding-left: .3em;
       font-size: 1rem;
+      height: $heightInputs;
+      &.text-area {
+        height: inherit;
+      }
     }
     .add-photos__submit-button {
       @include homeMadeButton(11em, 2.5em, white, white, #e87a48, #85330d, .2em, .3em, 1em);
