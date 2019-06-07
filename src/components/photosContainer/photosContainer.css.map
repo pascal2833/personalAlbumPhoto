@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,iBAAkB;EAChB,KAAK,EAAE,oBAAsC;EAC7C,WAAW,ECSQ,IAAI;EDRvB,MAAM,EAAE,IAAI;EACZ,QAAQ,EAAE,MAAM;EAChB,UAAU,EAAE,MAAM;EAClB,iCAAkB;IAEhB,MAAM,EAAE,IAAI",
+"sources": ["photosContainer.scss","../../assets/vars-and-mixins.scss"],
+"names": [],
+"file": "photosContainer.css"
+}

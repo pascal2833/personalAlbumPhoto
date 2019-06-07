@@ -9,7 +9,6 @@
         accept="image/*"
       >
     </form>
-    <img src="" height="200" alt="Image preview...">
   </div>
 </template>
 
@@ -24,7 +23,7 @@ export default {
       if (file) {
         reader.readAsDataURL(file)
       }
-      reader.addEventListener('load', function () {
+      reader.addEventListener('load', () => {
         preview.src = reader.result
         // const dataUrl = reader.result
       }, false)

@@ -1,0 +1,10 @@
+.photos-container {
+  width: calc(100vw - (60px));
+  margin-left: 60px;
+  height: 100%;
+  overflow: hidden;
+  text-align: center; }
+  .photos-container__images-to-show {
+    height: 100%; }
+
+/*# sourceMappingURL=photosContainer.css.map */
