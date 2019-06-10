@@ -1,1 +1,1 @@
-// export { dataFromSearch } from './dataFromSearch'
+// export { downloadPhotoAction.js } from './downloadPhotoAction.js'

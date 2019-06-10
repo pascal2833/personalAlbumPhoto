@@ -7,7 +7,17 @@
   overflow: hidden;
   text-align: center;
   &__images-to-show {
-    // width: auto;
-    height: 100%;
+    height: auto;
+    max-height: 100vh;
+    max-width: 80vw;
+    /*&.horizontal {
+      height: auto;
+      max-height: 100vh;
+      max-width: 80vw;
+    }
+    &.vertical {
+      width: auto;
+      max-height: 100vh;
+    }*/
   }
 }

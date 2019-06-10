@@ -5,6 +5,17 @@
   overflow: hidden;
   text-align: center; }
   .photos-container__images-to-show {
-    height: 100%; }
+    height: auto;
+    max-height: 100vh;
+    max-width: 80vw;
+    /*&.horizontal {
+      height: auto;
+      max-height: 100vh;
+      max-width: 80vw;
+    }
+    &.vertical {
+      width: auto;
+      max-height: 100vh;
+    }*/ }
 
 /*# sourceMappingURL=photosContainer.css.map */

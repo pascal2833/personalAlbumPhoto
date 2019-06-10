@@ -1,8 +1,9 @@
 <template>
   <div class="photos-container">
     <img
+      :class="photoToShowInPhotosContainer.horizontalOrVertical"
       class="photos-container__images-to-show"
-      :src="getPhotosToShowUrl()"
+      :src="photoToShowInPhotosContainer.src"
       alt="Image preview..."
     >
   </div>
@@ -14,12 +15,13 @@ export default {
   name: 'photosContainer',
   computed: {
     ...mapState({
-      photosToShowInPhotosContainer: state => state.photosToShowInPhotosContainer
+      photoToShowInPhotosContainer: state => state.photoToShowInPhotosContainer
     })
   },
   methods: {
     getPhotosToShowUrl () {
-      return require(`../../../api/PhotosToShow/${this.$store.state.photosToShowInPhotosContainer[0].name}`)
+      return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.name}`)
+      // return require(`${this.$store.state.photoToShowInPhotosContainer.src}`)
     }
   }
 }

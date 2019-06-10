@@ -46,6 +46,7 @@
 <script>
 import DatePick from 'vue-date-pick'
 // import axios from 'axios'
+import { mapState } from 'vuex'
 import 'vue-date-pick/dist/vueDatePick.css'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
@@ -59,14 +60,19 @@ export default {
     Loading,
     downloadImage
   },
+  computed: {
+    ...mapState({
+      verticalOrHorizontal: state => state.photoToShowInPhotosContainer.horizontalOrVertical,
+      photoDownloaded: state => state.photoDownloaded
+    })
+  },
   data: function () {
     return {
       form: {
         photoTitle: '',
         date: '',
         description: '',
-        categoriesSelected: '',
-        photoDownloaded: null
+        categoriesSelected: ''
       },
       loading: {
         isLoading: false,
@@ -78,28 +84,25 @@ export default {
     form: {
       photoTitle: { required },
       date: { required },
-      categoriesSelected: { required },
-      photoDownloaded: { required }
+      categoriesSelected: { required }
     }
   },
   methods: {
-    uploadPhotos (fileInfo) {
-      this.form.photoDownloaded = new FormData()
-    },
     submit () {
       this.$v.form.$touch()
-      if (!this.$v.form.$error) {
+      if (!this.$v.form.$error && this.photoDownloaded === true) {
         this.loading.isLoading = true
         const paramsToPass = {
           title: this.form.photoTitle,
           date: this.form.date,
           category: this.form.categoriesSelected,
           description: this.form.description,
-          photoDownloaded: this.form.photoDownloaded
+          verticalOrHorizontal: this.verticalOrHorizontal
         }
         AsynRequests.createPhotos(paramsToPass)
           .then((response) => {
             // TODO: show success message.
+            this.$store.commit('setImageIsDownloadedMutation', false)
             this.loading.isLoading = false
           })
           .catch((error) => {

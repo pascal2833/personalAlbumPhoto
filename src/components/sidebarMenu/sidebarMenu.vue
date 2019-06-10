@@ -9,7 +9,7 @@
       <i class="fas fa-camera"></i>
     </div>
     <!--v-if="hoverOnSideBarMenu"-->
-    <div class="sidebar-menu__extended" v-if="hoverOnSideBarMenu">
+    <div class="sidebar-menu__extended">
       <search-photos></search-photos>
       <add-photos></add-photos>
     </div>

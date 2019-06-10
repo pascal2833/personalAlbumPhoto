@@ -4,9 +4,11 @@ import App from './App'
 import router from './router'
 import vuexStore from './vuex/store'
 import Vuelidate from 'vuelidate'
+import Loading from 'vue-loading-overlay'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
+Vue.use(Loading, {isLoading: false, fullPage: true})
 
 Vue.use(Vuelidate)
 
