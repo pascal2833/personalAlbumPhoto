@@ -17,25 +17,49 @@ $db = $database->getConnection();
 
 $photos = new Photos($db);
 
-// get posted data:
-$data = json_decode(file_get_contents("php://input"));
+// Retrieve value from request:
+$photoTitle = $_POST['title'];
+$date = $_POST['date'];
+$category = $_POST['category'];
+$description = $_POST['description'];
+$verticalOrHorizontal = $_POST['verticalOrHorizontal'];
+$file = $_FILES['imageFile'];
 
-// make sure data is not empty (set mandatory data send by client):
+// keep file in db:
+$valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
+$path = '../PhotosToShow/'; // Where put photos
+
+// make sure mandatory fields send by front are not empty:
 if(
-    !empty($data->title) &&
-    !empty($data->date) &&
-    !empty($data->category)
+    !empty($photoTitle) &&
+    !empty($date) &&
+    !empty($category) &&
+    !empty($description) &&
+    !empty($verticalOrHorizontal) &&
+    !empty($file)
 ) {
 
+    // Put image in folder:
+        $creation_date = date('Y-m-d H:i:s');
+        $imgName = 'photo_'.$creation_date;
+        $tmp = $_FILES['imageFile']['tmp_name'];
+        // get uploaded file's extension
+        $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
+        // can upload same image using rand function
+        $final_image = rand(1000,1000000).$imgName;
+        if(in_array($ext, $valid_extensions))
+        {
+          $path = $path.strtolower($final_image);
+          move_uploaded_file($tmp,$path);
+        }
     // set photos property values
-    $photos->title = $data->title;
-    $photos->date = $data->date;
-    $photos->category = $data->category;
-    $photos->description = $data->description;
-    $photos->verticalOrHorizontal = $data->verticalOrHorizontal;
-    $creation_date = date('Y-m-d H:i:s');
     $photos->creation_date = $creation_date;
-    $photos->name = 'photo_'.$creation_date;
+    $photos->name = $imgName;
+    $photos->title = $photoTitle;
+    $photos->date = $date;
+    $photos->category = $category;
+    $photos->description = $description;
+    $photos->verticalOrHorizontal = $verticalOrHorizontal;
     // create the photos
     if($photos->create()) {
         // set response code - 201 created
@@ -56,6 +80,6 @@ else {
     // set response code - 400 bad request
     http_response_code(400);
     // tell the user
-    echo json_encode(array("message" => "Unable to create photos. Data is incomplete.".$data->title.$data->description));
+    echo json_encode(array("message" => "Unable to create photos. Data is incomplete."));
 }
 ?>

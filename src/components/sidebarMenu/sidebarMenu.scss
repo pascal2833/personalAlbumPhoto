@@ -9,11 +9,16 @@
   z-index: 2;
   display: flex;
   background-color: rgb(50,50,70);
-  &:hover {
-  cursor: pointer;
-}
   // -webkit-transition: 0.3s width;
   // transition: 0.3s width;
+  &__little, &__extended {
+    padding-top: 4vh;
+    color: white;
+    font-size: 120%;
+    .icons {
+      cursor: pointer;
+    }
+  }
   &__little {
     width: $widthLittleSidebar;
     display: flex;
@@ -21,13 +26,13 @@
     height: 40vh;
     justify-content: space-between;
     align-items: center;
-    padding-top: 4vh;
-    color: white;
-    font-size: 120%;
   }
   &__extended {
     padding-right: 1em;
     width: $widthExtendedSidebar;
+    .minimize-icon {
+      float: right;
+    }
   }
 }
 

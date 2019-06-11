@@ -4,7 +4,7 @@
       :class="photoToShowInPhotosContainer.horizontalOrVertical"
       class="photos-container__images-to-show"
       :src="photoToShowInPhotosContainer.src"
-      alt="Image preview..."
+      alt="Ajoute ou cherche des photos ..."
     >
   </div>
 </template>

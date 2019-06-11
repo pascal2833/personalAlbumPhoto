@@ -7,20 +7,23 @@
   z-index: 2;
   display: flex;
   background-color: #323246; }
-  .sidebar-menu:hover {
-    cursor: pointer; }
+  .sidebar-menu__little, .sidebar-menu__extended {
+    padding-top: 4vh;
+    color: white;
+    font-size: 120%; }
+    .sidebar-menu__little .icons, .sidebar-menu__extended .icons {
+      cursor: pointer; }
   .sidebar-menu__little {
     width: 60px;
     display: flex;
     flex-direction: column;
     height: 40vh;
     justify-content: space-between;
-    align-items: center;
-    padding-top: 4vh;
-    color: white;
-    font-size: 120%; }
+    align-items: center; }
   .sidebar-menu__extended {
     padding-right: 1em;
     width: 380px; }
+    .sidebar-menu__extended .minimize-icon {
+      float: right; }
 
 /*# sourceMappingURL=sidebarMenu.css.map */

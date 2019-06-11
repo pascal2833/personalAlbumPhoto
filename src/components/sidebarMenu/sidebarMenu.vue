@@ -1,15 +1,13 @@
 <template>
-  <section
-    class="sidebar-menu"
-    @mouseover="hoverOnSideBarMenu = true"
-    @mouseleave="hoverOnSideBarMenu = false"
-  >
+  <section class="sidebar-menu">
     <div class="sidebar-menu__little">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-camera"></i>
+      <i class="fas fa-chevron-right icons" @click="extendSideBar()" v-if="minimizeSidebarMenu"></i>
+      <i class="fas fa-search icons"></i>
+      <i class="fas fa-camera icons"></i>
     </div>
-    <!--v-if="hoverOnSideBarMenu"-->
-    <div class="sidebar-menu__extended">
+    <!--"-->
+    <div class="sidebar-menu__extended" v-if="!minimizeSidebarMenu">
+      <i class="fas fa-chevron-left icons minimize-icon" @click="minimizeSideBar()"></i>
       <search-photos></search-photos>
       <add-photos></add-photos>
     </div>
@@ -28,7 +26,15 @@ export default {
   },
   data () {
     return {
-      hoverOnSideBarMenu: false
+      minimizeSidebarMenu: true
+    }
+  },
+  methods: {
+    minimizeSideBar () {
+      this.minimizeSidebarMenu = true
+    },
+    extendSideBar () {
+      this.minimizeSidebarMenu = false
     }
   }
 }
