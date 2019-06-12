@@ -11,8 +11,6 @@ class Photos{
     public $creation_date;
     public $name;
     public $verticalOrHorizontal;
-    public $imageCodedIn64;
-
     // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
@@ -32,7 +30,6 @@ class Photos{
     // create photos
     function create(){
         // query to insert record
-        // $query = "INSERT INTO photos SET title=:title, date=:date, category=:category, description=:description, creation_date=:creation_date, name=:name, verticalOrHorizontal=:verticalOrHorizontal, imageCodedIn64=:imageCodedIn64";
         $query = "INSERT INTO photos SET title=:title, date=:date, category=:category, description=:description, creation_date=:creation_date, name=:name, verticalOrHorizontal=:verticalOrHorizontal";
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -44,7 +41,6 @@ class Photos{
         $this->creation_date=htmlspecialchars(strip_tags($this->creation_date));
         $this->name=htmlspecialchars(strip_tags($this->name));
         $this->verticalOrHorizontal=htmlspecialchars(strip_tags($this->verticalOrHorizontal));
-        // $this->imageCodedIn64=htmlspecialchars(strip_tags($this->imageCodedIn64));
         // bind values
         $stmt->bindParam(":title", $this->title);
         $stmt->bindParam(":date", $this->date);
@@ -53,7 +49,6 @@ class Photos{
         $stmt->bindParam(":creation_date", $this->creation_date);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":verticalOrHorizontal", $this->verticalOrHorizontal);
-        // $stmt->bindParam(":imageCodedIn64", $this->imageCodedIn64);
         // execute query
         if($stmt->execute()){
             return true;

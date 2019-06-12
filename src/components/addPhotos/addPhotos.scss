@@ -4,24 +4,9 @@
   form {
     display: flex;
     flex-direction: column;
-    .add-photos__labels {
-      margin: 1em 0 .2em 0;
-    }
-    .add-photos__inputs {
-      padding-left: .3em;
-      font-size: 1rem;
-      height: $heightInputs;
-      &.text-area {
-        height: inherit;
-      }
-    }
-    .add-photos__submit-button {
-      @include homeMadeButton(11em, 2.5em, white, white, #e87a48, #85330d, .2em, .3em, 1em);
-      margin-top: 1em;
-    }
     .gnalFormErrorMessage {
       color: red;
-      font-size: .85em;
+      font-size: .8em;
       margin-top: 1em;
     }
   }

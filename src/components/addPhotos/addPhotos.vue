@@ -1,26 +1,32 @@
 <template>
-  <div class="add-photos">
-    <h2>Ici, tu peux ajouter ta photo :)</h2>
+  <div class="add-photos" v-if="visible">
+    <h2 class="no-margin">Ici, tu peux ajouter ta photo :)</h2>
     <form @submit.prevent="submit" enctype="multipart/form-data">
       <download-image></download-image>
-      <label class="add-photos__labels" for="photoTitleInput">Titre de la photo (*) :</label>
-      <input class="add-photos__inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
-      <label class="add-photos__labels" for="photoDateInput">Date de la photo (*) :</label>
+      <label class="labels-4-inputs" for="photoTitleInput">Titre de la photo (*) :</label>
+      <input class="main-inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
+      <label class="labels-4-inputs" for="photoDateInput">Date de la photo (*) :</label>
       <template>
-        <date-pick v-model="form.date" class="add-photos__inputs" id="photoDateInput"></date-pick>
+        <date-pick
+          v-model="form.date"
+          class="main-inputs"
+          id="photoDateInput"
+          :displayFormat="'DD.MM.YYYY'"
+        >
+        </date-pick>
       </template>
-      <label class="add-photos__labels" for="photoCategoriesInput">Categorie (*) :</label>
-      <select class="add-photos__inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
+      <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
+      <select class="main-inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
         <option>Toutes les photos</option>
         <option>Les potos</option>
         <option>La famille</option>
         <option>La famille et les potos</option>
         <option>Autres</option>
       </select>
-      <label class="add-photos__labels" for="photoDescriptionInput">Description :</label>
+      <label class="labels-4-inputs" for="photoDescriptionInput">Description :</label>
       <textarea
-        class="add-photos__inputs text-area"
-        cols="30" rows="10"
+        class="main-inputs text-area"
+        cols="30" rows="5"
         v-model="form.description"
         placeholder="Si tu veux, tu peux entrer une description"
         id="photoDescriptionInput"
@@ -33,10 +39,11 @@
         Il faut telecharger une photo ...
       </div>
       <button
-        class="add-photos__submit-button"
+        class="main-submit-button"
         type="submit"
       >
-        Valide ma Kounich !!!</button>
+        Garder la photo !!!
+      </button>
     </form>
     <loading
         :active.sync="loading.isLoading"
@@ -48,9 +55,8 @@
 
 <script>
 import DatePick from 'vue-date-pick'
-// import axios from 'axios'
-import { mapState } from 'vuex'
 import 'vue-date-pick/dist/vueDatePick.css'
+import { mapState } from 'vuex'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import { required } from 'vuelidate/lib/validators'
@@ -61,6 +67,11 @@ export default {
     DatePick,
     Loading,
     downloadImage
+  },
+  props: {
+    visible: {
+      type: Boolean
+    }
   },
   computed: {
     ...mapState({
@@ -73,7 +84,7 @@ export default {
     return {
       form: {
         photoTitle: '',
-        date: '',
+        date: '2019-12-06',
         description: '',
         categoriesSelected: ''
       },
@@ -102,9 +113,24 @@ export default {
         formData.append('category', this.form.categoriesSelected)
         formData.append('description', this.form.description)
         formData.append('verticalOrHorizontal', this.verticalOrHorizontal)
-        const xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://pascal-evano.org/album_photo_antoine_2/api/photos/create.php', true)
-        xhr.send(formData)
+        const url = 'http://pascal-evano.org/album_photo_antoine_2/api/photos/create'
+        fetch(url, {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => {
+            if (response.status === 201) {
+              this.loading.isLoading = false
+              alert('la photo a ete enregistree')
+            } else {
+              this.loading.isLoading = false
+              alert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct')
+            }
+          })
+          .catch(() => {
+            this.loading.isLoading = false
+            alert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct (il s\'agit peut etre aussi d\'une erreur de notre part ...)')
+          })
       }
     },
     getActualDate: () => {

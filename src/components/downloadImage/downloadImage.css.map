@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,qBAAsB;EACpB,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,GAAG",
+"mappings": "AAAA,qBAAsB;EACpB,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,GAAG;;AAEZ,mBAAoB;EAClB,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,oBAAoB;;AAEnC,mCAAoC;EAClC,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,KAAK;EACjB,eAAe,EAAE,aAAa",
 "sources": ["downloadImage.scss"],
 "names": [],
 "file": "downloadImage.css"

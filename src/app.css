@@ -1,4 +1,36 @@
 .app {
-  font-size: calc(16px + 4 * ((100vw - 320px) / 680)); }
+  font-size: calc(14px + 4 * ((100vw - 320px) / 680));
+  font-family: 'Roboto', sans-serif; }
+  .app .icons {
+    cursor: pointer; }
+  .app .no-margin {
+    margin: 0 !important; }
+  .app .labels-4-inputs {
+    display: block;
+    margin: 1em 0 .2em 0;
+    font-size: .85em; }
+  .app .main-inputs, .app .vdpComponent.vdpWithInput > input {
+    padding-left: .3em;
+    font-size: 1rem;
+    height: 3em;
+    font-family: 'Roboto', sans-serif; }
+    .app .main-inputs.text-area, .app .vdpComponent.vdpWithInput > input.text-area {
+      height: inherit; }
+  .app .main-submit-button {
+    height: 2.5em;
+    width: 11em;
+    color: white;
+    padding: 0.2em;
+    border-radius: .3em;
+    font-size: 1em;
+    cursor: pointer;
+    border-style: none;
+    background-color: #e87a48;
+    margin-top: 1em; }
+    .app .main-submit-button:hover {
+      background-color: #85330d;
+      color: white; }
+  .app .vdpClearInput {
+    display: none; }
 
 /*# sourceMappingURL=app.css.map */

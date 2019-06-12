@@ -1,3 +1,33 @@
+@import "./assets/vars-and-mixins";
 .app {
-    font-size: calc(16px + 4 * ((100vw - 320px) / 680));
+  font-size: calc(14px + 4 * ((100vw - 320px) / 680));
+  font-family: 'Roboto', sans-serif;
+  .icons {
+    cursor: pointer;
+  }
+  .no-margin {
+    margin: 0!important;
+  }
+  .labels-4-inputs {
+    display: block;
+    margin: 1em 0 .2em 0;
+    font-size: .85em;
+  }
+  .main-inputs, .vdpComponent.vdpWithInput > input {
+    padding-left: .3em;
+    font-size: 1rem;
+    height: $heightInputs;
+    font-family: 'Roboto', sans-serif;
+    &.text-area {
+      height: inherit;
+    }
+  }
+  .main-submit-button {
+    @include homeMadeButton(11em, 2.5em, white, white, #e87a48, #85330d, .2em, .3em, 1em);
+    margin-top: 1em;
+  }
+  // Adapt date-picker styles.
+  .vdpClearInput {
+    display: none;
+  }
 }

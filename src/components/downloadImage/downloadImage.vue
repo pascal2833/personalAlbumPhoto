@@ -1,13 +1,22 @@
 <template>
   <div>
-    <label class="add-photos__labels" for="photoUploadInput">Choisi une photo (*):</label>
-    <label class="add-photos__labels photo-to-big-message" v-if="showPhotoToBigMessage">La photo est trop lourde, elle doit etre inferieure a 1000k</label>
-    <input
-      id="photoUploadInput"
-      type="file"
-      @change="uploadPhotos($event.target.files)"
-      accept="image/*"
-    >
+    <label class="labels-4-inputs" for="photoUploadInput">Choisi une photo (*):</label>
+    <label class="labels-4-inputs photo-to-big-message" v-if="showPhotoToBigMessage">La photo est trop lourde, elle doit etre inferieure a 4Mb</label>
+    <div class="add-photos__upload-photo-container">
+      <input
+        class="input-to-add-photo"
+        id="photoUploadInput"
+        type="file"
+        @change="uploadPhotos($event.target.files)"
+        accept="image/*"
+      >
+      <i
+        class="far fa-trash-alt icons"
+        title="Annuler cette photo"
+        @click="deletePhoto()"
+      >
+      </i>
+    </div>
     <loading
       :active.sync="loading.isLoading"
       :can-cancel="true"
@@ -36,10 +45,13 @@ export default {
     }
   },
   methods: {
+    deletePhoto () {
+      this.$store.commit('deleteImageMutation')
+    },
     uploadPhotos (files) {
       this.loading.isLoading = true
       const file = files[0]
-      if (file.size > 1000000) {
+      if (file.size > 4000000) {
         this.showPhotoToBigMessage = true
         this.loading.isLoading = false
       } else if (file) {

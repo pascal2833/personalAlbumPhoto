@@ -3,31 +3,9 @@
   .add-photos form {
     display: flex;
     flex-direction: column; }
-    .add-photos form .add-photos__labels {
-      margin: 1em 0 .2em 0; }
-    .add-photos form .add-photos__inputs {
-      padding-left: .3em;
-      font-size: 1rem;
-      height: 3em; }
-      .add-photos form .add-photos__inputs.text-area {
-        height: inherit; }
-    .add-photos form .add-photos__submit-button {
-      height: 2.5em;
-      width: 11em;
-      color: white;
-      padding: 0.2em;
-      border-radius: .3em;
-      font-size: 1em;
-      cursor: pointer;
-      border-style: none;
-      background-color: #e87a48;
-      margin-top: 1em; }
-      .add-photos form .add-photos__submit-button:hover {
-        background-color: #85330d;
-        color: white; }
     .add-photos form .gnalFormErrorMessage {
       color: red;
-      font-size: .85em;
+      font-size: .8em;
       margin-top: 1em; }
 
 /*# sourceMappingURL=addPhotos.css.map */

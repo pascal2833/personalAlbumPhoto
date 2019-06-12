@@ -8,16 +8,11 @@
   padding-bottom: 50px;
   z-index: 2;
   display: flex;
-  background-color: rgb(50,50,70);
-  // -webkit-transition: 0.3s width;
-  // transition: 0.3s width;
+  background-color: #292929;
   &__little, &__extended {
     padding-top: 4vh;
     color: white;
     font-size: 120%;
-    .icons {
-      cursor: pointer;
-    }
   }
   &__little {
     width: $widthLittleSidebar;

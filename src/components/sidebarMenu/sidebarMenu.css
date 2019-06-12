@@ -6,13 +6,11 @@
   padding-bottom: 50px;
   z-index: 2;
   display: flex;
-  background-color: #323246; }
+  background-color: #292929; }
   .sidebar-menu__little, .sidebar-menu__extended {
     padding-top: 4vh;
     color: white;
     font-size: 120%; }
-    .sidebar-menu__little .icons, .sidebar-menu__extended .icons {
-      cursor: pointer; }
   .sidebar-menu__little {
     width: 60px;
     display: flex;
