@@ -61,6 +61,8 @@ import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import { required } from 'vuelidate/lib/validators'
 import downloadImage from '../downloadImage/downloadImage'
+import axios from 'axios'
+import { AsynRequestsParams } from '../../services/Asyn_requests_params'
 export default {
   name: 'addPhotos',
   components: {
@@ -113,11 +115,8 @@ export default {
         formData.append('category', this.form.categoriesSelected)
         formData.append('description', this.form.description)
         formData.append('verticalOrHorizontal', this.verticalOrHorizontal)
-        const url = 'http://pascal-evano.org/album_photo_antoine_2/api/photos/create'
-        fetch(url, {
-          method: 'POST',
-          body: formData
-        })
+        const url = `${AsynRequestsParams.BASE_URL}${AsynRequestsParams.createAction}`
+        axios.post(url, formData)
           .then(response => {
             if (response.status === 201) {
               this.loading.isLoading = false

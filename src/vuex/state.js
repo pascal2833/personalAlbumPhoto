@@ -2,9 +2,9 @@
 export const state = {
   photoDownloaded: false,
   photoToShowInPhotosContainer: {
-    imageFile: '', // TODO: put a default one.
-    src: '', // imageCodedIn64
-    name: '', // Done in back part, with id/table.
+    id: null,
+    imageFile: 'defaultPhoto.png', // To visualize photo from server. This is the default one.
+    src: '', // imageCodedIn64 (to visualize photo uploaded)
     title: 'Titre a choisir apres',
     description: 'description a faire apres',
     date: 'A remplir apres',

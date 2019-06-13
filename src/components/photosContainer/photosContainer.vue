@@ -3,7 +3,7 @@
     <img
       :class="photoToShowInPhotosContainer.horizontalOrVertical"
       class="photos-container__images-to-show"
-      :src="photoToShowInPhotosContainer.src"
+      :src="photoToShowInPhotosContainer.src ? photoToShowInPhotosContainer.src : getPhotosToShowUrl()"
       alt="Ajoute ou cherche des photos ..."
     >
   </div>
@@ -20,8 +20,7 @@ export default {
   },
   methods: {
     getPhotosToShowUrl () {
-      return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.name}`)
-      // return require(`${this.$store.state.photoToShowInPhotosContainer.src}`)
+      return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}`)
     }
   }
 }

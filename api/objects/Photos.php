@@ -15,11 +15,10 @@ class Photos{
     public function __construct($db){
         $this->conn = $db;
     }
-
-    // read photos
-    function read() {
+    // search photos
+    function search(paramsFromRequest) {
         // select all query
-        $query = "SELECT p.id, p.title, p.date, p.category, p.description, p.creation_date, p.name FROM photos ORDER B p.date DESC";
+        $query = "SELECT * FROM photos WHERE category= "paramsFromRequest.category" ORDER BY date ASC";
         // prepare query statement
         $stmt = $this->conn->prepare($query);
         // execute query

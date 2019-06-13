@@ -2,7 +2,14 @@
 
 ##  Done to improve the old one, with photos retrieved only from the front end part. The idea is to retrieve and to cretae them with an API.
 
-## At the moment, it's clearly a WIP ... 
+## At the moment, it's clearly a WIP... 
+
+### TODO:
+- Quit header Access-Control-Allow-Origin: / API files, and put authentification.
+- Organize font-size
+- Make it responsive
+- Use alert modal from vue to show message and not alert()
+- Use multiselect and not single select / categories, to be able to search photos by a combination of keyword and not only one.
 
 > A Vue.js project
 

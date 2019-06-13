@@ -47,6 +47,7 @@ export default {
   methods: {
     deletePhoto () {
       this.$store.commit('deleteImageMutation')
+      this.$store.commit('setImageIsDownloadedMutation', false)
     },
     uploadPhotos (files) {
       this.loading.isLoading = true

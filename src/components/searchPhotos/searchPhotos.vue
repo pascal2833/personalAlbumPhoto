@@ -50,6 +50,8 @@
 import DatePick from 'vue-date-pick'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
+import axios from 'axios'
+import { AsynRequestsParams } from '../../services/Asyn_requests_params'
 export default {
   name: 'searchPhotos',
   components: {
@@ -72,6 +74,15 @@ export default {
         isLoading: false,
         fullPage: true
       }
+    }
+  },
+  methods: {
+    submit () {
+      const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected}
+      console.log(params)
+      axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
+        .then((response) => console.log(response))
+        .catch((error) => console.error(error))
     }
   }
 }
