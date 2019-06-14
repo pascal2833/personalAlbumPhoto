@@ -1,8 +1,9 @@
 // const folderWithPhotosToShow = '../../../api/PhotosToShow/'
 export const state = {
+  numPhotosRetrievedBySearch: 0,
   photoDownloaded: false,
   photoToShowInPhotosContainer: {
-    id: null,
+    id: null, // from response / back.
     imageFile: 'defaultPhoto.png', // To visualize photo from server. This is the default one.
     src: '', // imageCodedIn64 (to visualize photo uploaded)
     title: 'Titre a choisir apres',

@@ -132,13 +132,6 @@ export default {
           })
       }
     }
-    /* getActualDate: () => {
-      const actualDate = new Date()
-      const year = actualDate.getFullYear()
-      const month = actualDate.getMonth() + 1
-      const day = actualDate.getDate()
-      return `${year}-${month}-${day}`
-    } */
   }
 }
 

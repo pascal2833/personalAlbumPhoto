@@ -16,7 +16,7 @@ class Photos{
     public function __construct($db){
         $this->conn = $db;
     }
-    // search photos
+    // ----- search photos
     function search($paramsFromRequest) {
         // select all query
         $categoryFromRequest = $paramsFromRequest["category"];
@@ -29,7 +29,7 @@ class Photos{
         $stmt->execute();
         return $stmt;
     }
-    // create photos
+    // ------ create photos
     function create(){
         // query to insert record
         $query = "INSERT INTO photos SET title=:title, date=:date, category=:category, description=:description, creation_date=:creation_date, name=:name, horizontalOrVertical=:horizontalOrVertical";

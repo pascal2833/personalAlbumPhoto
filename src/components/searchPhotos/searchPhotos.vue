@@ -82,12 +82,13 @@ export default {
       const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected}
       axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
         .then((response) => {
+          this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)
           this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
           this.loading.isLoading = false
         })
-        .catch((error) => {
+        .catch(() => {
           this.loading.isLoading = false
-          console.error(error)
+          alert('Il n\'y a pas de photos correspondant aux criteres de recherche ou une erreur est survenue')
         })
     }
   }

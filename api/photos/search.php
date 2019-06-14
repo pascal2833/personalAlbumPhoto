@@ -35,9 +35,14 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     'horizontalOrVertical' => $horizontalOrVertical,
     );
 }
+  if (sizeof($photos_arr) >= 1) {
+    // set response code - 200 OK
+    http_response_code(200);
+    // show products data in json format
+    echo json_encode($photos_arr);
+  } else {
+      http_response_code(400);
+    }
 
-// set response code - 200 OK
-   http_response_code(200);
-// show products data in json format
-   echo json_encode($photos_arr);
+
 

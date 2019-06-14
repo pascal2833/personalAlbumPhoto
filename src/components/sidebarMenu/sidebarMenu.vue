@@ -32,13 +32,23 @@ export default {
   },
   methods: {
     showAddPhotoMenuOrNot () {
-      this.addPhotoMenuIsVisible = !this.addPhotoMenuIsVisible
-      this.searchPhotoMenuIsVisible = false
+      this.$store.commit('deleteImageMutation')
+      if (this.minimizeSidebarMenu) {
+        this.addPhotoMenuIsVisible = true
+      } else {
+        this.searchPhotoMenuIsVisible = false
+        this.addPhotoMenuIsVisible = true
+      }
       this.extendSideBar()
     },
     showSearchPhotoMenuOrNot () {
-      this.searchPhotoMenuIsVisible = !this.searchPhotoMenuIsVisible
-      this.addPhotoMenuIsVisible = false
+      if (this.minimizeSidebarMenu) {
+        this.searchPhotoMenuIsVisible = true
+      } else {
+        this.addPhotoMenuIsVisible = false
+        this.searchPhotoMenuIsVisible = true
+      }
+      // this.searchPhotoMenuIsVisible = !this.searchPhotoMenuIsVisible
       this.extendSideBar()
     },
     minimizeSideBar () {
