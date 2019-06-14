@@ -11,7 +11,7 @@
           v-model="form.date"
           class="main-inputs"
           id="photoDateInput"
-          :displayFormat="'DD.MM.YYYY'"
+          :displayFormat="'YYYY-MM-DD'"
         >
         </date-pick>
       </template>
@@ -77,7 +77,7 @@ export default {
   },
   computed: {
     ...mapState({
-      verticalOrHorizontal: state => state.photoToShowInPhotosContainer.horizontalOrVertical,
+      horizontalOrVertical: state => state.photoToShowInPhotosContainer.horizontalOrVertical,
       photoDownloaded: state => state.photoDownloaded,
       imageFile: state => state.photoToShowInPhotosContainer.imageFile
     })
@@ -114,7 +114,7 @@ export default {
         formData.append('date', this.form.date)
         formData.append('category', this.form.categoriesSelected)
         formData.append('description', this.form.description)
-        formData.append('verticalOrHorizontal', this.verticalOrHorizontal)
+        formData.append('horizontalOrVertical', this.horizontalOrVertical)
         const url = `${AsynRequestsParams.BASE_URL}${AsynRequestsParams.createAction}`
         axios.post(url, formData)
           .then(response => {

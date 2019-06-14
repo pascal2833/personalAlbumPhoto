@@ -20,13 +20,14 @@ $photoTitle = $_POST['title'];
 $date = $_POST['date'];
 $category = $_POST['category'];
 $description = $_POST['description'];
-$verticalOrHorizontal = $_POST['verticalOrHorizontal'];
+$horizontalOrVertical = $_POST['horizontalOrVertical'];
 $file = $_FILES['imageFile'];
+$tmp = $_FILES['imageFile']['tmp_name'];
+$imgNameFromDownload = $_FILES['imageFile']['name'];
 $creation_date = date('Y-m-d_H:i:s');
 // var to keep file in db:
 $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
 $path = '../PhotosToShow/'; // Where put photos
-$imgNameFromDownload = $_FILES['imageFile']['name'];
 $ext = strtolower(pathinfo($imgNameFromDownload, PATHINFO_EXTENSION));
 
 // make sure mandatory fields send by front are not empty and image size Ok and extension file image OK:
@@ -34,7 +35,7 @@ if(
     !empty($photoTitle) &&
     !empty($date) &&
     !empty($category) &&
-    !empty($verticalOrHorizontal) &&
+    !empty($horizontalOrVertical) &&
     !empty($file) &&
     $files['size'] < 4000000 &&
     in_array($ext, $valid_extensions)
@@ -47,11 +48,10 @@ if(
     $photos->date = $date;
     $photos->category = $category;
     $photos->description = $description;
-    $photos->verticalOrHorizontal = $verticalOrHorizontal;
+    $photos->horizontalOrVertical = $horizontalOrVertical;
     // create the photos
     if($photos->create()) {
       // Put image in folder:
-      $tmp = $_FILES['imageFile']['tmp_name'];
       $final_imageToKeep = $imgName.'.'.$ext;
       $path = $path.strtolower($final_imageToKeep);
       move_uploaded_file($tmp,$path);
@@ -73,4 +73,3 @@ else {
     // tell the user
     echo json_encode(array("message" => "Il manque des champs pour pouvoir enregistrer la photo"));
 }
-?>

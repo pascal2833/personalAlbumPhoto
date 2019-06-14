@@ -8,7 +8,7 @@
           v-model="form.initialDate"
           class="main-inputs"
           id="photoDateInputStart"
-          :displayFormat="'DD.MM.YYYY'"
+          :displayFormat="'YYYY-MM-DD'"
         >
         </date-pick>
       </template>
@@ -18,7 +18,7 @@
           v-model="form.endDate"
           class="main-inputs"
           id="photoDateInputEnd"
-          :displayFormat="'DD.MM.YYYY'"
+          :displayFormat="'YYYY-MM-DD'"
         >
         </date-pick>
       </template>
@@ -79,9 +79,8 @@ export default {
   methods: {
     submit () {
       const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected}
-      console.log(params)
       axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
-        .then((response) => console.log(response))
+        .then((response) => console.log(response.data))
         .catch((error) => console.error(error))
     }
   }

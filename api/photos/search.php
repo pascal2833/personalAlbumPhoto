@@ -8,12 +8,12 @@ include_once '../objects/Photos.php';
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
-// initialize object
-$photos = new Photos($db);
-
 // get params from request:
 $paramsFromRequest = $_GET;
-var_dump($paramsFromRequest); die();
+// initialize object
+$photos = new Photos($db);
+// set photos property values
+$photos->paramsFromRequest = $paramsFromRequest;
 
 // query photos:
 $stmt = $photos->search($paramsFromRequest);
