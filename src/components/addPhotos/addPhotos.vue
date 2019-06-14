@@ -131,14 +131,14 @@ export default {
             alert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct (il s\'agit peut etre aussi d\'une erreur de notre part ...)')
           })
       }
-    },
-    getActualDate: () => {
+    }
+    /* getActualDate: () => {
       const actualDate = new Date()
       const year = actualDate.getFullYear()
       const month = actualDate.getMonth() + 1
       const day = actualDate.getDate()
       return `${year}-${month}-${day}`
-    }
+    } */
   }
 }
 

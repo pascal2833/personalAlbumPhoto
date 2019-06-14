@@ -42,7 +42,7 @@ if(
 ) {
     // set photos property values
     $photos->creation_date = $creation_date;
-    $imgName = 'photo_'.$creation_date;
+    $imgName = $creation_date.'.'.$ext;
     $photos->name = $imgName;
     $photos->title = $photoTitle;
     $photos->date = $date;
@@ -52,7 +52,7 @@ if(
     // create the photos
     if($photos->create()) {
       // Put image in folder:
-      $final_imageToKeep = $imgName.'.'.$ext;
+      $final_imageToKeep = $imgName;
       $path = $path.strtolower($final_imageToKeep);
       move_uploaded_file($tmp,$path);
       // set response code - 201 created

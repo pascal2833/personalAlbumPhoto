@@ -27,7 +27,6 @@ class Photos{
         $stmt = $this->conn->prepare($query);
         // execute query
         $stmt->execute();
-
         return $stmt;
     }
     // create photos

@@ -78,10 +78,17 @@ export default {
   },
   methods: {
     submit () {
+      this.loading.isLoading = true
       const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected}
       axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
-        .then((response) => console.log(response.data))
-        .catch((error) => console.error(error))
+        .then((response) => {
+          this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
+          this.loading.isLoading = false
+        })
+        .catch((error) => {
+          this.loading.isLoading = false
+          console.error(error)
+        })
     }
   }
 }
