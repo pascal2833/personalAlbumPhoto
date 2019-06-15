@@ -1,4 +1,3 @@
-// const folderWithPhotosToShow = '../../../api/PhotosToShow/'
 export const state = {
   numPhotosRetrievedBySearch: 0,
   photoDownloaded: false,

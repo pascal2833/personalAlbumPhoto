@@ -18,12 +18,14 @@ $photos->paramsFromRequest = $paramsFromRequest;
 // query photos:
 $stmt = $photos->search($paramsFromRequest);
 
+$index = 0;
 $photos_arr = array();
 // Retrieve our table contents:
 // fetch() is faster than fetchAll()
 // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 // extract row. this will make $row['name'] to just $name only
+    $index = $index + 1;
     extract($row);
     $photos_arr[] = array( // [] to create an array, if not, {}
     'id' => $id,

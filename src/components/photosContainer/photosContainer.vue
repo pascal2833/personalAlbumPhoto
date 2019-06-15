@@ -6,7 +6,15 @@
       :src="photoToShowInPhotosContainer.src ? photoToShowInPhotosContainer.src : getPhotosToShowUrl()"
       alt="Ajoute ou cherche des photos ..."
     >
-    <pagination-perso></pagination-perso>
+    <template v-if="numPhotosRetrievedBySearch > 1">
+      <pagination-perso
+        :num-numeros-to-show="Math.ceil(numPhotosRetrievedBySearch / 1)"
+        :total-data="numPhotosRetrievedBySearch"
+        :num-elements-to-show-at-the-same-time="1"
+        :max-visible-numbers="10"
+      >
+      </pagination-perso>
+    </template>
   </div>
 </template>
 

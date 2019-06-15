@@ -1,3 +1,19 @@
-
+.pagination-perso {
+  position: relative;
+  height: 30px;
+  z-index: 2;
+  bottom: 50px;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .pagination-perso__icons, .pagination-perso__numeros {
+    color: #010116;
+    font-size: 40px;
+    cursor: pointer; }
+    .pagination-perso__icons.little, .pagination-perso__numeros.little {
+      font-size: 50px; }
 
 /*# sourceMappingURL=paginationPerso.css.map */

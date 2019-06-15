@@ -12,6 +12,8 @@ class Photos{
     public $name;
     public $horizontalOrVertical;
     public $paramsFromRequest;
+    private $resultFromSearch;
+    public $indexPhotoToRetrieve;
     // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
@@ -27,7 +29,12 @@ class Photos{
         $stmt = $this->conn->prepare($query);
         // execute query
         $stmt->execute();
+        $resultFromSearch = $stmt;
         return $stmt;
+    }
+    // ------ GetDataAfterSearch:
+    function getDataAfterSearch() {
+        return $resultFromSearch;
     }
     // ------ create photos
     function create(){
