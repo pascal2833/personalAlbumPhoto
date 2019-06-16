@@ -17,7 +17,6 @@
       </template>
       <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
       <select class="main-inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
-        <option>Toutes les photos</option>
         <option>Les potos</option>
         <option>La famille</option>
         <option>La famille et les potos</option>

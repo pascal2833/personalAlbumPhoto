@@ -1,7 +1,9 @@
 export const state = {
+  paramsToDoSearchRequestMutation: {},
   numPhotosRetrievedBySearch: 0,
   photoDownloaded: false,
   photoToShowInPhotosContainer: {
+    firstSearchOrPagination: '',
     id: null, // from response / back.
     imageFile: 'defaultPhoto.png', // To visualize photo from server. This is the default one.
     src: '', // imageCodedIn64 (to visualize photo uploaded)

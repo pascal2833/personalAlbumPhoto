@@ -11,7 +11,7 @@ class Photos{
     public $creation_date;
     public $name;
     public $horizontalOrVertical;
-    public $paramsFromRequest;
+    public $paramsFromSearchRequest;
     private $resultFromSearch;
     public $indexPhotoToRetrieve;
     // constructor with $db as database connection
@@ -19,22 +19,32 @@ class Photos{
         $this->conn = $db;
     }
     // ----- search photos
-    function search($paramsFromRequest) {
+    function search($paramsFromSearchRequest) {
         // select all query
-        $categoryFromRequest = $paramsFromRequest["category"];
-        $initialDateFromRequest = $paramsFromRequest["initialDate"];
-        $endDateFromRequest = $paramsFromRequest["endDate"];
-        $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
+        $categoryFromRequest = $paramsFromSearchRequest["category"];
+        $initialDateFromRequest = $paramsFromSearchRequest["initialDate"];
+        $endDateFromRequest = $paramsFromSearchRequest["endDate"];
+        $firstSearchOrPagination = $paramsFromSearchRequest["firstSearchOrPagination"];
+        $numPageForPagination = $paramsFromSearchRequest["numPageForPagination"] - 1;
+
+        if ($categoryFromRequest === 'Toutes les photos') {
+          if ($firstSearchOrPagination === 'firstSearch') {
+              $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
+            } elseif ($firstSearchOrPagination === 'pagination') {
+              $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageForPagination.",1";
+            }
+        } else {
+          if ($firstSearchOrPagination === 'firstSearch') {
+                    $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
+                  } elseif ($firstSearchOrPagination === 'pagination') {
+                    $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageForPagination.",1";
+                  }
+        }
         // prepare query statement
         $stmt = $this->conn->prepare($query);
         // execute query
         $stmt->execute();
-        $resultFromSearch = $stmt;
         return $stmt;
-    }
-    // ------ GetDataAfterSearch:
-    function getDataAfterSearch() {
-        return $resultFromSearch;
     }
     // ------ create photos
     function create(){

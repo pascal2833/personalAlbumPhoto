@@ -79,9 +79,10 @@ export default {
   methods: {
     submit () {
       this.loading.isLoading = true
-      const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected}
+      const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected, firstSearchOrPagination: 'firstSearch', numPageForPagination: 1}
       axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
         .then((response) => {
+          this.$store.commit('keepParamsToDoSearchRequestMutation', params)
           this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)
           this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
           this.loading.isLoading = false

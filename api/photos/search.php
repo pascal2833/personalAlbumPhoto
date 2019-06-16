@@ -9,14 +9,11 @@ include_once '../objects/Photos.php';
 $database = new Database();
 $db = $database->getConnection();
 // get params from request:
-$paramsFromRequest = $_GET;
+$paramsFromSearchRequest = $_GET;
 // initialize object
 $photos = new Photos($db);
-// set photos property values
-$photos->paramsFromRequest = $paramsFromRequest;
-
 // query photos:
-$stmt = $photos->search($paramsFromRequest);
+$stmt = $photos->search($paramsFromSearchRequest);
 
 $index = 0;
 $photos_arr = array();
@@ -29,6 +26,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
     $photos_arr[] = array( // [] to create an array, if not, {}
     'id' => $id,
+    'title' => html_entity_decode($title),
     'imageFile' => html_entity_decode($name),
     'description' => html_entity_decode($description),
     'date' => $date,

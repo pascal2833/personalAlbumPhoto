@@ -1,4 +1,5 @@
 .pagination-perso {
+  background-color: rgba(220, 220, 220, 0.3);
   position: relative;
   height: 30px;
   z-index: 2;
@@ -15,5 +16,8 @@
     cursor: pointer; }
     .pagination-perso__icons.little, .pagination-perso__numeros.little {
       font-size: 50px; }
+  .pagination-perso .isDisabled {
+    color: red;
+    cursor: auto; }
 
 /*# sourceMappingURL=paginationPerso.css.map */
