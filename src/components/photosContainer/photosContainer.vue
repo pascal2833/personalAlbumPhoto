@@ -8,10 +8,9 @@
     >
     <template v-if="numPhotosRetrievedBySearch > 1">
       <pagination-perso
-        :num-numeros-to-show="Math.ceil(numPhotosRetrievedBySearch / 1)"
         :total-data="numPhotosRetrievedBySearch"
         :num-elements-to-show-at-the-same-time="1"
-        :max-visible-numbers="10"
+        :max-visible-numbers="5"
         @clickOnPagination="doSearchWithPagination($event)"
       >
       </pagination-perso>

@@ -6,6 +6,7 @@
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification.
+- Add possibility to remove / edit photo.
 - Organize font-size
 - Make it responsive
 - Use alert modal from vue to show message and not alert()

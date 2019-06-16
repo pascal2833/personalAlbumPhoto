@@ -1,5 +1,11 @@
 <template>
   <div class="pagination-perso">
+    totalData: {{totalData}}
+    <br>
+    maxNumero: {{maxNumero}}
+    lastNumeroToShow: {{lastNumeroToShow}}
+    firstNumeroToShow: {{firstNumeroToShow}}
+    numNumerosToShow: {{numNumerosToShow}}
     currentNumero: {{currentNumero}}
     <i class="fas fa-backward pagination-perso__icons" @click="gotToFirstNumero(1)"></i>
     <i
@@ -9,8 +15,9 @@
     >
     </i>
     <div
-      v-for="numero in numNumeros"
+      v-for="numero in numerosToShow"
       :key="numero.num"
+      :class="{isTheActiveNumero: numero.isTheActiveNumero}"
       class="pagination-perso__numeros"
       @click="clickOnOneNumero(numero.num)"
     >
@@ -21,7 +28,7 @@
       @click="gotToNextNumero()"
       :class="{isDisabled: isInLastNumero}"
     ></i>
-    <i class="fas fa-forward pagination-perso__icons" @click="gotTolastNumero(numNumerosToShow)"></i>
+    <i class="fas fa-forward pagination-perso__icons" @click="gotTolastNumero(maxNumero)"></i>
   </div>
 </template>
 
@@ -29,24 +36,34 @@
 export default {
   name: 'paginationPerso',
   computed: {
-    firstNumero () {
+    maxNumero () {
+      return Math.ceil(this.totalData / this.numElementsToShowAtTheSameTime)
+    },
+    numNumerosToShow () {
+      if (this.totalData <= this.maxVisibleNumbers) {
+        return Math.ceil(this.totalData / this.numElementsToShowAtTheSameTime)
+      } else { return this.maxVisibleNumbers }
+    },
+    firstNumeroToShow () {
       if (this.currentNumero === 1) {
         return 1
       }
-      if (this.currentNumero === this.numNumerosToShow) {
-        return this.currentNumero - this.numNumerosToShow + 1
+      if (this.currentNumero === this.maxNumero) {
+        return this.currentNumero - this.maxVisibleNumbers + 1
       }
-      return this.currentNumero - 1
+      return this.currentNumero - Math.floor(this.maxVisibleNumbers / 2)
     },
-    endPage () {
-      return Math.min(this.firstNumero + this.maxVisibleNumbers - 1, this.numNumerosToShow)
+    lastNumeroToShow () {
+      if (this.currentNumero < (Math.floor(this.maxVisibleNumbers / 2))) {
+        return this.maxVisibleNumbers
+      } else return this.currentNumero + Math.floor(this.maxVisibleNumbers / 2)
     },
-    numNumeros () {
+    numerosToShow () {
       const range = []
-      for (let i = this.firstNumero; i <= this.endPage; i += 1) {
+      for (let i = this.firstNumeroToShow; i <= (this.firstNumeroToShow + this.numNumerosToShow - 1); i += 1) {
         range.push({
           num: i,
-          isDisabled: i === this.currentNumero
+          isTheActiveNumero: i === this.currentNumero
         })
       }
       return range
@@ -55,13 +72,10 @@ export default {
       return this.currentNumero === 1
     },
     isInLastNumero () {
-      return this.currentNumero === this.numNumerosToShow
+      return this.currentNumero === this.maxNumero
     }
   },
   props: {
-    numNumerosToShow: {
-      type: Number
-    },
     totalData: {
       type: Number
     },

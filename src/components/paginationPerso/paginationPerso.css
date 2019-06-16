@@ -1,9 +1,9 @@
 .pagination-perso {
   background-color: rgba(220, 220, 220, 0.3);
   position: relative;
-  height: 30px;
+  height: 150px;
   z-index: 2;
-  bottom: 50px;
+  bottom: 300px;
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
@@ -19,5 +19,7 @@
   .pagination-perso .isDisabled {
     color: red;
     cursor: auto; }
+  .pagination-perso .isTheActiveNumero {
+    color: green; }
 
 /*# sourceMappingURL=paginationPerso.css.map */

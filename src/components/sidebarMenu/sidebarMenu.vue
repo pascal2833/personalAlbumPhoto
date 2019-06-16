@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     showAddPhotoMenuOrNot () {
+      this.$store.commit('setNumPhotosRetrievedBySearchMutation', 1)
       this.$store.commit('deleteImageMutation')
       if (this.minimizeSidebarMenu) {
         this.addPhotoMenuIsVisible = true
