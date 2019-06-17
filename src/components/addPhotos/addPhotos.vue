@@ -16,12 +16,20 @@
         </date-pick>
       </template>
       <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
-      <select class="main-inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
+      <multiselect
+        v-model="value4Multiselect"
+        :options="options4Multiselect"
+        :searchable="false"
+        :close-on-select="false"
+        :show-labels="false"
+      >
+      </multiselect>
+      <!--<select class="main-inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
         <option>Les potos</option>
         <option>La famille</option>
         <option>La famille et les potos</option>
         <option>Autres</option>
-      </select>
+      </select>-->
       <label class="labels-4-inputs" for="photoDescriptionInput">Description :</label>
       <textarea
         class="main-inputs text-area"
@@ -62,12 +70,14 @@ import { required } from 'vuelidate/lib/validators'
 import downloadImage from '../downloadImage/downloadImage'
 import axios from 'axios'
 import { AsynRequestsParams } from '../../services/Asyn_requests_params'
+import Multiselect from 'vue-multiselect'
 export default {
   name: 'addPhotos',
   components: {
     DatePick,
     Loading,
-    downloadImage
+    downloadImage,
+    Multiselect
   },
   props: {
     visible: {
@@ -83,6 +93,8 @@ export default {
   },
   data: function () {
     return {
+      value4Multiselect: '',
+      options4Multiselect: ['Les potos', 'La famille', 'La famille et les potos', 'Vacances', 'Belles photos', 'Autres'],
       form: {
         photoTitle: '',
         date: '2019-12-06',
@@ -137,3 +149,4 @@ export default {
 </script>
 
 <style lang="scss" scoped src="./addPhotos.scss"></style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
