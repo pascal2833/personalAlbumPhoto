@@ -1,5 +1,6 @@
 <template>
   <div class="pagination-perso">
+    currentNumero: {{currentNumero}}
     <i class="fas fa-backward pagination-perso__icons" @click="gotToFirstNumero(1)"></i>
     <i
       class="fas fa-caret-left pagination-perso__icons little"
@@ -89,27 +90,22 @@ export default {
   },
   methods: {
     gotToFirstNumero () {
-      this.currentNumero = 1
       this.$emit('clickOnPagination', 1)
     },
     gotTolastNumero (numInPagination) {
-      this.currentNumero = numInPagination
       this.$emit('clickOnPagination', numInPagination)
     },
     gotToPreviousNumero () {
       if (!this.isInFirstNumero) {
-        this.currentNumero = this.currentNumero - 1
-        this.$emit('clickOnPagination', this.currentNumero)
+        this.$emit('clickOnPagination', this.currentNumero - 1)
       }
     },
     gotToNextNumero () {
       if (!this.isInLastNumero) {
-        this.currentNumero = this.currentNumero + 1
-        this.$emit('clickOnPagination', this.currentNumero)
+        this.$emit('clickOnPagination', this.currentNumero + 1)
       }
     },
     clickOnOneNumero (numInPagination) {
-      this.currentNumero = numInPagination
       this.$emit('clickOnPagination', numInPagination)
     }
   }
