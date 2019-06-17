@@ -1,17 +1,22 @@
 export const state = {
-  paramsToDoSearchRequestMutation: {},
+  paramsToDoSearchRequestMutation: {
+    initialDate: '',
+    endDate: '',
+    category: '',
+    currentNumero4Pagination: 1
+  },
   numPhotosRetrievedBySearch: 0,
   photoDownloaded: false,
   photoToShowInPhotosContainer: {
     firstSearchOrPagination: '',
-    id: null, // from response / back.
+    id: null, // From response / back.
     imageFile: 'defaultPhoto.png', // To visualize photo from server. This is the default one.
     src: '', // imageCodedIn64 (to visualize photo uploaded)
-    title: 'Titre a choisir apres',
-    description: 'description a faire apres',
-    date: 'A remplir apres',
-    category: 'A choisir apres',
-    creation_date: 'Va se remplir automatiquement apres',
+    title: '',
+    description: '',
+    date: '',
+    category: '',
+    creation_date: '', // From response / back.
     horizontalOrVertical: ''
   }
 }

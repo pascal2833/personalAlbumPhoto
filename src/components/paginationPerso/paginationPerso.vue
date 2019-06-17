@@ -33,7 +33,9 @@ export default {
       return Math.ceil(this.totalData / this.numElementsToShowAtTheSameTime)
     },
     firstNumeroToShow () {
-      if (this.currentNumero <= (Math.floor(this.maxVisibleNumbers / 2))) {
+      if (this.maxNumero <= this.maxVisibleNumbers) {
+        return 1
+      } else if (this.currentNumero <= (Math.floor(this.maxVisibleNumbers / 2))) {
         return 1
       }
       if (this.currentNumero === this.maxNumero) {
@@ -42,7 +44,9 @@ export default {
       return this.currentNumero - Math.floor(this.maxVisibleNumbers / 2)
     },
     lastNumeroToShow () {
-      if (this.currentNumero <= (Math.floor(this.maxVisibleNumbers / 2))) {
+      if (this.maxNumero <= this.maxVisibleNumbers) {
+        return this.maxNumero
+      } else if (this.currentNumero <= (Math.floor(this.maxVisibleNumbers / 2))) {
         return this.maxVisibleNumbers
       } else if (this.currentNumero >= this.maxNumero - Math.floor(this.maxVisibleNumbers / 2)) {
         return this.maxNumero
@@ -72,11 +76,11 @@ export default {
     },
     numElementsToShowAtTheSameTime: {
       type: Number,
-      default: 5
+      default: 2
     },
     maxVisibleNumbers: {
       type: Number,
-      default: 3
+      default: 5
     }
   },
   data () {
