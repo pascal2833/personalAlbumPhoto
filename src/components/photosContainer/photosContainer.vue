@@ -8,6 +8,7 @@
     >
     <template v-if="numPhotosRetrievedBySearch > 1">
       <pagination-perso
+        :current-numero="currentNumero"
         :total-data="numPhotosRetrievedBySearch"
         :num-elements-to-show-at-the-same-time="1"
         :max-visible-numbers="5"
@@ -39,7 +40,8 @@ export default {
     ...mapState({
       photoToShowInPhotosContainer: state => state.photoToShowInPhotosContainer,
       numPhotosRetrievedBySearch: state => state.numPhotosRetrievedBySearch,
-      paramsToDoSearchRequestMutation: state => state.paramsToDoSearchRequestMutation
+      paramsToDoSearchRequestMutation: state => state.paramsToDoSearchRequestMutation,
+      currentNumero: state => state.currentNumeroForPhotosPagination
     })
   },
   data () {
