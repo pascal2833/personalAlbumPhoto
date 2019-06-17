@@ -80,6 +80,7 @@ export default {
     submit () {
       this.loading.isLoading = true
       const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected, firstSearchOrPagination: 'firstSearch', numPageFromPagination: 1}
+      this.$store.commit('setGlobalNumForPagination', 1)
       axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
         .then((response) => {
           this.$store.commit('keepParamsToDoSearchRequestMutation', params)

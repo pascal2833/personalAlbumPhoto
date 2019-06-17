@@ -5,6 +5,7 @@ export const state = {
     category: ''
   },
   numPhotosRetrievedBySearch: 0,
+  currentNumeroForPhotosPagination: 1,
   photoDownloaded: false,
   photoToShowInPhotosContainer: {
     firstSearchOrPagination: '',

@@ -26,9 +26,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'paginationPerso',
   computed: {
+    ...mapState({
+      currentNumero: state => state.currentNumeroForPhotosPagination
+    }),
     maxNumero () {
       return Math.ceil(this.totalData / this.numElementsToShowAtTheSameTime)
     },
@@ -81,11 +85,6 @@ export default {
     maxVisibleNumbers: {
       type: Number,
       default: 5
-    }
-  },
-  data () {
-    return {
-      currentNumero: 1
     }
   },
   methods: {
