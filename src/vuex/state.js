@@ -2,8 +2,7 @@ export const state = {
   paramsToDoSearchRequestMutation: {
     initialDate: '',
     endDate: '',
-    category: '',
-    currentNumero4Pagination: 1
+    category: ''
   },
   numPhotosRetrievedBySearch: 0,
   photoDownloaded: false,

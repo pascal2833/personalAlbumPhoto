@@ -57,7 +57,7 @@ export default {
     },
     doSearchWithPagination (numInPagination) {
       this.loading.isLoading = true
-      const params = {initialDate: this.paramsToDoSearchRequestMutation.initialDate, endDate: this.paramsToDoSearchRequestMutation.endDate, category: this.paramsToDoSearchRequestMutation.category, firstSearchOrPagination: 'pagination', numPageForPagination: numInPagination}
+      const params = {initialDate: this.paramsToDoSearchRequestMutation.initialDate, endDate: this.paramsToDoSearchRequestMutation.endDate, category: this.paramsToDoSearchRequestMutation.category, firstSearchOrPagination: 'pagination', numPageFromPagination: numInPagination}
       axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
         .then((response) => {
           this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])

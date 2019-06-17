@@ -25,19 +25,19 @@ class Photos{
         $initialDateFromRequest = $paramsFromSearchRequest["initialDate"];
         $endDateFromRequest = $paramsFromSearchRequest["endDate"];
         $firstSearchOrPagination = $paramsFromSearchRequest["firstSearchOrPagination"];
-        $numPageForPagination = $paramsFromSearchRequest["numPageForPagination"] - 1;
+        $numPageFromPagination = $paramsFromSearchRequest["numPageFromPagination"] - 1;
 
         if ($categoryFromRequest === 'Toutes les photos') {
           if ($firstSearchOrPagination === 'firstSearch') {
               $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
             } elseif ($firstSearchOrPagination === 'pagination') {
-              $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageForPagination.",1";
+              $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageFromPagination.",1";
             }
         } else {
           if ($firstSearchOrPagination === 'firstSearch') {
                     $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
                   } elseif ($firstSearchOrPagination === 'pagination') {
-                    $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageForPagination.",1";
+                    $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageFromPagination.",1";
                   }
         }
         // prepare query statement
