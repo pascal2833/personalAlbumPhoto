@@ -6,7 +6,7 @@
       :src="photoToShowInPhotosContainer.src ? photoToShowInPhotosContainer.src : getPhotosToShowUrl()"
       alt="Ajoute ou cherche des photos ..."
     >
-    <template v-if="numPhotosRetrievedBySearch > 1">
+    <div v-if="numPhotosRetrievedBySearch > 1" class="pagination-container">
       <pagination-perso
         :current-numero="currentNumero"
         :total-data="numPhotosRetrievedBySearch"
@@ -15,7 +15,7 @@
         @clickOnPagination="doSearchWithPagination($event)"
       >
       </pagination-perso>
-    </template>
+    </div>
     <loading
       :active.sync="loading.isLoading"
       :can-cancel="true"

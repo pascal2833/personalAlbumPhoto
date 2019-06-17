@@ -1,6 +1,5 @@
 <template>
   <div class="pagination-perso">
-    currentNumero: {{currentNumero}}
     <i class="fas fa-backward pagination-perso__icons" @click="gotToFirstNumero(1)"></i>
     <i
       class="fas fa-caret-left pagination-perso__icons little"

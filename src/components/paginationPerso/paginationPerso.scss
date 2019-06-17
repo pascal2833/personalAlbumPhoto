@@ -1,31 +1,25 @@
-$mainColor: #010116;
-$mainFontSize: 40px;
+$mainColor: rgb(60,60,60);
+$mainFontSize: 33px;
 .pagination-perso {
-  background-color: rgba(220,220,220,.3);
-  position: relative;
-  height: 150px;
-  z-index: 2;
-  bottom: 300px;
-  width: 80vw;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: rgba(240,240,240,.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 .3em;
   &__icons,  &__numeros {
     color: $mainColor;
     font-size: $mainFontSize;
     cursor: pointer;
     &.little {
-      font-size: 50px;
+      font-size: 40px;
     }
   }
   .isDisabled {
-    color: red;
+    color: rgb(100,110,100);
     cursor: auto;
   }
   .isTheActiveNumero {
-    color: green;
     font-weight: bold;
+    color: black;
   }
 }
