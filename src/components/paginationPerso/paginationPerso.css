@@ -20,6 +20,7 @@
     color: red;
     cursor: auto; }
   .pagination-perso .isTheActiveNumero {
-    color: green; }
+    color: green;
+    font-weight: bold; }
 
 /*# sourceMappingURL=paginationPerso.css.map */

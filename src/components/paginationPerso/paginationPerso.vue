@@ -1,12 +1,5 @@
 <template>
   <div class="pagination-perso">
-    totalData: {{totalData}}
-    <br>
-    maxNumero: {{maxNumero}}
-    lastNumeroToShow: {{lastNumeroToShow}}
-    firstNumeroToShow: {{firstNumeroToShow}}
-    numNumerosToShow: {{numNumerosToShow}}
-    currentNumero: {{currentNumero}}
     <i class="fas fa-backward pagination-perso__icons" @click="gotToFirstNumero(1)"></i>
     <i
       class="fas fa-caret-left pagination-perso__icons little"
@@ -39,13 +32,8 @@ export default {
     maxNumero () {
       return Math.ceil(this.totalData / this.numElementsToShowAtTheSameTime)
     },
-    numNumerosToShow () {
-      if (this.totalData <= this.maxVisibleNumbers) {
-        return Math.ceil(this.totalData / this.numElementsToShowAtTheSameTime)
-      } else { return this.maxVisibleNumbers }
-    },
     firstNumeroToShow () {
-      if (this.currentNumero === 1) {
+      if (this.currentNumero <= (Math.floor(this.maxVisibleNumbers / 2))) {
         return 1
       }
       if (this.currentNumero === this.maxNumero) {
@@ -54,13 +42,16 @@ export default {
       return this.currentNumero - Math.floor(this.maxVisibleNumbers / 2)
     },
     lastNumeroToShow () {
-      if (this.currentNumero < (Math.floor(this.maxVisibleNumbers / 2))) {
+      if (this.currentNumero <= (Math.floor(this.maxVisibleNumbers / 2))) {
         return this.maxVisibleNumbers
-      } else return this.currentNumero + Math.floor(this.maxVisibleNumbers / 2)
+      } else if (this.currentNumero >= this.maxNumero - Math.floor(this.maxVisibleNumbers / 2)) {
+        return this.maxNumero
+      }
+      return this.currentNumero + Math.floor(this.maxVisibleNumbers / 2)
     },
     numerosToShow () {
       const range = []
-      for (let i = this.firstNumeroToShow; i <= (this.firstNumeroToShow + this.numNumerosToShow - 1); i += 1) {
+      for (let i = this.firstNumeroToShow; i <= this.lastNumeroToShow; i += 1) {
         range.push({
           num: i,
           isTheActiveNumero: i === this.currentNumero
