@@ -1,6 +1,11 @@
 <template>
   <div class="pagination-perso">
-    <i class="fas fa-backward pagination-perso__icons" @click="gotToFirstNumero(1)"></i>
+    <i
+      class="fas fa-backward pagination-perso__icons"
+      @click="gotToFirstNumero(1)"
+      :class="{isDisabled: isInFirstNumero}"
+    >
+    </i>
     <i
       class="fas fa-caret-left pagination-perso__icons little"
       @click="gotToPreviousNumero()"
@@ -21,7 +26,12 @@
       @click="gotToNextNumero()"
       :class="{isDisabled: isInLastNumero}"
     ></i>
-    <i class="fas fa-forward pagination-perso__icons" @click="gotTolastNumero(maxNumero)"></i>
+    <i
+      class="fas fa-forward pagination-perso__icons"
+      @click="gotTolastNumero(maxNumero)"
+      :class="{isDisabled: isInLastNumero}"
+    >
+    </i>
   </div>
 </template>
 

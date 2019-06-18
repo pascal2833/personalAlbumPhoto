@@ -1,11 +1,11 @@
 .pagination-perso {
-  background-color: rgba(240, 240, 240, 0.5);
+  background-color: rgba(234, 235, 237, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 .3em; }
   .pagination-perso__icons, .pagination-perso__numeros {
-    color: #3c3c3c;
+    color: #242427;
     font-size: 33px;
     cursor: pointer; }
     .pagination-perso__icons.little, .pagination-perso__numeros.little {

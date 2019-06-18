@@ -1,11 +1,17 @@
 <template>
   <div class="photos-container">
-    <img
-      :class="photoToShowInPhotosContainer.horizontalOrVertical"
-      class="photos-container__images-to-show"
-      :src="photoToShowInPhotosContainer.src ? photoToShowInPhotosContainer.src : getPhotosToShowUrl()"
-      alt="Ajoute ou cherche des photos ..."
-    >
+    <div class="photos-container__image-container">
+      <i class="fas fa-info-circle info-icon" @click="onInfo(showInfoData)"></i>
+      <template class="info-pop-up" v-if="showInfoMethod()">
+        <info-pop-up></info-pop-up>
+      </template>
+      <img
+        :class="photoToShowInPhotosContainer.horizontalOrVertical"
+        class="images-to-show"
+        :src="photoToShowInPhotosContainer.src ? photoToShowInPhotosContainer.src : getPhotosToShowUrl()"
+        alt="Ajoute ou cherche des photos ..."
+      >
+    </div>
     <div v-if="numPhotosRetrievedBySearch > 1" class="pagination-container">
       <pagination-perso
         :current-numero="currentNumero"
@@ -30,11 +36,13 @@ import paginationPerso from '../paginationPerso/paginationPerso'
 import axios from 'axios'
 import { AsynRequestsParams } from '../../services/Asyn_requests_params'
 import Loading from 'vue-loading-overlay'
+import infoPopUp from '../infoPopUp/infoPopUp'
 export default {
   name: 'photosContainer',
   components: {
     paginationPerso,
-    Loading
+    Loading,
+    infoPopUp
   },
   computed: {
     ...mapState({
@@ -49,10 +57,17 @@ export default {
       loading: {
         isLoading: false,
         fullPage: true
-      }
+      },
+      showInfoData: false
     }
   },
   methods: {
+    onInfo () {
+      this.showInfoData = !this.showInfoData
+    },
+    showInfoMethod () {
+      return this.showInfoData
+    },
     getPhotosToShowUrl () {
       return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}`) // Local.
       // return `http://pascal-evano.org/album_photo_antoine_2/api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}` // For prod. Do it dynamically.

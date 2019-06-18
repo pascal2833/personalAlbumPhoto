@@ -1,13 +1,14 @@
-$mainColor: rgb(60,60,60);
+@import '../../../src/assets/vars-and-mixins';
+
 $mainFontSize: 33px;
 .pagination-perso {
-  background-color: rgba(240,240,240,.5);
+  background-color: $lightLightGreyWithTransparency;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 .3em;
   &__icons,  &__numeros {
-    color: $mainColor;
+    color: $darkGrey;
     font-size: $mainFontSize;
     cursor: pointer;
     &.little {
@@ -15,7 +16,7 @@ $mainFontSize: 33px;
     }
   }
   .isDisabled {
-    color: rgb(100,110,100);
+    color: $lightGrey;
     cursor: auto;
   }
   .isTheActiveNumero {

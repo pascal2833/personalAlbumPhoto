@@ -1,0 +1,9 @@
+@import '../../assets/vars-and-mixins';
+.info-pop-up {
+  width: 40vw;
+  height: auto;
+  padding: .3em .7em;
+  background-color: $lightLightGreyWithTransparency;
+  border: solid 1px $lightGrey;
+  color: $darkGrey;
+}

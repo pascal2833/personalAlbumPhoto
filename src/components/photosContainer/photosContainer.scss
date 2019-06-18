@@ -6,19 +6,31 @@
   height: 100%;
   overflow: hidden;
   text-align: center;
-  &__images-to-show {
-    height: auto;
-    max-height: 100vh;
-    max-width: 80vw;
-    /*&.horizontal {
-      height: auto;
-      max-height: 100vh;
-      max-width: 80vw;
+  &__image-container {
+    .info-icon {
+      position: absolute;
+      top: 5%;
+      right: 3%;
+      font-size: 30px;
+      cursor: pointer;
+      color: $darkGrey;
     }
-    &.vertical {
-      width: auto;
-      max-height: 100vh;
-    }*/
+    .info-pop-up {
+      position: absolute;
+      top: 5%;
+      right: 8%;
+    }
+    .images-to-show {
+      &.horizontal {
+        height: auto;
+        max-height: 100vh;
+        max-width: 80vw;
+      }
+      &.vertical {
+        width: auto;
+        max-height: 100vh;
+      }
+    }
   }
   .pagination-container {
     position: absolute;
