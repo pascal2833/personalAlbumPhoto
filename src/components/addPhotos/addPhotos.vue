@@ -17,19 +17,16 @@
       </template>
       <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
       <multiselect
-        v-model="value4Multiselect"
-        :options="options4Multiselect"
+        id="photoCategoriesInput"
+        v-model="form.categoriesSelected"
+        :options="form.options4Multiselect"
         :searchable="false"
-        :close-on-select="false"
+        :close-on-select="true"
         :show-labels="false"
+        placeholder="Choisi une catégorie"
+        :multiple="false"
       >
       </multiselect>
-      <!--<select class="main-inputs" v-model="form.categoriesSelected" id="photoCategoriesInput">
-        <option>Les potos</option>
-        <option>La famille</option>
-        <option>La famille et les potos</option>
-        <option>Autres</option>
-      </select>-->
       <label class="labels-4-inputs" for="photoDescriptionInput">Description :</label>
       <textarea
         class="main-inputs text-area"
@@ -93,12 +90,11 @@ export default {
   },
   data: function () {
     return {
-      value4Multiselect: '',
-      options4Multiselect: ['Les potos', 'La famille', 'La famille et les potos', 'Vacances', 'Belles photos', 'Autres'],
       form: {
         photoTitle: '',
         date: '2019-12-06',
         description: '',
+        options4Multiselect: ['Les potos', 'La famille', 'La famille et les potos', 'Vacances', 'Belles photos', 'Autres'],
         categoriesSelected: ''
       },
       loading: {

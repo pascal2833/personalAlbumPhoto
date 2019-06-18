@@ -26,20 +26,12 @@ class Photos{
         $endDateFromRequest = $paramsFromSearchRequest["endDate"];
         $firstSearchOrPagination = $paramsFromSearchRequest["firstSearchOrPagination"];
         $numPageFromPagination = $paramsFromSearchRequest["numPageFromPagination"] - 1;
-
-        if ($categoryFromRequest === 'Toutes les photos') {
+        $categoryFromRequestStr = implode("', '", $categoryFromRequest);
           if ($firstSearchOrPagination === 'firstSearch') {
-              $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
-            } elseif ($firstSearchOrPagination === 'pagination') {
-              $query = "SELECT * FROM photos WHERE date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageFromPagination.",1";
-            }
-        } else {
-          if ($firstSearchOrPagination === 'firstSearch') {
-                    $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
-                  } elseif ($firstSearchOrPagination === 'pagination') {
-                    $query = "SELECT * FROM photos WHERE category='".$categoryFromRequest."' AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageFromPagination.",1";
-                  }
-        }
+            $query = "SELECT * FROM photos WHERE category IN ('$categoryFromRequestStr') AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC";
+          } elseif ($firstSearchOrPagination === 'pagination') {
+            $query = "SELECT * FROM photos WHERE category IN ('$categoryFromRequestStr') AND date >= '".$initialDateFromRequest."' AND date <= '".$endDateFromRequest."' ORDER BY date ASC limit ".$numPageFromPagination.",1";
+          }
         // prepare query statement
         $stmt = $this->conn->prepare($query);
         // execute query

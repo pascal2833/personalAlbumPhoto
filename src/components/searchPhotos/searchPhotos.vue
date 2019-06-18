@@ -24,13 +24,18 @@
       </template>
       <!--///-->
       <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
-      <select class="main-inputs" id="photoCategoriesInput" v-model="form.categoriesSelected">
-        <option>Toutes les photos</option>
-        <option>Les potos</option>
-        <option>La famille</option>
-        <option>La famille et les potos</option>
-        <option>Autres</option>
-      </select>
+      <multiselect
+        id="photoCategoriesInput"
+        v-model="form.categoriesSelected"
+        :options="form.options4Multiselect"
+        :searchable="false"
+        :close-on-select="false"
+        :show-labels="false"
+        :multiple="true"
+        placeholder="Choisi une, des catégorie(s)"
+      >
+      </multiselect>
+
       <button
         class="main-submit-button"
         type="submit"
@@ -52,11 +57,13 @@ import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import axios from 'axios'
 import { AsynRequestsParams } from '../../services/Asyn_requests_params'
+import Multiselect from 'vue-multiselect'
 export default {
   name: 'searchPhotos',
   components: {
     DatePick,
-    Loading
+    Loading,
+    Multiselect
   },
   props: {
     visible: {
@@ -68,7 +75,8 @@ export default {
       form: {
         initialDate: '1976-03-22',
         endDate: '2019-12-06',
-        categoriesSelected: ''
+        options4Multiselect: ['Les potos', 'La famille', 'La famille et les potos', 'Vacances', 'Belles photos', 'Autres'],
+        categoriesSelected: []
       },
       loading: {
         isLoading: false,

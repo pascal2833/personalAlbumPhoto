@@ -21,5 +21,6 @@ $mainFontSize: 33px;
   .isTheActiveNumero {
     font-weight: bold;
     color: black;
+    font-size: calc(#{$mainFontSize} + 7px);
   }
 }

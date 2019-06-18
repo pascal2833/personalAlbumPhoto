@@ -15,6 +15,7 @@
     cursor: auto; }
   .pagination-perso .isTheActiveNumero {
     font-weight: bold;
-    color: black; }
+    color: black;
+    font-size: calc(33px + 7px); }
 
 /*# sourceMappingURL=paginationPerso.css.map */
