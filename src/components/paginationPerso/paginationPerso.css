@@ -6,7 +6,7 @@
   padding: 0 .3em; }
   .pagination-perso__icons, .pagination-perso__numeros {
     color: #242427;
-    font-size: 33px;
+    font-size: 2rem;
     cursor: pointer; }
     .pagination-perso__icons.little, .pagination-perso__numeros.little {
       font-size: 40px; }
@@ -16,6 +16,6 @@
   .pagination-perso .isTheActiveNumero {
     font-weight: bold;
     color: black;
-    font-size: calc(33px + 7px); }
+    font-size: calc(2rem + 7px); }
 
 /*# sourceMappingURL=paginationPerso.css.map */

@@ -5,7 +5,7 @@
     flex-direction: column; }
     .add-photos form .gnalFormErrorMessage {
       color: red;
-      font-size: .8em;
+      font-size: .9rem;
       margin-top: 1em; }
 
 /*# sourceMappingURL=addPhotos.css.map */

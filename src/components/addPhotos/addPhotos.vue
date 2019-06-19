@@ -5,6 +5,9 @@
       <download-image></download-image>
       <label class="labels-4-inputs" for="photoTitleInput">Titre de la photo (*) :</label>
       <input class="main-inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
+      <div class="gnalFormErrorMessage" v-if="!$v.form.photoTitle.maxLength">
+        Le titre ne peut pas avoir plus de 50 characteres.
+      </div>
       <label class="labels-4-inputs" for="photoDateInput">Date de la photo (*) :</label>
       <template>
         <date-pick
@@ -36,8 +39,11 @@
         id="photoDescriptionInput"
       >
       </textarea>
+      <div class="gnalFormErrorMessage" v-if="!$v.form.description.maxLength">
+        La description ne peut pas avoir plus de 200 characteres.
+      </div>
       <div class="gnalFormErrorMessage" v-if="$v.form.$error">
-        Il manque des choses ...
+        Il manque des choses ou des champs sont mal remplis
       </div>
       <div class="gnalFormErrorMessage" v-if="!photoDownloaded">
         Il faut telecharger une photo ...
@@ -63,7 +69,7 @@ import 'vue-date-pick/dist/vueDatePick.css'
 import { mapState } from 'vuex'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
-import { required } from 'vuelidate/lib/validators'
+import { required, maxLength } from 'vuelidate/lib/validators'
 import downloadImage from '../downloadImage/downloadImage'
 import axios from 'axios'
 import { AsynRequestsParams } from '../../services/Asyn_requests_params'
@@ -105,9 +111,15 @@ export default {
   },
   validations: {
     form: {
-      photoTitle: { required },
+      photoTitle: {
+        required,
+        maxLength: maxLength(50)
+      },
       date: { required },
-      categoriesSelected: { required }
+      categoriesSelected: { required },
+      description: {
+        maxLength: maxLength(200)
+      }
     }
   },
   methods: {

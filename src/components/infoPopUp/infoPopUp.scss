@@ -3,7 +3,13 @@
   width: 40vw;
   height: auto;
   padding: .3em .7em;
-  background-color: $lightLightGreyWithTransparency;
+  border-radius: .2em;
+  background-color: rgba(254,254,254,.85);
   border: solid 1px $lightGrey;
   color: $darkGrey;
+  font-size: 1.2rem;
+  text-align: justify;
+  &__title {
+    font-weight: bold;
+  }
 }

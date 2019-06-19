@@ -7,13 +7,20 @@
   overflow: hidden;
   text-align: center;
   &__image-container {
-    .info-icon {
+    .icon {
       position: absolute;
-      top: 5%;
       right: 3%;
-      font-size: 30px;
-      cursor: pointer;
+      font-size: 1.9rem;
       color: $darkGrey;
+      &.--info {
+        top: 5%;
+      }
+      &.--edit {
+        top: 20%;
+      }
+      &.--delete {
+        top: 35%;
+      }
     }
     .info-pop-up {
       position: absolute;

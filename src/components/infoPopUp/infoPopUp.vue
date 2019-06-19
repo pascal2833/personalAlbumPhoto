@@ -1,13 +1,20 @@
 <template>
 <div class="info-pop-up">
-  Ici on va pouvoir voir la date de la photos, le titre et la description.
+  <p><span class="info-pop-up__title">Date : </span>{{info.photoDate}}</p>
+  <p><span class="info-pop-up__title">Titre: </span>{{info.title}}</p>
+  <p><span class="info-pop-up__title">Description: </span>{{info.description}}</p>
 </div>
 
 </template>
 
 <script>
 export default {
-  name: 'infoPopUp'
+  name: 'infoPopUp',
+  props: {
+    info: {
+      type: Object
+    }
+  }
 }
 </script>
 

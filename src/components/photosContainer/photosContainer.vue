@@ -1,9 +1,13 @@
 <template>
   <div class="photos-container">
     <div class="photos-container__image-container">
-      <i class="fas fa-info-circle info-icon" @click="onInfo(showInfoData)"></i>
+      <div class="icons-container" v-if="photoToShowInPhotosContainer.imageFile !== 'defaultPhoto.png'">
+        <i class="fas fa-info-circle icon --info icons" title="Info de cette photo" @click="onInfo(showInfoData)"></i>
+        <i class="far fa-edit icon --edit icons" title="Editer cette photo"></i>
+        <i class="far fa-trash-alt icon --delete icons" title="Eleminer cette photo"></i>
+      </div>
       <template class="info-pop-up" v-if="showInfoMethod()">
-        <info-pop-up></info-pop-up>
+        <info-pop-up :info="info4InfoPopUp"></info-pop-up>
       </template>
       <img
         :class="photoToShowInPhotosContainer.horizontalOrVertical"
@@ -50,7 +54,14 @@ export default {
       numPhotosRetrievedBySearch: state => state.numPhotosRetrievedBySearch,
       paramsToDoSearchRequestMutation: state => state.paramsToDoSearchRequestMutation,
       currentNumero: state => state.currentNumeroForPhotosPagination
-    })
+    }),
+    info4InfoPopUp () {
+      return {
+        photoDate: this.photoToShowInPhotosContainer.date,
+        title: this.photoToShowInPhotosContainer.title,
+        description: this.photoToShowInPhotosContainer.description
+      }
+    }
   },
   data () {
     return {

@@ -4,13 +4,17 @@
   height: 100%;
   overflow: hidden;
   text-align: center; }
-  .photos-container__image-container .info-icon {
+  .photos-container__image-container .icon {
     position: absolute;
-    top: 5%;
     right: 3%;
-    font-size: 30px;
-    cursor: pointer;
+    font-size: 1.9rem;
     color: #242427; }
+    .photos-container__image-container .icon.--info {
+      top: 5%; }
+    .photos-container__image-container .icon.--edit {
+      top: 20%; }
+    .photos-container__image-container .icon.--delete {
+      top: 35%; }
   .photos-container__image-container .info-pop-up {
     position: absolute;
     top: 5%;
