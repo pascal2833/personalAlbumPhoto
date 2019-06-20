@@ -10,7 +10,6 @@
     .icon {
       position: absolute;
       right: 3%;
-      font-size: 1.9rem;
       color: $darkGrey;
       &.--info {
         top: 5%;
@@ -25,7 +24,8 @@
     .info-pop-up {
       position: absolute;
       top: 5%;
-      right: 8%;
+      left: 50%;
+      transform: translate(-50%);
     }
     .images-to-show {
       &.horizontal {

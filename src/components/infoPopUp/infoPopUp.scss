@@ -1,14 +1,6 @@
 @import '../../assets/vars-and-mixins';
 .info-pop-up {
-  width: 40vw;
-  height: auto;
-  padding: .3em .7em;
-  border-radius: .2em;
-  background-color: rgba(254,254,254,.85);
-  border: solid 1px $lightGrey;
-  color: $darkGrey;
-  font-size: 1.2rem;
-  text-align: justify;
+  @include popUpOrBoxInModal();
   &__title {
     font-weight: bold;
   }

@@ -11,9 +11,6 @@ class Photos{
     public $creation_date;
     public $name;
     public $horizontalOrVertical;
-    public $paramsFromSearchRequest;
-    private $resultFromSearch;
-    public $indexPhotoToRetrieve;
     // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
@@ -37,6 +34,22 @@ class Photos{
         // execute query
         $stmt->execute();
         return $stmt;
+    }
+    // ------ Edit photos:
+    function edit ($paramFromEditRequest) {
+      return true
+    }
+    // ------ Delete photos:
+    function delete ($paramFromDeleteRequest) {
+      $idPhoto = $paramFromDeleteRequest["id"];
+      $query="DELETE FROM photos WHERE id='".$idPhoto."'";
+      // prepare query statement
+      $stmt = $this->conn->prepare($query);
+      // Execute query:
+      if($stmt->execute()){
+          return true;
+      }
+      return false;
     }
     // ------ create photos
     function create(){

@@ -5,3 +5,4 @@ export { setImageDataInPhotoContainerMutation } from './setImageDataInPhotoConta
 export { setNumPhotosRetrievedBySearchMutation } from './setNumPhotosRetrievedBySearchMutation'
 export { keepParamsToDoSearchRequestMutation } from './keepParamsToDoSearchRequestMutation'
 export { setGlobalNumForPagination } from './setGlobalNumForPagination'
+export { editPhotoMutation } from './editPhotoMutation'

@@ -7,7 +7,7 @@
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification.
 - Add possibility to remove / edit photo.
-- Organize font-size
+  - For delete, put modal to confirm before.
 - Make it responsive
 - Use alert modal from vue to show message and not alert()
 - Use multiselect and not single select / categories, to be able to search photos by a combination of keyword and not only one.

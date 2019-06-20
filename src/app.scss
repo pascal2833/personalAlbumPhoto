@@ -9,6 +9,12 @@
   font-family: 'Roboto', sans-serif;
   .icons {
     cursor: pointer;
+    font-size: 1.5em;
+  }
+  .gnalFormErrorMessage {
+    color: red;
+    font-size: .9rem;
+    margin-top: 1em;
   }
   .no-margin {
     margin: 0!important;

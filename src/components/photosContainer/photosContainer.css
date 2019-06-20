@@ -7,7 +7,6 @@
   .photos-container__image-container .icon {
     position: absolute;
     right: 3%;
-    font-size: 1.9rem;
     color: #242427; }
     .photos-container__image-container .icon.--info {
       top: 5%; }
@@ -18,7 +17,8 @@
   .photos-container__image-container .info-pop-up {
     position: absolute;
     top: 5%;
-    right: 8%; }
+    left: 50%;
+    transform: translate(-50%); }
   .photos-container__image-container .images-to-show.horizontal {
     height: auto;
     max-height: 100vh;

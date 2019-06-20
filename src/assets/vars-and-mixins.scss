@@ -37,3 +37,26 @@ $widthExtendedSidebar: 380px;
     color: $color-hov;
   }
 }
+
+@mixin backgroundModal($backgrounColor: rgba(0, 0, 0, .5)) {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $backgrounColor;
+}
+
+@mixin popUpOrBoxInModal($width: 40vw) {
+  z-index: 2;
+  width: $width;
+  height: auto;
+  padding: .3em .7em;
+  border-radius: .2em;
+  background-color: rgba(254,254,254,.85);
+  border: solid 1px $lightGrey;
+  color: $darkGrey;
+  font-size: 1.2rem;
+  text-align: justify;
+}

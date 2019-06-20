@@ -1,0 +1,27 @@
+.edit-photo-modale-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); }
+  .edit-photo-modale-mask .edit-photo-modale-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    width: 40vw;
+    height: auto;
+    padding: .3em .7em;
+    border-radius: .2em;
+    background-color: rgba(254, 254, 254, 0.85);
+    border: solid 1px #646e64;
+    color: #242427;
+    font-size: 1.2rem;
+    text-align: justify; }
+    .edit-photo-modale-mask .edit-photo-modale-container .close-icon {
+      float: right; }
+
+/*# sourceMappingURL=editPhotoModale.css.map */

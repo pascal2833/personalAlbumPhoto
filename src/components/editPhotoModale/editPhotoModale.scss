@@ -1,0 +1,15 @@
+@import '../../assets/vars-and-mixins';
+.edit-photo-modale-mask {
+  @include backgroundModal();
+  .edit-photo-modale-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    @include popUpOrBoxInModal();
+    .close-icon {
+      float: right;
+    }
+  }
+}
+

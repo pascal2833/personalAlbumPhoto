@@ -2,12 +2,32 @@
   <div class="photos-container">
     <div class="photos-container__image-container">
       <div class="icons-container" v-if="photoToShowInPhotosContainer.imageFile !== 'defaultPhoto.png'">
-        <i class="fas fa-info-circle icon --info icons" title="Info de cette photo" @click="onInfo(showInfoData)"></i>
-        <i class="far fa-edit icon --edit icons" title="Editer cette photo"></i>
-        <i class="far fa-trash-alt icon --delete icons" title="Eleminer cette photo"></i>
+        <i
+          class="fas fa-info-circle icon --info icons"
+          title="Info de cette photo"
+          @click="onInfo(photoToShowInPhotosContainer.id)"
+        >
+        </i>
+        <i
+          class="far fa-edit icon --edit icons"
+          title="Editer cette photo"
+          @click="onEdit(photoToShowInPhotosContainer.id)"
+        >
+        </i>
+        <edit-photo-modale
+          :show="showEditPhotoModale"
+          @closeEditModalEvent="removeEditPhotoModal()"
+        >
+        </edit-photo-modale>
+        <i
+          class="far fa-trash-alt icon --delete icons"
+          title="Eleminer cette photo"
+          @click="onDelete(photoToShowInPhotosContainer.id)"
+        >
+        </i>
       </div>
       <template class="info-pop-up" v-if="showInfoMethod()">
-        <info-pop-up :info="info4InfoPopUp"></info-pop-up>
+        <info-pop-up :info="photoInfo"></info-pop-up>
       </template>
       <img
         :class="photoToShowInPhotosContainer.horizontalOrVertical"
@@ -29,7 +49,8 @@
     <loading
       :active.sync="loading.isLoading"
       :can-cancel="true"
-      :is-full-page="loading.fullPage">
+      :is-full-page="loading.fullPage"
+    >
     </loading>
   </div>
 </template>
@@ -41,12 +62,14 @@ import axios from 'axios'
 import { AsynRequestsParams } from '../../services/Asyn_requests_params'
 import Loading from 'vue-loading-overlay'
 import infoPopUp from '../infoPopUp/infoPopUp'
+import editPhotoModale from '../editPhotoModale/editPhotoModale'
 export default {
   name: 'photosContainer',
   components: {
     paginationPerso,
     Loading,
-    infoPopUp
+    infoPopUp,
+    editPhotoModale
   },
   computed: {
     ...mapState({
@@ -55,11 +78,12 @@ export default {
       paramsToDoSearchRequestMutation: state => state.paramsToDoSearchRequestMutation,
       currentNumero: state => state.currentNumeroForPhotosPagination
     }),
-    info4InfoPopUp () {
+    photoInfo () {
       return {
         photoDate: this.photoToShowInPhotosContainer.date,
         title: this.photoToShowInPhotosContainer.title,
-        description: this.photoToShowInPhotosContainer.description
+        description: this.photoToShowInPhotosContainer.description,
+        category: this.photoToShowInPhotosContainer.category
       }
     }
   },
@@ -69,12 +93,30 @@ export default {
         isLoading: false,
         fullPage: true
       },
-      showInfoData: false
+      showInfoData: false,
+      showEditPhotoModale: false
     }
   },
   methods: {
+    removeEditPhotoModal () {
+      this.showEditPhotoModale = false
+    },
     onInfo () {
       this.showInfoData = !this.showInfoData
+    },
+    onEdit () {
+      this.showEditPhotoModale = true
+    },
+    onDelete (idPhoto) {
+      this.loading.isLoading = true
+      axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.deleteAction}?id=${idPhoto}`)
+        .then(() => {
+          alert('La photo a ete eliminee')
+          this.loading.isLoading = false
+        })
+        .catch(() => {
+          alert('Une erreur est survenue, la photo n\'a pas pu etre eleminee')
+        })
     },
     showInfoMethod () {
       return this.showInfoData
