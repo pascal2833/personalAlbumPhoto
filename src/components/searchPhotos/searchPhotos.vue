@@ -85,6 +85,9 @@ export default {
     }
   },
   methods: {
+    showAlert (text) {
+      this.$swal(text)
+    },
     submit () {
       this.loading.isLoading = true
       const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected, firstSearchOrPagination: 'firstSearch', numPageFromPagination: 1}
@@ -98,7 +101,7 @@ export default {
         })
         .catch(() => {
           this.loading.isLoading = false
-          alert('Il n\'y a pas de photos correspondant aux criteres de recherche ou une erreur est survenue')
+          this.showAlert('Il n\'y a pas de photos correspondant aux criteres de recherche ou une erreur est survenue')
         })
     }
   }

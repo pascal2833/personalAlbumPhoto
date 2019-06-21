@@ -13,14 +13,14 @@ $paramFromEditRequest = $_POST;
 // initialize object
 $photos = new Photos($db);
 // query photos:
-$stmt = $photos->delete($paramFromEditRequest);
+$stmt = $photos->edit($paramFromEditRequest);
 
-if($photos->delete()) {
-      // set response 200, OK:
-      http_response_code(200);
-    }
-    // if unable to delete the photos, tell the user
-    else {
-        // set response code - 503 service unavailable
-        http_response_code(503);
-    }
+if($photos->edit()) {
+  // set response 200, OK:
+  http_response_code(200);
+}
+// if unable to delete the photos, tell the user
+else {
+  // set response code - 503 service unavailable
+  http_response_code(503);
+}

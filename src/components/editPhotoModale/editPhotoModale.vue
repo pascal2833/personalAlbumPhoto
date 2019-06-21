@@ -132,11 +132,15 @@ export default {
     keyUpTitle (text) {
       this.$store.commit('editPhotoMutation', { toEdit: 'title', value: text })
     },
+    showAlert (text) {
+      this.$swal(text)
+    },
     submit () {
-      this.$v.form.$touch()
-      if (!this.$v.form.$error) {
+      this.$v.photoToShowInPhotosContainer.$touch()
+      if (!this.$v.photoToShowInPhotosContainer.$error) {
         this.loading.isLoading = true
         const formData = new FormData()
+        formData.append('id', this.photoToShowInPhotosContainer.id)
         formData.append('title', this.photoToShowInPhotosContainer.title)
         formData.append('date', this.photoToShowInPhotosContainer.date)
         formData.append('category', this.photoToShowInPhotosContainer.category)
@@ -146,15 +150,16 @@ export default {
           .then(response => {
             if (response.status === 200) {
               this.loading.isLoading = false
-              alert('la photo a ete editee')
+              this.showAlert('la photo a ete editee')
+              this.show = false
             } else {
               this.loading.isLoading = false
-              alert('La photo n\'a pas pu etre editee. Verifier que tout est correct')
+              this.showAlert('La photo n\'a pas pu etre editee. Verifier que tout est correct')
             }
           })
           .catch(() => {
             this.loading.isLoading = false
-            alert('La photo n\'a pas pu etre editee. Verifier que tout est correct (il s\'agit peut etre aussi d\'une erreur de notre part ...)')
+            this.showAlert('La photo n\'a pas pu etre editee. Verifier que tout est correct (il s\'agit peut etre aussi d\'une erreur de notre part ...)')
           })
       }
     }

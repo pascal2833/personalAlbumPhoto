@@ -36,8 +36,20 @@ class Photos{
         return $stmt;
     }
     // ------ Edit photos:
-    function edit ($paramFromEditRequest) {
-      return true
+    function edit($paramFromEditRequest) {
+      $categoryFromRequest = $paramFromEditRequest["category"];
+      $titleFromRequest = $paramFromEditRequest["title"];
+      $dateFromRequest = $paramFromEditRequest["date"];
+      $descriptionFromRequest = $paramFromEditRequest["description"];
+      $idFromRequest = $paramFromEditRequest["id"];
+      $query = "UPDATE photos SET date='".$dateFromRequest."', category='".$categoryFromRequest."', title='".$titleFromRequest."', description='".$descriptionFromRequest."'  WHERE id='".$idFromRequest."'";
+      // prepare query statement
+      $stmt = $this->conn->prepare($query);
+      // Execute query:
+      if($stmt->execute()){
+          return true;
+      }
+      return false;
     }
     // ------ Delete photos:
     function delete ($paramFromDeleteRequest) {

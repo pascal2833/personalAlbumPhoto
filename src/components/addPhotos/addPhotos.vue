@@ -123,6 +123,9 @@ export default {
     }
   },
   methods: {
+    showAlert (text) {
+      this.$swal(text)
+    },
     submit () {
       this.$v.form.$touch()
       if (!this.$v.form.$error && this.photoDownloaded === true) {
@@ -139,15 +142,15 @@ export default {
           .then(response => {
             if (response.status === 201) {
               this.loading.isLoading = false
-              alert('la photo a ete enregistree')
+              this.showAlert('La photo a ete enregistree')
             } else {
               this.loading.isLoading = false
-              alert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct')
+              this.showAlert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct')
             }
           })
           .catch(() => {
             this.loading.isLoading = false
-            alert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct (il s\'agit peut etre aussi d\'une erreur de notre part ...)')
+            this.showAlert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct (il s\'agit peut etre aussi d\'une erreur de notre part ...)')
           })
       }
     }

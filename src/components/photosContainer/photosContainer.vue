@@ -98,6 +98,54 @@ export default {
     }
   },
   methods: {
+    showAlert (text) {
+      this.$swal(text)
+    },
+    showAdviceAlertWhenDelete (idPhoto) {
+      this.$swal({
+        title: `Es tu sur d'effacer cette photo ?`,
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui !'
+      }).then((result) => {
+        if (result.value) {
+          this.loading.isLoading = true
+          axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.deleteAction}?id=${idPhoto}`)
+            .then(() => {
+              this.loading.isLoading = false
+              // Pass to next photo:
+              const params = {initialDate: this.paramsToDoSearchRequestMutation.initialDate, endDate: this.paramsToDoSearchRequestMutation.endDate, firstSearchOrPagination: 'firstSearch', numPageFromPagination: 1, category: this.paramsToDoSearchRequestMutation.category}
+              this.$store.commit('setGlobalNumForPagination', 1)
+              return axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
+                .then((response) => {
+                  this.$store.commit('keepParamsToDoSearchRequestMutation', params)
+                  this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)
+                  this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
+                  this.$swal('La photo a bien ete effacee !')
+                })
+                .catch(() => { // We removed the last photo so show initial data:
+                  this.loading.isLoading = false
+                  const initialImageData = {
+                    firstSearchOrPagination: '',
+                    id: null, // From response / back.
+                    imageFile: 'defaultPhoto.png', // To visualize photo from server. This is the default one.
+                    src: '', // imageCodedIn64 (to visualize photo uploaded)
+                    title: '',
+                    description: '',
+                    date: '',
+                    category: '',
+                    creation_date: '', // From response / back.
+                    horizontalOrVertical: ''
+                  }
+                  this.$store.commit('setImageDataInPhotoContainerMutation', initialImageData)
+                })
+            })
+            .catch(() => {
+              this.showAlert('Une erreur est survenue, la photo n\'a pas pu etre eleminee')
+            })
+        }
+      })
+    },
     removeEditPhotoModal () {
       this.showEditPhotoModale = false
     },
@@ -108,15 +156,7 @@ export default {
       this.showEditPhotoModale = true
     },
     onDelete (idPhoto) {
-      this.loading.isLoading = true
-      axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.deleteAction}?id=${idPhoto}`)
-        .then(() => {
-          alert('La photo a ete eliminee')
-          this.loading.isLoading = false
-        })
-        .catch(() => {
-          alert('Une erreur est survenue, la photo n\'a pas pu etre eleminee')
-        })
+      this.showAdviceAlertWhenDelete(idPhoto)
     },
     showInfoMethod () {
       return this.showInfoData
@@ -136,7 +176,7 @@ export default {
         })
         .catch(() => {
           this.loading.isLoading = false
-          alert('Une erreur est survenue')
+          this.showAlertl('Une erreur est survenue')
         })
     }
   }

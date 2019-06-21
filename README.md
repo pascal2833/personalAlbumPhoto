@@ -6,8 +6,10 @@
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification.
+- Add category dans info. 
 - Add possibility to remove / edit photo.
   - For delete, put modal to confirm before.
+  - For remove, quit file from folder!
 - Make it responsive
 - Use alert modal from vue to show message and not alert()
 - Use multiselect and not single select / categories, to be able to search photos by a combination of keyword and not only one.
