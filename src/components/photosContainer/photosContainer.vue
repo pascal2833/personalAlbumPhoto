@@ -113,6 +113,7 @@ export default {
           axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.deleteAction}?id=${idPhoto}`)
             .then(() => {
               this.loading.isLoading = false
+              this.$swal('La photo a bien ete effacee !')
               // Pass to next photo:
               const params = {initialDate: this.paramsToDoSearchRequestMutation.initialDate, endDate: this.paramsToDoSearchRequestMutation.endDate, firstSearchOrPagination: 'firstSearch', numPageFromPagination: 1, category: this.paramsToDoSearchRequestMutation.category}
               this.$store.commit('setGlobalNumForPagination', 1)
@@ -121,10 +122,8 @@ export default {
                   this.$store.commit('keepParamsToDoSearchRequestMutation', params)
                   this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)
                   this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
-                  this.$swal('La photo a bien ete effacee !')
                 })
                 .catch(() => { // We removed the last photo so show initial data:
-                  this.loading.isLoading = false
                   const initialImageData = {
                     firstSearchOrPagination: '',
                     id: null, // From response / back.

@@ -54,6 +54,13 @@ class Photos{
     // ------ Delete photos:
     function delete ($paramFromDeleteRequest) {
       $idPhoto = $paramFromDeleteRequest["id"];
+      $photoFileNameQuery = "SELECT name FROM photos WHERE id='".$idPhoto."'";
+      $result = mysqli_query($db, $query )
+      // $stmtA = $this->conn->prepare($photoFileNameQuery);
+      // $photoFileName = $stmtA->execute();
+      // var_dump($photoFileName);
+      // Delete the file:
+      unlink(dirname(__FILE__)."/PhotosToShow/".$photoFileName);
       $query="DELETE FROM photos WHERE id='".$idPhoto."'";
       // prepare query statement
       $stmt = $this->conn->prepare($query);

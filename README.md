@@ -6,7 +6,8 @@
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification.
-- Add category dans info. 
+- Quit info and coe if we add a photo!
+- Add category dans info.
 - Add possibility to remove / edit photo.
   - For delete, put modal to confirm before.
   - For remove, quit file from folder!

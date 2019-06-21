@@ -10,6 +10,10 @@ $database = new Database();
 $db = $database->getConnection();
 // get params from request:
 $paramFromDeleteRequest = $_GET;
+$idPhoto = $paramFromDeleteRequest["id"];
+      $photoFileNameQuery = "SELECT name FROM photos WHERE id='".$idPhoto."'";
+      $result = mysqli_query($db, $photoFileNameQuery)
+      var_dump($result)
 // initialize object
 $photos = new Photos($db);
 // query photos:
