@@ -9,19 +9,18 @@ include_once '../objects/Photos.php';
 $database = new Database();
 $db = $database->getConnection();
 // get params from request:
-$paramFromDeleteRequest = $_GET;
+$paramFromEditRequest = $_POST;
 // initialize object
 $photos = new Photos($db);
 // query photos:
-$stmt = $photos->delete($paramFromDeleteRequest);
+$stmt = $photos->edit($paramFromEditRequest);
 
-
-if($photos->delete()) {
+if($photos->edit()) {
   // set response 200, OK:
   http_response_code(200);
 }
 // if unable to delete the photos, tell the user
 else {
-    // set response code - 503 service unavailable
-    http_response_code(503);
+  // set response code - 503 service unavailable
+  http_response_code(503);
 }

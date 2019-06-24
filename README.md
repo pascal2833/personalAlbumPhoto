@@ -7,6 +7,7 @@
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification.
 - Quit info and coe if we add a photo!
+- Pass loading like mixin.
 - Add category dans info.
 - Add possibility to remove / edit photo.
   - For delete, put modal to confirm before.

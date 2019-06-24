@@ -57,9 +57,10 @@ class Photos{
       // Delete file:
       $stmt1 = $this->conn->prepare("SELECT name FROM photos WHERE id='".$idPhoto."'");
       $stmt1->execute();
+      // set the resulting array to associative
       $photoFileName = $stmt1->fetch(PDO::FETCH_ASSOC);
-      unlink("../PhotosToShow/".$photoFileName["name"]);
-      // Delete from db:
+      unlink("../PhotosToShow/".$photoFileName);
+
       $query="DELETE FROM photos WHERE id='".$idPhoto."'";
       // prepare query statement
       $stmt = $this->conn->prepare($query);
