@@ -32,8 +32,7 @@ export default {
   },
   methods: {
     showAddPhotoMenuOrNot () {
-      this.$store.commit('setNumPhotosRetrievedBySearchMutation', 1)
-      this.$store.commit('deleteImageMutation')
+      this.$store.commit('turnToInitialImageMutation')
       if (this.minimizeSidebarMenu) {
         this.addPhotoMenuIsVisible = true
       } else {
@@ -43,13 +42,13 @@ export default {
       this.extendSideBar()
     },
     showSearchPhotoMenuOrNot () {
+      this.$store.commit('turnToInitialImageMutation')
       if (this.minimizeSidebarMenu) {
         this.searchPhotoMenuIsVisible = true
       } else {
         this.addPhotoMenuIsVisible = false
         this.searchPhotoMenuIsVisible = true
       }
-      // this.searchPhotoMenuIsVisible = !this.searchPhotoMenuIsVisible
       this.extendSideBar()
     },
     minimizeSideBar () {

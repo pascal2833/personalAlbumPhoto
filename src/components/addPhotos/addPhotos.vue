@@ -142,6 +142,7 @@ export default {
           .then(response => {
             if (response.status === 201) {
               this.loading.isLoading = false
+              this.$store.commit('turnToInitialImageMutation')
               this.showAlert('La photo a ete enregistree')
             } else {
               this.loading.isLoading = false

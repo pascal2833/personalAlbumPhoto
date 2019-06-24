@@ -124,19 +124,7 @@ export default {
                   this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
                 })
                 .catch(() => { // We removed the last photo so show initial data:
-                  const initialImageData = {
-                    firstSearchOrPagination: '',
-                    id: null, // From response / back.
-                    imageFile: 'defaultPhoto.png', // To visualize photo from server. This is the default one.
-                    src: '', // imageCodedIn64 (to visualize photo uploaded)
-                    title: '',
-                    description: '',
-                    date: '',
-                    category: '',
-                    creation_date: '', // From response / back.
-                    horizontalOrVertical: ''
-                  }
-                  this.$store.commit('setImageDataInPhotoContainerMutation', initialImageData)
+                  this.$store.commit('turnToInitialImageMutation')
                 })
             })
             .catch(() => {

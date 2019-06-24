@@ -6,12 +6,14 @@
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification.
-- Quit info and coe if we add a photo!
+- Quit info and coe if we add a photo
 - Pass loading like mixin.
 - Add category dans info.
-- Add possibility to remove / edit photo.
-  - For delete, put modal to confirm before.
-  - For remove, quit file from folder!
+- When remove phito in add photo, need to remove too photo name choosed before removed. 
+- When pass to search o add photo, turn photo to default.
+- ~~Add possibility to remove / edit photo.~~
+  ~~- For delete, put modal to confirm before.~~
+  - ~~For remove, quit file from folder!~~
 - Make it responsive
 - Use alert modal from vue to show message and not alert()
 - Use multiselect and not single select / categories, to be able to search photos by a combination of keyword and not only one.
