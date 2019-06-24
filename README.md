@@ -5,18 +5,22 @@
 ## At the moment, it's clearly a WIP... 
 
 ### TODO:
-- Quit header Access-Control-Allow-Origin: / API files, and put authentification.
+- Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie.
 - Quit info and coe if we add a photo
-- Pass loading like mixin.
-- Add category dans info.
-- When remove phito in add photo, need to remove too photo name choosed before removed. 
+- Pass loading like vue mixin.
+- Add category in info.
+- When remove photo in add photo, need to remove too photo name choosed before removed. 
 - When pass to search o add photo, turn photo to default.
+- Make it responsive
+- Improve UI/UX:
+  - Typography
+  - Colors
+  - ...
 - ~~Add possibility to remove / edit photo.~~
   ~~- For delete, put modal to confirm before.~~
   - ~~For remove, quit file from folder!~~
-- Make it responsive
-- Use alert modal from vue to show message and not alert()
-- Use multiselect and not single select / categories, to be able to search photos by a combination of keyword and not only one.
+- ~~Use alert modal from vue to show message and not alert()~~
+- ~~Use multiselect and not single select / categories, to be able to search photos by a combination of keyword and not only one.~~
 
 > A Vue.js project
 
