@@ -9,6 +9,7 @@
 - Pass loading like vue mixin.
 - From the back end part, send message iv photo downloaded is > 4000000k and if format is not good.'
 - Make it responsive
+- Add transitions / sidebar menu, hamburger, ...
 - Improve UI/UX:
   - Typography
   - Colors

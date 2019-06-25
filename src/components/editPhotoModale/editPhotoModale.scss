@@ -9,6 +9,7 @@
     @include popUpOrBoxInModal();
     .close-icon {
       float: right;
+      color: $darkGrey;
     }
   }
 }
