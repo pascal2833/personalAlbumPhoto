@@ -2,7 +2,7 @@
 
 ##  Done to improve the old one, with photos retrieved only from the front end part. The idea is to retrieve and to cretae them with an API.
 
-## At the moment, it's clearly a WIP... 
+## At the moment, it's still a WIP but works. 
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie (use OAuth?)
