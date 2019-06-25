@@ -22,6 +22,7 @@
     padding-right: 1em;
     width: 380px; }
     .sidebar-menu__extended .minimize-icon {
-      float: right; }
+      float: right;
+      margin-top: -10px; }
 
 /*# sourceMappingURL=sidebarMenu.css.map */

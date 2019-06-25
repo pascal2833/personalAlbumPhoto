@@ -1,14 +1,15 @@
 <template>
   <div class="add-photos" v-if="visible">
-    <h2 class="no-margin">Ajoute une photo.</h2>
+    <h3 class="no-margin h3-perso">Ajoute une photo.</h3>
     <form @submit.prevent="submit" enctype="multipart/form-data">
       <download-image
         :text4ChoosePhotoLabel="text4ChoosePhotoLabel"
+        @setIfPhotoHasBeenDownloadedOrNotEvent="setIfPhotoHasBeenDownloadedOrNot($event)"
         @changeText4ChoosePhotoLabelEvent="changeText4ChoosePhotoLabel($event)"
       >
       </download-image>
       <label class="labels-4-inputs" for="photoTitleInput">Titre de la photo (*) :</label>
-      <input class="main-inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
+      <input class="main-inputs" type="text" placeholder="Un super titre !" v-model="form.photoTitle" id="photoTitleInput">
       <div class="gnalFormErrorMessage" v-if="!$v.form.photoTitle.maxLength">
         Le titre ne peut pas avoir plus de 50 characteres.
       </div>
@@ -24,6 +25,7 @@
       </template>
       <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
       <multiselect
+        class="multiselect-perso"
         id="photoCategoriesInput"
         v-model="form.categoriesSelected"
         :options="form.options4Multiselect"
@@ -48,9 +50,6 @@
       </div>
       <div class="gnalFormErrorMessage" v-if="$v.form.$error">
         Il manque des choses ou des champs sont mal remplis
-      </div>
-      <div class="gnalFormErrorMessage" v-if="!photoDownloaded">
-        Il faut telecharger une photo ...
       </div>
       <button
         class="main-submit-button"
@@ -94,7 +93,7 @@ export default {
   computed: {
     ...mapState({
       horizontalOrVertical: state => state.photoToShowInPhotosContainer.horizontalOrVertical,
-      photoDownloaded: state => state.photoDownloaded,
+      // photoDownloaded: state => state.photoDownloaded,
       imageFile: state => state.photoToShowInPhotosContainer.imageFile
     })
   },
@@ -102,6 +101,7 @@ export default {
     return {
       text4ChoosePhotoLabel: 'Clique pour choisir une photo (*) :',
       form: {
+        onePhotoHasBeenDownloaded: '',
         photoTitle: '',
         date: this.getActualDateFormated(),
         description: '',
@@ -116,6 +116,7 @@ export default {
   },
   validations: {
     form: {
+      onePhotoHasBeenDownloaded: { required },
       photoTitle: {
         required,
         maxLength: maxLength(50)
@@ -128,6 +129,9 @@ export default {
     }
   },
   methods: {
+    setIfPhotoHasBeenDownloadedOrNot (yesOrNot) {
+      this.form.onePhotoHasBeenDownloaded = yesOrNot
+    },
     changeText4ChoosePhotoLabel (text) {
       this.text4ChoosePhotoLabel = text
     },
@@ -140,7 +144,7 @@ export default {
     },
     submit () {
       this.$v.form.$touch()
-      if (!this.$v.form.$error && this.photoDownloaded === true) {
+      if (!this.$v.form.$error) {
         this.loading.isLoading = true
         const formData = new FormData()
         formData.append('imageFile', this.imageFile)

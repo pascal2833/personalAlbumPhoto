@@ -1,7 +1,8 @@
 .label-to-choose-photo {
-  cursor: pointer; }
+  cursor: pointer;
+  font-style: italic; }
   .label-to-choose-photo:hover {
-    font-style: italic; }
+    color: #f2611e; }
 
 .photo-to-big-message {
   font-size: .7em;

@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible">
-    <h2 class="no-margin">Cherche des photos.</h2>
+    <h3 class="no-margin h3-perso">Cherche des photos</h3>
     <form @submit.prevent="submit">
       <label class="labels-4-inputs" for="photoDateInputStart">Debut de la periode (*) :</label>
       <template>
@@ -25,6 +25,7 @@
       <!--///-->
       <label class="labels-4-inputs" for="photoCategoriesInput">Categorie (*) :</label>
       <multiselect
+        class="multiselect-perso"
         id="photoCategoriesInput"
         v-model="form.categoriesSelected"
         :options="form.options4Multiselect"
@@ -32,7 +33,7 @@
         :close-on-select="false"
         :show-labels="false"
         :multiple="true"
-        placeholder="Choisi une, des catégorie(s)"
+        placeholder="Choisi une ou plusieurs catégorie(s)"
       >
       </multiselect>
 

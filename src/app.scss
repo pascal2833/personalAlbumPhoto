@@ -6,6 +6,42 @@
   @media screen and (min-width: $maxMobileWidth + 1){
     font-size: 18px;
   }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $lightGrey;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: $lightGrey;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: $lightGrey;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: $lightGrey;
+  }
+  textarea::-webkit-input-placeholder {
+    color: $lightGrey;
+  }
+
+  textarea:-moz-placeholder { /* Firefox 18- */
+    color: $lightGrey;
+  }
+
+  textarea::-moz-placeholder {  /* Firefox 19+ */
+    color: $lightGrey;
+  }
+
+  textarea:-ms-input-placeholder {
+    color: $lightGrey;
+  }
+
+  textarea::placeholder {
+    color: $lightGrey;
+  }
+
+  .h3-perso {
+    color: $lightLightGrey;
+  }
   font-family: 'Roboto', sans-serif;
   .icons {
     cursor: pointer;
@@ -24,6 +60,13 @@
     display: block;
     margin: 1em 0 .2em 0;
     font-size: .85em;
+    color: $lightLightGrey;
+  }
+  .multiselect-perso {
+    color: $darkGrey;
+  }
+  .multiselect__tags { // Styles from vue-multiselect
+    font-size: 1rem;
   }
   .main-inputs, .vdpComponent.vdpWithInput > input {
     padding-left: .3em;
@@ -37,6 +80,7 @@
         border: none;
         margin-left: -0.3em;
         padding: 0 0 0 .3em;
+        color: $darkGrey;
       }
     }
     &.text-area {
@@ -44,7 +88,7 @@
     }
   }
   .main-submit-button {
-    @include homeMadeButton(11em, 2.5em, white, white, #c28f78, #85330d, .2em, .3em, 1em);
+    @include homeMadeButton(11em, 2.5em, white , $darkGrey, $colorBackgroundButton, $colorHoverText, .2em, .3em, 1em);
     margin-top: 1em;
   }
   // Adapt date-picker styles.

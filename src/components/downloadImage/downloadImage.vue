@@ -52,7 +52,7 @@ export default {
   methods: {
     deletePhoto () {
       this.$store.commit('turnToInitialImageMutation')
-      this.$store.commit('setImageIsDownloadedMutation', false)
+      this.$emit('setIfPhotoHasBeenDownloadedOrNotEvent', '')
       this.$emit('changeText4ChoosePhotoLabelEvent', 'Clique pour choisir une photo (*) :')
     },
     uploadPhotos (files) {
@@ -72,7 +72,7 @@ export default {
             let verticalOrHorizontalImg = ''
             widthImage < heightImage ? verticalOrHorizontalImg = 'vertical' : verticalOrHorizontalImg = 'horizontal'
             this.$store.commit('downloadImageMutation', { imageCodedIn64: this.imageCodedIn64, verticalOrHorizontalImg, imageFile: this.imageFile })
-            this.$store.commit('setImageIsDownloadedMutation', true)
+            this.$emit('setIfPhotoHasBeenDownloadedOrNotEvent', 'hasBeenDownloaded')
             this.$emit('changeText4ChoosePhotoLabelEvent', 'La photo a ete choisie !')
           }
           img.src = reader.result

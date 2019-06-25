@@ -6,6 +6,32 @@
   @media screen and (min-width: 769px) {
     .app {
       font-size: 18px; } }
+  .app ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #787a7b; }
+  .app ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #787a7b; }
+  .app :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #787a7b; }
+  .app :-moz-placeholder {
+    /* Firefox 18- */
+    color: #787a7b; }
+  .app textarea::-webkit-input-placeholder {
+    color: #787a7b; }
+  .app textarea:-moz-placeholder {
+    /* Firefox 18- */
+    color: #787a7b; }
+  .app textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #787a7b; }
+  .app textarea:-ms-input-placeholder {
+    color: #787a7b; }
+  .app textarea::placeholder {
+    color: #787a7b; }
+  .app .h3-perso {
+    color: #e7e7e7; }
   .app .icons {
     cursor: pointer;
     font-size: 1.5em;
@@ -19,7 +45,12 @@
   .app .labels-4-inputs {
     display: block;
     margin: 1em 0 .2em 0;
-    font-size: .85em; }
+    font-size: .85em;
+    color: #e7e7e7; }
+  .app .multiselect-perso {
+    color: #010819; }
+  .app .multiselect__tags {
+    font-size: 1rem; }
   .app .main-inputs, .app .vdpComponent.vdpWithInput > input {
     padding-left: .3em;
     font-size: 1rem;
@@ -31,7 +62,8 @@
         width: 100%;
         border: none;
         margin-left: -0.3em;
-        padding: 0 0 0 .3em; }
+        padding: 0 0 0 .3em;
+        color: #010819; }
     .app .main-inputs.text-area, .app .vdpComponent.vdpWithInput > input.text-area {
       height: inherit; }
   .app .main-submit-button {
@@ -46,8 +78,8 @@
     background-color: #c28f78;
     margin-top: 1em; }
     .app .main-submit-button:hover {
-      background-color: #85330d;
-      color: white; }
+      background-color: #f2611e;
+      color: #010819; }
   .app .vdpClearInput {
     display: none; }
 

@@ -1,5 +1,4 @@
 export { downloadImageMutation } from './downloadImageMutation'
-export { setImageIsDownloadedMutation } from './setImageIsDownloadedMutation'
 export { setImageDataInPhotoContainerMutation } from './setImageDataInPhotoContainerMutation'
 export { setNumPhotosRetrievedBySearchMutation } from './setNumPhotosRetrievedBySearchMutation'
 export { keepParamsToDoSearchRequestMutation } from './keepParamsToDoSearchRequestMutation'

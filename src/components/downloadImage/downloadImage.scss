@@ -1,7 +1,10 @@
+@import "../../assets/vars-and-mixins";
+
 .label-to-choose-photo {
   cursor: pointer;
+  font-style: italic;
   &:hover {
-    font-style: italic;
+    color: $colorHoverText;
   }
 }
 .photo-to-big-message {

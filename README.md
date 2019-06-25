@@ -5,9 +5,9 @@
 ## At the moment, it's clearly a WIP... 
 
 ### TODO:
-- Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie.
+- Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie (use OAuth?)
 - Pass loading like vue mixin.
-- From the back end part, send message iv photo downloaded is > 4000000k and if format is not good.'
+- From the back end part, send message if photo downloaded is > 4000000k and if format is not good.'
 - Make it responsive
 - Add transitions / sidebar menu, hamburger, ...
 - Improve UI/UX:
@@ -15,6 +15,15 @@
   - Colors
   - ...
 - Do unit testing!
+- Edit modale not OK.
+- Alert / are you sure to delete :
+  - Improve design
+  - Put texts in french
+- Quit pagination when turn to add or search!
+  - In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.
+  - Turn to initial state / photo container and pagination if we pass from add to search o reverse.
+- ~~Quit Il faut telecharger une photo ...~~
+- ~~Change color text input -> put in dark grey.~~
 - ~~Center pagination.~~
 ~~- Change title button to add file (the default one, put it in french)~~
 - ~~When remove photo in add photo, need to remove too photo name choosed before~~ removed.
