@@ -1,17 +1,17 @@
 .pagination-perso {
-  background-color: rgba(234, 235, 237, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 .3em; }
   .pagination-perso__icons, .pagination-perso__numeros {
-    color: #242427;
+    color: #010819;
     font-size: 2rem;
     cursor: pointer; }
     .pagination-perso__icons.little, .pagination-perso__numeros.little {
       font-size: 40px; }
   .pagination-perso .isDisabled {
-    color: #646e64;
+    color: #787a7b;
     cursor: auto; }
   .pagination-perso .isTheActiveNumero {
     font-weight: bold;

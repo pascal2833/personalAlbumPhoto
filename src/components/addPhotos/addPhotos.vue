@@ -1,8 +1,12 @@
 <template>
   <div class="add-photos" v-if="visible">
-    <h2 class="no-margin">Ici, tu peux ajouter ta photo :)</h2>
+    <h2 class="no-margin">Ajoute une photo.</h2>
     <form @submit.prevent="submit" enctype="multipart/form-data">
-      <download-image></download-image>
+      <download-image
+        :text4ChoosePhotoLabel="text4ChoosePhotoLabel"
+        @changeText4ChoosePhotoLabelEvent="changeText4ChoosePhotoLabel($event)"
+      >
+      </download-image>
       <label class="labels-4-inputs" for="photoTitleInput">Titre de la photo (*) :</label>
       <input class="main-inputs" type="text" placeholder="Titre de la photo" v-model="form.photoTitle" id="photoTitleInput">
       <div class="gnalFormErrorMessage" v-if="!$v.form.photoTitle.maxLength">
@@ -12,7 +16,7 @@
       <template>
         <date-pick
           v-model="form.date"
-          class="main-inputs"
+          class="main-inputs date_picker"
           id="photoDateInput"
           :displayFormat="'YYYY-MM-DD'"
         >
@@ -52,7 +56,7 @@
         class="main-submit-button"
         type="submit"
       >
-        Garder la photo !!!
+        Garder la photo
       </button>
     </form>
     <loading
@@ -96,9 +100,10 @@ export default {
   },
   data: function () {
     return {
+      text4ChoosePhotoLabel: 'Clique pour choisir une photo (*) :',
       form: {
         photoTitle: '',
-        date: '2019-12-06',
+        date: this.getActualDateFormated(),
         description: '',
         options4Multiselect: ['Les potos', 'La famille', 'La famille et les potos', 'Vacances', 'Belles photos', 'Autres'],
         categoriesSelected: ''
@@ -123,6 +128,13 @@ export default {
     }
   },
   methods: {
+    changeText4ChoosePhotoLabel (text) {
+      this.text4ChoosePhotoLabel = text
+    },
+    getActualDateFormated () {
+      const actualDate = new Date()
+      return `${actualDate.getFullYear()}-${actualDate.getMonth() + 1}-${actualDate.getDate()}`
+    },
     showAlert (text) {
       this.$swal(text)
     },
@@ -144,6 +156,7 @@ export default {
               this.loading.isLoading = false
               this.$store.commit('turnToInitialImageMutation')
               this.showAlert('La photo a ete enregistree')
+              this.text4ChoosePhotoLabel = 'Clique pour choisir une photo (*) :'
             } else {
               this.loading.isLoading = false
               this.showAlert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct')

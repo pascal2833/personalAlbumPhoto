@@ -1,14 +1,19 @@
+.label-to-choose-photo {
+  cursor: pointer; }
+  .label-to-choose-photo:hover {
+    font-style: italic; }
+
 .photo-to-big-message {
   font-size: .7em;
   color: red; }
 
 .input-to-add-photo {
-  font-size: .6em;
-  font-family: 'Roboto', sans-serif; }
+  display: none; }
 
 .add-photos__upload-photo-container {
   display: flex;
   margin-top: 0.3em;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: baseline; }
 
 /*# sourceMappingURL=downloadImage.css.map */

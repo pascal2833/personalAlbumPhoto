@@ -6,11 +6,11 @@
   height: 100%;
   overflow: hidden;
   text-align: center;
+  background-color: black;
   &__image-container {
     .icon {
       position: absolute;
       right: 3%;
-      color: $darkGrey;
       &.--info {
         top: 5%;
       }
@@ -31,7 +31,7 @@
       &.horizontal {
         height: auto;
         max-height: 100vh;
-        max-width: 80vw;
+        max-width: 100vw;
       }
       &.vertical {
         width: auto;
@@ -47,5 +47,6 @@
     height: 5vh;
     left: 50%;
     transform: translate(-50%);
+    margin-left: $widthLittleSidebar/2;
   }
 }

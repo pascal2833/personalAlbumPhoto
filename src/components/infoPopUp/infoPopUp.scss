@@ -1,6 +1,9 @@
 @import '../../assets/vars-and-mixins';
 .info-pop-up {
   @include popUpOrBoxInModal();
+  .close-icon {
+    float: right;
+  }
   &__title {
     font-weight: bold;
   }

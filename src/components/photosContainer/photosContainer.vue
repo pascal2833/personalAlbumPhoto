@@ -1,7 +1,7 @@
 <template>
-  <div class="photos-container">
+  <section class="photos-container">
     <div class="photos-container__image-container">
-      <div class="icons-container" v-if="photoToShowInPhotosContainer.imageFile !== 'defaultPhoto.png'">
+      <div class="icons-container" v-if="photoInfo.title">
         <i
           class="fas fa-info-circle icon --info icons"
           title="Info de cette photo"
@@ -27,7 +27,12 @@
         </i>
       </div>
       <template class="info-pop-up" v-if="showInfoMethod()">
-        <info-pop-up :info="photoInfo"></info-pop-up>
+        <info-pop-up
+          :info="photoInfo"
+          :show="showInfoData"
+          @closeInfoPopUpEvent="removeInfoPhotoPopUp()"
+        >
+        </info-pop-up>
       </template>
       <img
         :class="photoToShowInPhotosContainer.horizontalOrVertical"
@@ -52,7 +57,7 @@
       :is-full-page="loading.fullPage"
     >
     </loading>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -135,6 +140,9 @@ export default {
     },
     removeEditPhotoModal () {
       this.showEditPhotoModale = false
+    },
+    removeInfoPhotoPopUp () {
+      this.showInfoData = false
     },
     onInfo () {
       this.showInfoData = !this.showInfoData

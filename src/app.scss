@@ -10,6 +10,7 @@
   .icons {
     cursor: pointer;
     font-size: 1.5em;
+    color: white;
   }
   .gnalFormErrorMessage {
     color: red;
@@ -29,12 +30,21 @@
     font-size: 1rem;
     height: $heightInputs;
     font-family: 'Roboto', sans-serif;
+    &.date_picker {
+      width: 100%;
+      input {
+        width: 100%;
+        border: none;
+        margin-left: -0.3em;
+        padding: 0 0 0 .3em;
+      }
+    }
     &.text-area {
       height: inherit;
     }
   }
   .main-submit-button {
-    @include homeMadeButton(11em, 2.5em, white, white, #e87a48, #85330d, .2em, .3em, 1em);
+    @include homeMadeButton(11em, 2.5em, white, white, #c28f78, #85330d, .2em, .3em, 1em);
     margin-top: 1em;
   }
   // Adapt date-picker styles.

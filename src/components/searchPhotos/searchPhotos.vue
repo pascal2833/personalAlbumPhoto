@@ -1,12 +1,12 @@
 <template>
   <div v-if="visible">
-    <h2 class="no-margin">Ici, tu peux chercher tes photos :)</h2>
+    <h2 class="no-margin">Cherche des photos.</h2>
     <form @submit.prevent="submit">
       <label class="labels-4-inputs" for="photoDateInputStart">Debut de la periode (*) :</label>
       <template>
         <date-pick
           v-model="form.initialDate"
-          class="main-inputs"
+          class="main-inputs date_picker"
           id="photoDateInputStart"
           :displayFormat="'YYYY-MM-DD'"
         >
@@ -16,7 +16,7 @@
       <template>
         <date-pick
           v-model="form.endDate"
-          class="main-inputs"
+          class="main-inputs date_picker"
           id="photoDateInputEnd"
           :displayFormat="'YYYY-MM-DD'"
         >
@@ -40,7 +40,7 @@
         class="main-submit-button"
         type="submit"
       >
-        Cherche les photos !!!
+        Cherche les photos
       </button>
     </form>
     <loading
@@ -74,7 +74,7 @@ export default {
     return {
       form: {
         initialDate: '1976-03-22',
-        endDate: '2019-12-06',
+        endDate: this.getActualDateFormated(),
         options4Multiselect: ['Les potos', 'La famille', 'La famille et les potos', 'Vacances', 'Belles photos', 'Autres'],
         categoriesSelected: []
       },
@@ -85,6 +85,10 @@ export default {
     }
   },
   methods: {
+    getActualDateFormated () {
+      const actualDate = new Date()
+      return `${actualDate.getFullYear()}-${actualDate.getMonth() + 1}-${actualDate.getDate()}`
+    },
     showAlert (text) {
       this.$swal(text)
     },

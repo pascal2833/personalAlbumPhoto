@@ -1,8 +1,8 @@
 <template>
   <div>
-    <label class="labels-4-inputs" for="photoUploadInput">Choisi une photo (*):</label>
-    <label class="labels-4-inputs photo-to-big-message" v-if="showPhotoToBigMessage">La photo est trop lourde, elle doit etre inferieure a 4Mb</label>
     <div class="add-photos__upload-photo-container">
+      <label class="labels-4-inputs label-to-choose-photo" for="photoUploadInput">{{text4ChoosePhotoLabel}}</label>
+      <label class="labels-4-inputs photo-to-big-message" v-if="showPhotoToBigMessage">La photo est trop lourde, elle doit etre inferieure a 4Mb</label>
       <input
         class="input-to-add-photo"
         id="photoUploadInput"
@@ -33,6 +33,11 @@ export default {
   components: {
     Loading
   },
+  props: {
+    text4ChoosePhotoLabel: {
+      type: String
+    }
+  },
   data: () => {
     return {
       showPhotoToBigMessage: false,
@@ -48,10 +53,11 @@ export default {
     deletePhoto () {
       this.$store.commit('turnToInitialImageMutation')
       this.$store.commit('setImageIsDownloadedMutation', false)
+      this.$emit('changeText4ChoosePhotoLabelEvent', 'Clique pour choisir une photo (*) :')
     },
     uploadPhotos (files) {
       this.loading.isLoading = true
-      const file = files[0]
+      const file = files[0] // We don't want the possibility to add x photos on the same time.
       if (file.size > 4000000) {
         this.showPhotoToBigMessage = true
         this.loading.isLoading = false
@@ -67,6 +73,7 @@ export default {
             widthImage < heightImage ? verticalOrHorizontalImg = 'vertical' : verticalOrHorizontalImg = 'horizontal'
             this.$store.commit('downloadImageMutation', { imageCodedIn64: this.imageCodedIn64, verticalOrHorizontalImg, imageFile: this.imageFile })
             this.$store.commit('setImageIsDownloadedMutation', true)
+            this.$emit('changeText4ChoosePhotoLabelEvent', 'La photo a ete choisie !')
           }
           img.src = reader.result
           this.imageCodedIn64 = reader.result

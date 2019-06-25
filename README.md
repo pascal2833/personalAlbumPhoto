@@ -6,16 +6,22 @@
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie.
-- Quit info and coe if we add a photo
 - Pass loading like vue mixin.
-- Add category in info.
-- When remove photo in add photo, need to remove too photo name choosed before removed. 
-- When pass to search o add photo, turn photo to default.
+- From the back end part, send message iv photo downloaded is > 4000000k and if format is not good.'
 - Make it responsive
 - Improve UI/UX:
   - Typography
   - Colors
   - ...
+- Do unit testing!
+- ~~Center pagination.~~
+~~- Change title button to add file (the default one, put it in french)~~
+- ~~When remove photo in add photo, need to remove too photo name choosed before~~ removed.
+- ~~When pass to search o add photo, turn photo to default.~~
+- ~~Add actual date for end date in find and add by default.~~
+~~- Add category in info.~~
+  ~~- Add cross to close.~~
+- ~~Quit info and coe if we add a photo~~
 - ~~Add possibility to remove / edit photo.~~
   ~~- For delete, put modal to confirm before.~~
   - ~~For remove, quit file from folder!~~

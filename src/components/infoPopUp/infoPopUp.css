@@ -5,10 +5,12 @@
   padding: .3em .7em;
   border-radius: .2em;
   background-color: rgba(254, 254, 254, 0.85);
-  border: solid 1px #646e64;
-  color: #242427;
+  border: solid 1px #787a7b;
+  color: #010819;
   font-size: 1.2rem;
   text-align: justify; }
+  .info-pop-up .close-icon {
+    float: right; }
   .info-pop-up__title {
     font-weight: bold; }
 
