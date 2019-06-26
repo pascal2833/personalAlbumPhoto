@@ -14,14 +14,17 @@
   - Typography
   - Colors
   - ...
+- Be able when search to filter not only by date (default) but by categories too.
 - Do unit testing!
 - Edit modale not OK.
 - Alert / are you sure to delete :
   - Improve design
+  - Typo is different
   - Put texts in french
-- Quit pagination when turn to add or search!
-  - In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.
-  - Turn to initial state / photo container and pagination if we pass from add to search o reverse.
+  - Do a version in english
+- ~~Quit pagination when turn to add or search!~~
+  - ~~In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.~~
+  - ~~Turn to initial state / photo container and pagination if we pass from add to search o reverse.~~
 - ~~Quit Il faut telecharger une photo ...~~
 - ~~Change color text input -> put in dark grey.~~
 - ~~Center pagination.~~

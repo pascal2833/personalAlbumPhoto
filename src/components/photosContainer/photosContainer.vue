@@ -41,7 +41,7 @@
         alt="Ajoute ou cherche des photos ..."
       >
     </div>
-    <div v-if="numPhotosRetrievedBySearch > 1" class="pagination-container">
+    <div class="pagination-container">
       <pagination-perso
         :current-numero="currentNumero"
         :total-data="numPhotosRetrievedBySearch"

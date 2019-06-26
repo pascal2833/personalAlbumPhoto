@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination-perso">
+  <div class="pagination-perso" v-if="totalData > 1">
     <i
       class="fas fa-backward pagination-perso__icons"
       @click="gotToFirstNumero(1)"

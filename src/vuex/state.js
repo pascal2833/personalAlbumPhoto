@@ -1,4 +1,5 @@
 export const state = {
+  text4ChoosePhotoLabel: 'Clique pour choisir une photo (*) :',
   paramsToDoSearchRequestMutation: {
     initialDate: '',
     endDate: '',

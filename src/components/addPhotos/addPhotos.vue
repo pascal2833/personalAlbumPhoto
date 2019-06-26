@@ -3,9 +3,7 @@
     <h3 class="no-margin h3-perso">Ajoute une photo.</h3>
     <form @submit.prevent="submit" enctype="multipart/form-data">
       <download-image
-        :text4ChoosePhotoLabel="text4ChoosePhotoLabel"
         @setIfPhotoHasBeenDownloadedOrNotEvent="setIfPhotoHasBeenDownloadedOrNot($event)"
-        @changeText4ChoosePhotoLabelEvent="changeText4ChoosePhotoLabel($event)"
       >
       </download-image>
       <label class="labels-4-inputs" for="photoTitleInput">Titre de la photo (*) :</label>
@@ -93,13 +91,11 @@ export default {
   computed: {
     ...mapState({
       horizontalOrVertical: state => state.photoToShowInPhotosContainer.horizontalOrVertical,
-      // photoDownloaded: state => state.photoDownloaded,
       imageFile: state => state.photoToShowInPhotosContainer.imageFile
     })
   },
   data: function () {
     return {
-      text4ChoosePhotoLabel: 'Clique pour choisir une photo (*) :',
       form: {
         onePhotoHasBeenDownloaded: '',
         photoTitle: '',
@@ -132,9 +128,6 @@ export default {
     setIfPhotoHasBeenDownloadedOrNot (yesOrNot) {
       this.form.onePhotoHasBeenDownloaded = yesOrNot
     },
-    changeText4ChoosePhotoLabel (text) {
-      this.text4ChoosePhotoLabel = text
-    },
     getActualDateFormated () {
       const actualDate = new Date()
       return `${actualDate.getFullYear()}-${actualDate.getMonth() + 1}-${actualDate.getDate()}`
@@ -159,8 +152,9 @@ export default {
             if (response.status === 201) {
               this.loading.isLoading = false
               this.$store.commit('turnToInitialImageMutation')
+              this.$store.commit('setText4ChoosePhotoLabelMutation', 'Clique pour choisir une photo (*) :')
               this.showAlert('La photo a ete enregistree')
-              this.text4ChoosePhotoLabel = 'Clique pour choisir une photo (*) :'
+              // this.text4ChoosePhotoLabel = ''
             } else {
               this.loading.isLoading = false
               this.showAlert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct')

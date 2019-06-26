@@ -5,3 +5,5 @@ export { keepParamsToDoSearchRequestMutation } from './keepParamsToDoSearchReque
 export { setGlobalNumForPagination } from './setGlobalNumForPagination'
 export { editPhotoMutation } from './editPhotoMutation'
 export { turnToInitialImageMutation } from './turnToInitialImageMutation'
+export { setText4ChoosePhotoLabelMutation } from './setText4ChoosePhotoLabelMutation'
+export { turnToInitialNumPhotosRetrievedBySearchMutation } from './turnToInitialNumPhotosRetrievedBySearchMutation'

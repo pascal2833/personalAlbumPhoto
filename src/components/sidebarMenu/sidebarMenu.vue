@@ -1,10 +1,9 @@
 <template>
   <section class="sidebar-menu">
     <div class="sidebar-menu__little">
-      <i class="fas fa-camera icons" title="Ajoute des photos" @click="showAddPhotoMenuOrNot()"></i>
-      <i class="fas fa-search icons" title="Cherche des photos" @click="showSearchPhotoMenuOrNot()"></i>
+      <i class="fas fa-camera icons" title="Ajoute des photos" @click="onAddPhoto()"></i>
+      <i class="fas fa-search icons" title="Cherche des photos" @click="onSearchPhoto()"></i>
     </div>
-    <!--"-->
     <div class="sidebar-menu__extended" v-if="!minimizeSidebarMenu">
       <i class="fas fa-chevron-left icons minimize-icon" @click="minimizeSideBar()" title="Diminuer le menu lateral"></i>
       <search-photos :visible="searchPhotoMenuIsVisible"></search-photos>
@@ -25,14 +24,19 @@ export default {
   },
   data () {
     return {
+      searchMenu: false,
+      addMenu: false,
       minimizeSidebarMenu: true,
       addPhotoMenuIsVisible: false,
       searchPhotoMenuIsVisible: false
     }
   },
   methods: {
-    showAddPhotoMenuOrNot () {
-      this.$store.commit('turnToInitialImageMutation')
+    onAddPhoto () {
+      if (!this.addMenu) {
+        this.$store.commit('turnToInitialImageMutation')
+        this.$store.commit('turnToInitialNumPhotosRetrievedBySearchMutation')
+      }
       if (this.minimizeSidebarMenu) {
         this.addPhotoMenuIsVisible = true
       } else {
@@ -40,9 +44,14 @@ export default {
         this.addPhotoMenuIsVisible = true
       }
       this.extendSideBar()
+      this.searchMenu = false
+      this.addMenu = true
     },
-    showSearchPhotoMenuOrNot () {
-      this.$store.commit('turnToInitialImageMutation')
+    onSearchPhoto () {
+      if (!this.searchMenu) {
+        this.$store.commit('turnToInitialImageMutation')
+        this.$store.commit('setText4ChoosePhotoLabelMutation', 'Clique pour choisir une photo (*) :')
+      }
       if (this.minimizeSidebarMenu) {
         this.searchPhotoMenuIsVisible = true
       } else {
@@ -50,6 +59,8 @@ export default {
         this.searchPhotoMenuIsVisible = true
       }
       this.extendSideBar()
+      this.searchMenu = true
+      this.addMenu = false
     },
     minimizeSideBar () {
       this.minimizeSidebarMenu = true
