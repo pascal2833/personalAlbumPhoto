@@ -1,6 +1,9 @@
 <template>
   <section class="photos-container">
-    <div class="photos-container__image-container">
+    <h1 class="photos-container__text-if-no-image titles" v-if="photoToShowInPhotosContainer.src === ''">
+      Télécharge et cherche des photos
+    </h1>
+    <div class="photos-container__image-container" v-if="photoToShowInPhotosContainer.src !== ''">
       <div class="icons-container" v-if="photoInfo.title">
         <i
           class="fas fa-info-circle icon --info icons"
@@ -157,8 +160,8 @@ export default {
       return this.showInfoData
     },
     getPhotosToShowUrl () {
-      return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}`) // Local.
-      // return `http://pascal-evano.org/album_photo_antoine_2/api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}` // For prod. Do it dynamically.
+      // return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}`) // Local.
+      return `http://pascal-evano.org/album_photo_antoine_2/api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}` // For prod. Do it dynamically.
     },
     doSearchWithPagination (numInPagination) {
       this.loading.isLoading = true

@@ -11,17 +11,19 @@
 - Make it responsive
 - Add transitions / sidebar menu, hamburger, ...
 - Improve UI/UX:
-  - Typography
-  - Colors
+  ~~- Typography~~
+  ~~- Colors~~
   - ...
 - Be able when search to filter not only by date (default) but by categories too.
 - Do unit testing!
 - Edit modale not OK.
+- Quit default photos and put text.
 - Alert / are you sure to delete :
   - Improve design
   - Typo is different
   - Put texts in french
-  - Do a version in english
+- Do a version in english
+- Fix prb with icons / time to load ...
 - ~~Quit pagination when turn to add or search!~~
   - ~~In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.~~
   - ~~Turn to initial state / photo container and pagination if we pass from add to search o reverse.~~
@@ -29,7 +31,7 @@
 - ~~Change color text input -> put in dark grey.~~
 - ~~Center pagination.~~
 ~~- Change title button to add file (the default one, put it in french)~~
-- ~~When remove photo in add photo, need to remove too photo name choosed before~~ removed.
+- ~~When remove photo in add photo, need to remove too photo name choosed before removed.~~
 - ~~When pass to search o add photo, turn photo to default.~~
 - ~~Add actual date for end date in find and add by default.~~
 ~~- Add category in info.~~

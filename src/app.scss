@@ -1,5 +1,6 @@
 @import "./assets/vars-and-mixins";
 .app {
+  font-family: 'Aguafina Script', cursive;
   @media screen and (max-width: $maxMobileWidth) {
     font-size: 16px;
   }
@@ -39,10 +40,12 @@
     color: $lightGrey;
   }
 
+  .titles {
+    font-family: 'Cabin', sans-serif;
+  }
   .h3-perso {
     color: $lightLightGrey;
   }
-  font-family: 'Roboto', sans-serif;
   .icons {
     cursor: pointer;
     font-size: 1.5em;
@@ -72,7 +75,7 @@
     padding-left: .3em;
     font-size: 1rem;
     height: $heightInputs;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Aguafina Script', cursive;
     &.date_picker {
       width: 100%;
       input {
@@ -90,6 +93,7 @@
   .main-submit-button {
     @include homeMadeButton(11em, 2.5em, white , $darkGrey, $colorBackgroundButton, $colorHoverText, .2em, .3em, 1em);
     margin-top: 1em;
+    font-family: 'Aguafina Script', cursive;
   }
   // Adapt date-picker styles.
   .vdpClearInput {

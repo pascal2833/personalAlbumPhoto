@@ -2,8 +2,8 @@ export const turnToInitialImageMutation = (state) => {
   state.photoToShowInPhotosContainer = {
     firstSearchOrPagination: '',
     id: null, // From response / back.
-    imageFile: 'defaultPhoto2.png', // To visualize photo from server. This is the default one.
-    src: '', // imageCodedIn64 (to visualize photo uploaded)
+    imageFile: '',
+    src: '', // imageCodedIn64 (to be able to visualize photo uploaded before send other informations)
     title: '',
     description: '',
     date: '',

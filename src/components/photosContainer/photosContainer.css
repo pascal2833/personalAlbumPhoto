@@ -5,6 +5,8 @@
   overflow: hidden;
   text-align: center;
   background-color: black; }
+  .photos-container__text-if-no-image {
+    color: #cac109; }
   .photos-container__image-container .icon {
     position: absolute;
     right: 3%; }

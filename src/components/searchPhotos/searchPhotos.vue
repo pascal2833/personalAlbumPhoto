@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible">
-    <h3 class="no-margin h3-perso">Cherche des photos</h3>
+    <h3 class="no-margin h3-perso titles">Cherche des photos</h3>
     <form @submit.prevent="submit">
       <label class="labels-4-inputs" for="photoDateInputStart">Debut de la periode (*) :</label>
       <template>

@@ -47,7 +47,7 @@ export default {
         isLoading: false,
         fullPage: true
       },
-      imageFile: '' // TODO: put a default one.
+      imageFile: ''
     }
   },
   methods: {

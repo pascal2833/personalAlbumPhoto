@@ -1,6 +1,6 @@
 <template>
   <div class="add-photos" v-if="visible">
-    <h3 class="no-margin h3-perso">Ajoute une photo.</h3>
+    <h3 class="no-margin h3-perso titles">Ajoute une photo.</h3>
     <form @submit.prevent="submit" enctype="multipart/form-data">
       <download-image
         @setIfPhotoHasBeenDownloadedOrNotEvent="setIfPhotoHasBeenDownloadedOrNot($event)"

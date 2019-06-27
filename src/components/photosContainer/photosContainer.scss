@@ -7,6 +7,9 @@
   overflow: hidden;
   text-align: center;
   background-color: black;
+  &__text-if-no-image {
+    color: #cac109;
+  }
   &__image-container {
     .icon {
       position: absolute;

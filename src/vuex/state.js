@@ -11,7 +11,7 @@ export const state = {
   photoToShowInPhotosContainer: {
     firstSearchOrPagination: '',
     id: null, // From response / back.
-    imageFile: 'defaultPhoto2.png', // To visualize photo from server. This is the default one.
+    imageFile: '',
     src: '', // imageCodedIn64 (to visualize photo uploaded)
     title: '',
     description: '',
