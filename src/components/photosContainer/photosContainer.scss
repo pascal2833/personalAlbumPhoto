@@ -1,14 +1,19 @@
 @import "../../assets/vars-and-mixins";
 
 .photos-container {
-  width: calc(100vw - (#{$widthLittleSidebar}));
-  margin-left: $widthLittleSidebar;
+  width: 100vw;
+  @media screen and (min-width: $maxMobileWidth + 1) {
+    width: calc(100vw - (#{$widthLittleSidebar}));
+    margin-left: $widthLittleSidebar;
+  }
   height: 100%;
   overflow: hidden;
   text-align: center;
   background-color: black;
   &__text-if-no-image {
     color: #cac109;
+    font-size: 2.1rem;
+    padding: 0 $mainLateralSpace;
   }
   &__image-container {
     .icon {

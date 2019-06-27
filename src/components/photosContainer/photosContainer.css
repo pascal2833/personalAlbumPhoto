@@ -1,12 +1,17 @@
 .photos-container {
-  width: calc(100vw - (60px));
-  margin-left: 60px;
+  width: 100vw;
   height: 100%;
   overflow: hidden;
   text-align: center;
   background-color: black; }
+  @media screen and (min-width: 769px) {
+    .photos-container {
+      width: calc(100vw - (60px));
+      margin-left: 60px; } }
   .photos-container__text-if-no-image {
-    color: #cac109; }
+    color: #cac109;
+    font-size: 2.1rem;
+    padding: 0 1em; }
   .photos-container__image-container .icon {
     position: absolute;
     right: 3%; }

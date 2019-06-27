@@ -8,7 +8,7 @@
   padding-bottom: 50px;
   z-index: 2;
   display: flex;
-  background-color: #292929;
+  background-color: $darkGreyMainMenus;
   &__little, &__extended {
     padding-top: 4vh;
     color: white;
@@ -23,7 +23,7 @@
     align-items: center;
   }
   &__extended {
-    padding-right: 1em;
+    padding-right: $mainLateralSpace;
     width: $widthExtendedSidebar;
     .minimize-icon {
       float: right;

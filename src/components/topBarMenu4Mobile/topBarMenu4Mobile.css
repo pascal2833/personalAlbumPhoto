@@ -1,0 +1,11 @@
+.top-bar-menu4-mobile {
+  background-color: #292929;
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .top-bar-menu4-mobile .icons {
+    padding: 0 1em; }
+
+/*# sourceMappingURL=topBarMenu4Mobile.css.map */

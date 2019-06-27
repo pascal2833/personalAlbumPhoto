@@ -30,6 +30,12 @@
     color: #787a7b; }
   .app textarea::placeholder {
     color: #787a7b; }
+  @media screen and (max-width: 768px) {
+    .app .only-4-tablet-and-desktop {
+      display: none !important; } }
+  @media screen and (min-width: 769px) {
+    .app .only-4-mobiles {
+      display: none !important; } }
   .app .titles {
     font-family: 'Cabin', sans-serif; }
   .app .h3-perso {
@@ -37,7 +43,9 @@
   .app .icons {
     cursor: pointer;
     font-size: 1.5em;
-    color: white; }
+    color: white;
+    z-index: 99;
+    position: relative; }
   .app .gnalFormErrorMessage {
     color: red;
     font-size: .9rem;

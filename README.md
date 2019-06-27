@@ -17,13 +17,13 @@
 - Be able when search to filter not only by date (default) but by categories too.
 - Do unit testing!
 - Edit modale not OK.
-- Quit default photos and put text.
 - Alert / are you sure to delete :
   - Improve design
   - Typo is different
   - Put texts in french
 - Do a version in english
 - Fix prb with icons / time to load ...
+- ~~Quit default photos and put text.~~
 - ~~Quit pagination when turn to add or search!~~
   - ~~In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.~~
   - ~~Turn to initial state / photo container and pagination if we pass from add to search o reverse.~~

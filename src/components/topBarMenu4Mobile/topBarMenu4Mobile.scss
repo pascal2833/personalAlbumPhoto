@@ -1,0 +1,13 @@
+@import "../../assets/vars-and-mixins";
+
+.top-bar-menu4-mobile {
+  background-color: $darkGreyMainMenus;
+  height: $heightTopBarMenu;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .icons {
+    padding: 0 $mainLateralSpace;
+  }
+}
