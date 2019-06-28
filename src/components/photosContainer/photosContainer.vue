@@ -1,5 +1,5 @@
 <template>
-  <section class="photos-container">
+  <section class="photos-container" :class="{'only-4-tablet-and-desktop': sideBarIsExtended}">
     <h1 class="photos-container__text-if-no-image titles" v-if="photoToShowInPhotosContainer.src === ''">
       Télécharge et cherche des photos
     </h1>
@@ -82,6 +82,7 @@ export default {
   computed: {
     ...mapState({
       photoToShowInPhotosContainer: state => state.photoToShowInPhotosContainer,
+      sideBarIsExtended: state => state.sideBarIsExtended,
       numPhotosRetrievedBySearch: state => state.numPhotosRetrievedBySearch,
       paramsToDoSearchRequestMutation: state => state.paramsToDoSearchRequestMutation,
       currentNumero: state => state.currentNumeroForPhotosPagination

@@ -1,5 +1,5 @@
 .app {
-  font-family: 'Aguafina Script', cursive; }
+  font-family: "Raleway", sans-serif; }
   @media screen and (max-width: 768px) {
     .app {
       font-size: 16px; } }
@@ -62,17 +62,17 @@
   .app .multiselect__tags {
     font-size: 1rem; }
   .app .main-inputs, .app .vdpComponent.vdpWithInput > input {
-    padding-left: .3em;
+    padding-left: 1em;
     font-size: 1rem;
     height: 3em;
-    font-family: 'Aguafina Script', cursive; }
+    font-family: 'Raleway', sans-serif; }
     .app .main-inputs.date_picker, .app .vdpComponent.vdpWithInput > input.date_picker {
       width: 100%; }
       .app .main-inputs.date_picker input, .app .vdpComponent.vdpWithInput > input.date_picker input {
         width: 100%;
         border: none;
-        margin-left: -0.3em;
-        padding: 0 0 0 .3em;
+        margin-left: -1em;
+        padding: 0 0 0 1em;
         color: #010819; }
     .app .main-inputs.text-area, .app .vdpComponent.vdpWithInput > input.text-area {
       height: inherit; }
@@ -81,13 +81,13 @@
     width: 11em;
     color: white;
     padding: 0.2em;
-    border-radius: .3em;
+    border-radius: 0.2em;
     font-size: 1em;
     cursor: pointer;
     border-style: none;
     background-color: #c28f78;
     margin-top: 1em;
-    font-family: 'Aguafina Script', cursive; }
+    font-family: 'Raleway', sans-serif; }
     .app .main-submit-button:hover {
       background-color: #f2611e;
       color: #010819; }

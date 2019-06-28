@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible">
+  <div v-if="visible" class="search-photos">
     <h3 class="no-margin h3-perso titles">Cherche des photos</h3>
     <form @submit.prevent="submit">
       <label class="labels-4-inputs" for="photoDateInputStart">Debut de la periode (*) :</label>
@@ -112,3 +112,5 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped src="./searchPhotos.scss"></style>

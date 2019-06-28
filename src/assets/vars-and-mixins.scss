@@ -9,6 +9,7 @@ $colorBackgroundButton: #c28f78;
 
 // ------------ Spacings : ------------ //
 $mainLateralSpace: 1em;
+$mainVerticalSpace: .3em;
 // ------------ End Spacings : ------------ //
 
 // ------------ Typo : ------------ //
@@ -31,7 +32,7 @@ $heightTopBarMenu: 50px;
   width: $width;
   color: $color;
   padding: $paddings;
-  border-radius: .3em;
+  border-radius: $borderR;
   font-size: $font-size;
   cursor: pointer;
   border-style: none;
@@ -56,7 +57,7 @@ $heightTopBarMenu: 50px;
   z-index: 2;
   width: $width;
   height: auto;
-  padding: .3em .7em;
+  padding: $mainLateralSpace .7em;
   border-radius: .2em;
   background-color: rgba(254,254,254,.85);
   border: solid 1px $lightGrey;

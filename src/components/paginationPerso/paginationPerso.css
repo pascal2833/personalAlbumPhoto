@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 .3em; }
+  padding: 0 1em; }
   .pagination-perso__icons, .pagination-perso__numeros {
     color: #010819;
     font-size: 2rem;

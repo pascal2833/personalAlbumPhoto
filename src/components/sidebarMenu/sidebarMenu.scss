@@ -1,33 +1,60 @@
 @import "../../assets/vars-and-mixins";
 
 .sidebar-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding-bottom: 50px;
-  z-index: 2;
-  display: flex;
   background-color: $darkGreyMainMenus;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: no-display;
   &__little, &__extended {
-    padding-top: 4vh;
     color: white;
     font-size: 120%;
+    height: calc(100vh - (#{$heightTopBarMenu}));
   }
   &__little {
-    width: $widthLittleSidebar;
-    display: flex;
-    flex-direction: column;
-    height: 40vh;
     justify-content: space-between;
-    align-items: center;
+    display: flex;
+    width: 200px;
+    height: $heightTopBarMenu;
   }
   &__extended {
-    padding-right: $mainLateralSpace;
-    width: $widthExtendedSidebar;
-    .minimize-icon {
-      float: right;
-      margin-top: -10px;
+    width: 100vw;
+    background-color: #3fc3ee;
+  }
+  .icons {
+    padding: $mainVerticalSpace $mainLateralSpace;
+  }
+  @media screen and (min-width: $maxMobileWidth + 1) {
+    flex-direction: row;
+    align-items: unset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding-bottom: 50px;
+    z-index: 2;
+    &__little, &__extended {
+      padding-top: 4vh;
+    }
+    &__little {
+      width: $widthLittleSidebar;
+      flex-direction: column;
+      height: 40vh;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__extended {
+      padding-right: $mainLateralSpace;
+      width: $widthExtendedSidebar;
+      margin-top: $heightTopBarMenu;
+      .minimize-icon {
+        float: right;
+        margin-top: -10px;
+      }
+    }
+    .icons {
+      padding: 0;
     }
   }
 }

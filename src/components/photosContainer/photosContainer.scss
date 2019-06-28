@@ -2,11 +2,7 @@
 
 .photos-container {
   width: 100vw;
-  @media screen and (min-width: $maxMobileWidth + 1) {
-    width: calc(100vw - (#{$widthLittleSidebar}));
-    margin-left: $widthLittleSidebar;
-  }
-  height: 100%;
+  height: calc(100vh - (#{$heightTopBarMenu}));
   overflow: hidden;
   text-align: center;
   background-color: black;
@@ -56,5 +52,10 @@
     left: 50%;
     transform: translate(-50%);
     margin-left: $widthLittleSidebar/2;
+  }
+  @media screen and (min-width: $maxMobileWidth + 1) {
+    height: 100vh;
+    width: calc(100vw - (#{$widthLittleSidebar}));
+    margin-left: $widthLittleSidebar;
   }
 }

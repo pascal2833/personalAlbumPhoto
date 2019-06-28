@@ -5,7 +5,7 @@
       <i class="fas fa-search icons" title="Cherche des photos" @click="onSearchPhoto()"></i>
     </div>
     <div class="sidebar-menu__extended" v-if="!minimizeSidebarMenu">
-      <i class="fas fa-chevron-left icons minimize-icon" @click="minimizeSideBar()" title="Diminuer le menu lateral"></i>
+      <i class="fas fa-chevron-left icons minimize-icon only-4-tablet-and-desktop" @click="minimizeSideBar()" title="Diminuer le menu lateral"></i>
       <search-photos :visible="searchPhotoMenuIsVisible"></search-photos>
       <add-photos :visible="addPhotoMenuIsVisible"></add-photos>
     </div>
@@ -69,6 +69,7 @@ export default {
     },
     extendSideBar () {
       this.minimizeSidebarMenu = false
+      this.$store.commit('sideBarIsExtendedMutation', true)
     }
   }
 }

@@ -1,4 +1,5 @@
 export const state = {
+  sideBarIsExtended: false,
   text4ChoosePhotoLabel: 'Clique pour choisir une photo (*) :',
   paramsToDoSearchRequestMutation: {
     initialDate: '',
