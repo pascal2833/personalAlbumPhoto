@@ -1,6 +1,7 @@
 @import "../../assets/vars-and-mixins";
 .add-photos {
   color: white;
+  padding: 0 $mainLateralSpaceMobile;
   form {
     display: flex;
     flex-direction: column;

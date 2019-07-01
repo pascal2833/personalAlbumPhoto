@@ -7,16 +7,18 @@
   overflow: no-display; }
   .sidebar-menu__little, .sidebar-menu__extended {
     color: white;
-    font-size: 120%;
-    height: calc(100vh - (50px)); }
+    font-size: 120%; }
   .sidebar-menu__little {
-    justify-content: space-between;
+    justify-content: end;
+    justify-content: flex-end;
     display: flex;
-    width: 200px;
+    width: 100vw;
     height: 50px; }
   .sidebar-menu__extended {
     width: 100vw;
-    background-color: #3fc3ee; }
+    height: auto;
+    min-height: calc(100vh - (50px));
+    padding-bottom: 0.3em; }
   .sidebar-menu .icons {
     padding: 0.3em 1em; }
   @media screen and (min-width: 769px) {

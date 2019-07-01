@@ -102,6 +102,7 @@ export default {
           this.$store.commit('keepParamsToDoSearchRequestMutation', params)
           this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)
           this.$store.commit('setImageDataInPhotoContainerMutation', response.data[0])
+          this.$store.commit('sideBarIsExtendedMutation', false)
           this.loading.isLoading = false
         })
         .catch(() => {

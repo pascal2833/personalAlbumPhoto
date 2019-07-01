@@ -75,27 +75,31 @@
   }
   .multiselect-perso {
     color: $darkGrey;
-  }
-  .multiselect__tags { // Styles from vue-multiselect
-    font-size: 1rem;
+    .multiselect__tags { // Styles from vue-multiselect
+      font-size: 1rem;
+      padding-left: $mainLateralSpace;
+    }
   }
   .main-inputs, .vdpComponent.vdpWithInput > input {
-    padding-left: $mainLateralSpace;
+    // padding-left: $mainLateralSpace;
+    border: 0;
+    border-radius: $mainBorderRadius;
     font-size: 1rem;
     height: $heightInputs;
-    font-family: 'Raleway', sans-serif;;
+    font-family: 'Raleway', sans-serif;
+    padding: 0 0 0 $mainLateralSpace;
     &.date_picker {
-      width: 100%;
+      width: calc(100% - #{$mainLateralSpace});
       input {
         width: 100%;
         border: none;
         margin-left: -$mainLateralSpace;
-        padding: 0 0 0 $mainLateralSpace;
         color: $darkGrey;
       }
     }
     &.text-area {
       height: inherit;
+      padding-top: $mainVerticalSpace;
     }
   }
   .main-submit-button {

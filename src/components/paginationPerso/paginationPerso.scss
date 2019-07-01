@@ -1,6 +1,7 @@
 @import '../../../src/assets/vars-and-mixins';
 
 $mainFontSize: 2rem;
+$mainFontSize4Mobile: 1.5rem;
 .pagination-perso {
   background-color: rgba(255,255,255,.4);
   display: flex;
@@ -9,7 +10,7 @@ $mainFontSize: 2rem;
   padding: 0 $mainLateralSpace;
   &__icons,  &__numeros {
     color: $darkGrey;
-    font-size: $mainFontSize;
+    font-size: $mainFontSize4Mobile;
     cursor: pointer;
     &.little {
       font-size: 40px;
@@ -22,6 +23,17 @@ $mainFontSize: 2rem;
   .isTheActiveNumero {
     font-weight: bold;
     color: black;
-    font-size: calc(#{$mainFontSize} + 7px);
+    font-size: calc(#{$mainFontSize4Mobile} + 2px);
+  }
+}
+
+@media screen and (min-width: $maxMobileWidth + 1){
+  .pagination-perso {
+    &__icons,  &__numeros {
+      font-size: $mainFontSize;
+    }
+    .isTheActiveNumero {
+      font-size: calc(#{$mainFontSize} + 7px);
+    }
   }
 }

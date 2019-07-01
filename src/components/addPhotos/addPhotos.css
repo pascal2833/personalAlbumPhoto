@@ -1,5 +1,6 @@
 .add-photos {
-  color: white; }
+  color: white;
+  padding: 0 0.5em; }
   .add-photos form {
     display: flex;
     flex-direction: column; }

@@ -6,7 +6,7 @@
   padding: 0 1em; }
   .pagination-perso__icons, .pagination-perso__numeros {
     color: #010819;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer; }
     .pagination-perso__icons.little, .pagination-perso__numeros.little {
       font-size: 40px; }
@@ -16,6 +16,12 @@
   .pagination-perso .isTheActiveNumero {
     font-weight: bold;
     color: black;
-    font-size: calc(2rem + 7px); }
+    font-size: calc(1.5rem + 2px); }
+
+@media screen and (min-width: 769px) {
+  .pagination-perso__icons, .pagination-perso__numeros {
+    font-size: 2rem; }
+  .pagination-perso .isTheActiveNumero {
+    font-size: calc(2rem + 7px); } }
 
 /*# sourceMappingURL=paginationPerso.css.map */

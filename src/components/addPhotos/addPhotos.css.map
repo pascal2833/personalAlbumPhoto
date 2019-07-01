@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACA,WAAY;EACV,KAAK,EAAE,KAAK;EACZ,gBAAK;IACH,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,MAAM",
+"mappings": "AACA,WAAY;EACV,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,OAAyB;EAClC,gBAAK;IACH,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,MAAM",
 "sources": ["addPhotos.scss"],
 "names": [],
 "file": "addPhotos.css"

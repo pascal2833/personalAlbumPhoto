@@ -153,6 +153,7 @@ export default {
               this.loading.isLoading = false
               this.$store.commit('turnToInitialImageMutation')
               this.$store.commit('setText4ChoosePhotoLabelMutation', 'Clique pour choisir une photo (*) :')
+              this.$store.commit('sideBarIsExtendedMutation', false)
               this.showAlert('La photo a ete enregistree')
               // this.text4ChoosePhotoLabel = ''
             } else {
