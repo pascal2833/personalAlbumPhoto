@@ -30,7 +30,7 @@
         v-model="form.categoriesSelected"
         :options="form.options4Multiselect"
         :searchable="false"
-        :close-on-select="false"
+        :close-on-select="true"
         :show-labels="false"
         :multiple="true"
         placeholder="Choisi une ou plusieurs catégorie(s)"

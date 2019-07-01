@@ -2,7 +2,7 @@
 
 .photos-container {
   width: 100vw;
-  height: calc(100vh - (#{$heightTopBarMenu}));
+  height: 100vh;
   overflow: hidden;
   text-align: center;
   background-color: black;
@@ -27,7 +27,7 @@
     }
     .info-pop-up {
       position: absolute;
-      top: 5%;
+      top: calc(10% + #{$heightTopBarMenu});
       left: 50%;
       transform: translate(-50%);
     }
@@ -47,7 +47,7 @@
     position: absolute;
     z-index: 2;
     width: 96vw;
-    top: 92vh;
+    top: 101vh;
     height: 5vh;
     left: 50%;
     transform: translate(-50%);
@@ -56,7 +56,6 @@
 
 @media screen and (min-width: $maxMobileWidth + 1) {
   .photos-container {
-    height: 100vh;
     width: calc(100vw - (#{$widthLittleSidebar}));
     margin-left: $widthLittleSidebar;
     &__image-container {
@@ -73,6 +72,7 @@
       }
     }
     .pagination-container {
+      top: 92vh;
       width: 60vw;
       margin-left: $widthLittleSidebar/2;
     }

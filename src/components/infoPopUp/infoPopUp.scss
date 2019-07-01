@@ -1,11 +1,17 @@
 @import '../../assets/vars-and-mixins';
 .info-pop-up {
-  @include popUpOrBoxInModal();
+  @include popUpOrBoxInModal(90vw);
   .close-icon {
     float: right;
     color: $darkGrey;
   }
   &__title {
     font-weight: bold;
+  }
+}
+
+@media screen and (min-width: $maxMobileWidth + 1) {
+  .info-pop-up {
+    @include popUpOrBoxInModal(40vw);
   }
 }

@@ -1,6 +1,6 @@
 .info-pop-up {
   z-index: 2;
-  width: 40vw;
+  width: 90vw;
   height: auto;
   padding: 1em 0.7em;
   border-radius: .2em;
@@ -14,5 +14,18 @@
     color: #010819; }
   .info-pop-up__title {
     font-weight: bold; }
+
+@media screen and (min-width: 769px) {
+  .info-pop-up {
+    z-index: 2;
+    width: 40vw;
+    height: auto;
+    padding: 1em 0.7em;
+    border-radius: .2em;
+    background-color: rgba(254, 254, 254, 0.85);
+    border: solid 1px #787a7b;
+    color: #010819;
+    font-size: 1.2rem;
+    text-align: justify; } }
 
 /*# sourceMappingURL=infoPopUp.css.map */

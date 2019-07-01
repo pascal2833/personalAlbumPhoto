@@ -25,8 +25,8 @@
         <label class="labels-4-inputs">Date de la photo :</label>
         <template>
           <date-pick
+            class="main-inputs date_picker"
             v-model="photoToShowInPhotosContainer.date"
-            class="main-inputs"
             id="editPhotoDateInput"
             :displayFormat="'YYYY-MM-DD'"
             @input="changeDate($event)"
@@ -35,6 +35,7 @@
         </template>
         <label class="labels-4-inputs" for="editPhotoCategoriesInput">Categorie :</label>
         <multiselect
+          class="multiselect-perso"
           id="editPhotoCategoriesInput"
           :value="photoToShowInPhotosContainer.category"
           @input="changeCategory($event)"

@@ -37,7 +37,7 @@
     .app .only-4-mobiles {
       display: none !important; } }
   .app .titles {
-    font-family: 'Cabin', sans-serif; }
+    font-family: "Cabin", sans-serif !important; }
   .app .h3-perso {
     color: #e7e7e7; }
   .app .icons {
@@ -63,6 +63,7 @@
       font-size: 1rem;
       padding-left: 1em; }
   .app .main-inputs, .app .vdpComponent.vdpWithInput > input {
+    width: calc(100% - 1em);
     border: 0;
     border-radius: 0.2em;
     font-size: 1rem;

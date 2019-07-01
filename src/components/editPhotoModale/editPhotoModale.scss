@@ -3,14 +3,20 @@
   @include backgroundModal();
   .edit-photo-modale-container {
     position: absolute;
-    top: 5%;
+    top: calc(5% + #{$heightTopBarMenu});
     left: 50%;
     transform: translate(-50%);
-    @include popUpOrBoxInModal();
+    @include popUpOrBoxInModal(90vw);
     .close-icon {
       float: right;
       color: $darkGrey;
     }
+  }
+}
+
+@media screen and (min-width: $maxMobileWidth + 1) {
+  .edit-photo-modale-mask {
+    @include popUpOrBoxInModal(40vw);
   }
 }
 

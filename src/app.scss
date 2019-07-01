@@ -47,7 +47,7 @@
     }
   }
   .titles {
-    font-family: 'Cabin', sans-serif;
+  font-family: 'Cabin', sans-serif!important;
   }
   .h3-perso {
     color: $lightLightGrey;
@@ -81,7 +81,7 @@
     }
   }
   .main-inputs, .vdpComponent.vdpWithInput > input {
-    // padding-left: $mainLateralSpace;
+    width: calc(100% - #{$mainLateralSpace});
     border: 0;
     border-radius: $mainBorderRadius;
     font-size: 1rem;

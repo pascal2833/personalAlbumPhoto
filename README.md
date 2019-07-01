@@ -23,6 +23,7 @@
   - Put texts in french
 - Do a version in english
 - Fix prb with icons / time to load ...
+- Stop bubble event / edit, delete and info when one is showed.
 - ~~Quit default photos and put text.~~
 - ~~Quit pagination when turn to add or search!~~
   - ~~In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.~~
