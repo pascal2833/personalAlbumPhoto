@@ -10,20 +10,19 @@
 - Pass loading like vue mixin.
 - From the back end part, send message if photo downloaded is > 4000000k and if format is not good.'
 - Add transitions / sidebar menu, hamburger, ...
-- Improve UI/UX:
-  ~~- Typography~~
-  ~~- Colors~~
-  - ...
 - Be able when search to filter not only by date (default) but by categories too.
 - Do unit testing!
-- Do a version in english
-- Alert / are you sure to delete :
+- Do an english version
+- ~~Alert / are you sure to delete :~~
   - ~~Improve design~~
   - ~~Typo is different~~
   - ~~Put texts in french~~
 - ~~Pass http to https ...~~
 - ~~Stop bubble event / edit, delete and info when one is showed.~~
 - ~~Fix prb with icons / time to load ...~~
+~~Improve UI/UX:~~
+  ~~- Typography~~
+  ~~- Colors~~
 - ~~Bug: when we choose and delete photo (without add it really), 2nd time: text not reinitiate.~~
 - ~~Make it responsive~~
   - ~~Edit modale not OK in desktop.~~
