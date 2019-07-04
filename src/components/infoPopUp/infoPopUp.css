@@ -1,5 +1,5 @@
 .info-pop-up {
-  z-index: 2;
+  z-index: 999;
   width: 90vw;
   height: auto;
   padding: 1em 0.7em;
@@ -17,7 +17,7 @@
 
 @media screen and (min-width: 769px) {
   .info-pop-up {
-    z-index: 2;
+    z-index: 999;
     width: 40vw;
     height: auto;
     padding: 1em 0.7em;

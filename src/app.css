@@ -1,5 +1,5 @@
 .app {
-  font-family: "Raleway", sans-serif; }
+  font-family: 'Raleway', sans-serif; }
   @media screen and (max-width: 768px) {
     .app {
       font-size: 16px; } }
@@ -97,5 +97,7 @@
       color: #010819; }
   .app .vdpClearInput {
     display: none; }
+  .app .swal2-title {
+    font-family: 'Raleway', sans-serif; }
 
 /*# sourceMappingURL=app.css.map */

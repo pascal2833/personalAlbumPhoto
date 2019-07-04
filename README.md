@@ -6,9 +6,9 @@
 
 ### TODO:
 - Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie (use OAuth?)
+- Pass front-end part in AWS: https://alligator.io/vuejs/deploy-vue-app-aws/
 - Pass loading like vue mixin.
 - From the back end part, send message if photo downloaded is > 4000000k and if format is not good.'
-- Make it responsive
 - Add transitions / sidebar menu, hamburger, ...
 - Improve UI/UX:
   ~~- Typography~~
@@ -16,14 +16,17 @@
   - ...
 - Be able when search to filter not only by date (default) but by categories too.
 - Do unit testing!
-- Edit modale not OK.
-- Alert / are you sure to delete :
-  - Improve design
-  - Typo is different
-  - Put texts in french
 - Do a version in english
-- Fix prb with icons / time to load ...
-- Stop bubble event / edit, delete and info when one is showed.
+- Alert / are you sure to delete :
+  - ~~Improve design~~
+  - ~~Typo is different~~
+  - ~~Put texts in french~~
+- ~~Pass http to https ...~~
+- ~~Stop bubble event / edit, delete and info when one is showed.~~
+- ~~Fix prb with icons / time to load ...~~
+- ~~Bug: when we choose and delete photo (without add it really), 2nd time: text not reinitiate.~~
+- ~~Make it responsive~~
+  - ~~Edit modale not OK in desktop.~~
 - ~~Quit default photos and put text.~~
 - ~~Quit pagination when turn to add or search!~~
   - ~~In fact, when we are in search, if turn to click on search, doesn't do anything, same for add.~~

@@ -1,15 +1,15 @@
 <template>
   <section class="sidebar-menu">
     <div class="sidebar-menu__little">
-      <i class="fas fa-camera icons" title="Ajoute des photos" @click="onAddPhoto()"></i>
-      <i class="fas fa-search icons" title="Cherche des photos" @click="onSearchPhoto()"></i>
+      <span class="fas fa-camera icons" title="Ajoute des photos" @click="onAddPhoto()"></span>
+      <span class="fas fa-search icons" title="Cherche des photos" @click="onSearchPhoto()"></span>
     </div>
     <div
       class="sidebar-menu__extended"
       :class="{'only-4-tablet-and-desktop': !sideBarIsExtended}"
       v-if="!minimizeSidebarMenu"
     >
-      <i class="fas fa-chevron-left icons minimize-icon only-4-tablet-and-desktop" @click="minimizeSideBar()" title="Diminuer le menu lateral"></i>
+      <span class="fas fa-chevron-left icons minimize-icon only-4-tablet-and-desktop" @click="minimizeSideBar()" title="Diminuer le menu lateral"></span>
       <search-photos :visible="searchPhotoMenuIsVisible"></search-photos>
       <add-photos :visible="addPhotoMenuIsVisible"></add-photos>
     </div>

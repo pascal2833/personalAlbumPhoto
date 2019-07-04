@@ -1,6 +1,5 @@
 @import "./assets/vars-and-mixins";
 .app {
-  font-family: 'Raleway', sans-serif  ;
   @media screen and (max-width: $maxMobileWidth) {
     font-size: 16px;
   }
@@ -47,7 +46,7 @@
     }
   }
   .titles {
-  font-family: 'Cabin', sans-serif!important;
+    font-family: 'Cabin', sans-serif!important;
   }
   .h3-perso {
     color: $lightLightGrey;
@@ -111,4 +110,8 @@
   .vdpClearInput {
     display: none;
   }
+  .swal2-title {
+    font-family: 'Raleway', sans-serif;
+  }
+  font-family: 'Raleway', sans-serif;
 }

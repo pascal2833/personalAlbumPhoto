@@ -97,7 +97,17 @@ export default {
       this.loading.isLoading = true
       const params = {initialDate: this.form.initialDate, endDate: this.form.endDate, category: this.form.categoriesSelected, firstSearchOrPagination: 'firstSearch', numPageFromPagination: 1}
       this.$store.commit('setGlobalNumForPagination', 1)
-      axios.get(`${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`, {params})
+      const url = `${AsynRequestsParams.BASE_URL}${AsynRequestsParams.searchAction}`
+      axios({
+        method: 'post',
+        url: url,
+        data: params,
+        headers: {// To avoid send OPTIONS request / CORS before POST request. CF https://github.com/axios/axios/issues/475
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+      // axios.post(url, params)
         .then((response) => {
           this.$store.commit('keepParamsToDoSearchRequestMutation', params)
           this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)

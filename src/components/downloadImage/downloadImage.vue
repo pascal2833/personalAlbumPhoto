@@ -4,18 +4,20 @@
         <label class="labels-4-inputs label-to-choose-photo" for="photoUploadInput">{{text4ChoosePhotoLabel}}</label>
       <label class="labels-4-inputs photo-to-big-message" v-if="showPhotoToBigMessage">La photo est trop lourde, elle doit etre inferieure a 4Mb</label>
       <input
+        ref="imageUploader"
         class="input-to-add-photo"
         id="photoUploadInput"
         type="file"
         @change="uploadPhotos($event.target.files)"
+        @click="resetImageUploader()"
         accept="image/*"
       >
-      <i
+      <span
         class="far fa-trash-alt icons"
         title="Annuler cette photo"
         @click="deletePhoto()"
       >
-      </i>
+      </span>
     </div>
     <loading
       :active.sync="loading.isLoading"
@@ -55,6 +57,9 @@ export default {
       this.$store.commit('turnToInitialImageMutation')
       this.$emit('setIfPhotoHasBeenDownloadedOrNotEvent', '')
       this.$store.commit('setText4ChoosePhotoLabelMutation', 'Clique pour choisir une photo (*) :')
+    },
+    resetImageUploader () {
+      this.$refs.imageUploader.value = ''
     },
     uploadPhotos (files) {
       this.loading.isLoading = true

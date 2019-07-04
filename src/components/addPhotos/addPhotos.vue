@@ -155,7 +155,6 @@ export default {
               this.$store.commit('setText4ChoosePhotoLabelMutation', 'Clique pour choisir une photo (*) :')
               this.$store.commit('sideBarIsExtendedMutation', false)
               this.showAlert('La photo a ete enregistree')
-              // this.text4ChoosePhotoLabel = ''
             } else {
               this.loading.isLoading = false
               this.showAlert('La photo n\'a pas pu etre enregistree. Verifier que tout est correct')

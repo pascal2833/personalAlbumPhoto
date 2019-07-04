@@ -5,29 +5,29 @@
     </h1>
     <div class="photos-container__image-container" v-if="photoToShowInPhotosContainer.src !== ''">
       <div class="icons-container" v-if="photoInfo.title">
-        <i
+        <span
           class="fas fa-info-circle icon --info icons"
           title="Info de cette photo"
-          @click="onInfo(photoToShowInPhotosContainer.id)"
+          @click.stop="onInfo(photoToShowInPhotosContainer.id)"
         >
-        </i>
-        <i
+        </span>
+        <span
           class="far fa-edit icon --edit icons"
           title="Editer cette photo"
           @click="onEdit(photoToShowInPhotosContainer.id)"
         >
-        </i>
+        </span>
         <edit-photo-modale
           :show="showEditPhotoModale"
           @closeEditModalEvent="removeEditPhotoModal()"
         >
         </edit-photo-modale>
-        <i
+        <span
           class="far fa-trash-alt icon --delete icons"
           title="Eleminer cette photo"
           @click="onDelete(photoToShowInPhotosContainer.id)"
         >
-        </i>
+        </span>
       </div>
       <template class="info-pop-up" v-if="showInfoMethod()">
         <info-pop-up
@@ -162,7 +162,7 @@ export default {
     },
     getPhotosToShowUrl () {
       // return require(`../../../api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}`) // Local.
-      return `http://pascal-evano.org/album_photo_antoine_2/api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}` // For prod. Do it dynamically.
+      return `https://pascal-evano.org/album_photo_antoine_2/api/PhotosToShow/${this.$store.state.photoToShowInPhotosContainer.imageFile}` // For prod. TODO: Do it dynamically.
     },
     doSearchWithPagination (numInPagination) {
       this.loading.isLoading = true
@@ -175,7 +175,7 @@ export default {
         })
         .catch(() => {
           this.loading.isLoading = false
-          this.showAlertl('Une erreur est survenue')
+          this.showAlert('Une erreur est survenue')
         })
     }
   }

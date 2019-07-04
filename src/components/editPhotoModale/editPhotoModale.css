@@ -11,7 +11,7 @@
     top: calc(5% + 50px);
     left: 50%;
     transform: translate(-50%);
-    z-index: 2;
+    z-index: 999;
     width: 90vw;
     height: auto;
     padding: 1em 0.7em;
@@ -26,8 +26,8 @@
       color: #010819; }
 
 @media screen and (min-width: 769px) {
-  .edit-photo-modale-mask {
-    z-index: 2;
+  .edit-photo-modale-mask .edit-photo-modale-container {
+    z-index: 999;
     width: 40vw;
     height: auto;
     padding: 1em 0.7em;

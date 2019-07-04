@@ -56,7 +56,7 @@ $mainBorderRadius: .2em;
 }
 
 @mixin popUpOrBoxInModal($width) {
-  z-index: 2;
+  z-index: 999;
   width: $width;
   height: auto;
   padding: $mainLateralSpace .7em;

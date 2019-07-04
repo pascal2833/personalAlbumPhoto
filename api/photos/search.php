@@ -9,7 +9,8 @@ include_once '../objects/Photos.php';
 $database = new Database();
 $db = $database->getConnection();
 // get params from request:
-$paramsFromSearchRequest = $_GET;
+$_POST = json_decode(file_get_contents("php://input"), true);
+$paramsFromSearchRequest = $_POST;
 // initialize object
 $photos = new Photos($db);
 // query photos:

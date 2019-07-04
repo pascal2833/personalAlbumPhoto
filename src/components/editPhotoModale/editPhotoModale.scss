@@ -16,7 +16,9 @@
 
 @media screen and (min-width: $maxMobileWidth + 1) {
   .edit-photo-modale-mask {
-    @include popUpOrBoxInModal(40vw);
+    .edit-photo-modale-container {
+      @include popUpOrBoxInModal(40vw);
+    }
   }
 }
 

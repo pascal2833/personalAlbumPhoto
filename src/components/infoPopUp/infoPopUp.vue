@@ -1,5 +1,8 @@
 <template>
-<div class="info-pop-up" v-if="photoToShowInPhotosContainer.imageFile !== ''">
+<div
+  class="info-pop-up"
+  v-if="photoToShowInPhotosContainer.imageFile !== ''"
+>
   <i
     class="fas fa-times icons close-icon"
     title="Ferme la pop-up"
