@@ -35,6 +35,12 @@
     color: $lightGrey;
   }
 
+  .mainTransition-enter-active, .transitionExtendMenu-leave-active {
+    transition: opacity .5s ease-out;
+  }
+  .mainTransition-enter, .transitionExtendMenu-leave-to {
+    opacity: 0;
+  }
   .only-4-tablet-and-desktop {
     @media screen and (max-width: $maxMobileWidth) {
       display: none!important;

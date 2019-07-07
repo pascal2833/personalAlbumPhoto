@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-photo-modale-mask" v-if="show">
+  <div class="edit-photo-modale-mask">
     <div class="edit-photo-modale-container">
       <i
         class="fas fa-times icons close-icon"
@@ -90,11 +90,6 @@ export default {
     ...mapState({
       photoToShowInPhotosContainer: state => state.photoToShowInPhotosContainer
     })
-  },
-  props: {
-    show: {
-      type: Boolean
-    }
   },
   data: function () {
     return {

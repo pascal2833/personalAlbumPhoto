@@ -30,6 +30,10 @@
     color: #787a7b; }
   .app textarea::placeholder {
     color: #787a7b; }
+  .app .mainTransition-enter-active, .app .transitionExtendMenu-leave-active {
+    transition: opacity .5s ease-out; }
+  .app .mainTransition-enter, .app .transitionExtendMenu-leave-to {
+    opacity: 0; }
   @media screen and (max-width: 768px) {
     .app .only-4-tablet-and-desktop {
       display: none !important; } }

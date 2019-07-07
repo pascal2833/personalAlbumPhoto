@@ -17,11 +17,14 @@
           @click="onEdit(photoToShowInPhotosContainer.id)"
         >
         </span>
-        <edit-photo-modale
-          :show="showEditPhotoModale"
-          @closeEditModalEvent="removeEditPhotoModal()"
-        >
-        </edit-photo-modale>
+        <transition name="mainTransition">
+          <template v-if="showEditPhotoModale">
+            <edit-photo-modale
+                @closeEditModalEvent="removeEditPhotoModal()"
+              >
+              </edit-photo-modale>
+          </template>
+        </transition>
         <span
           class="far fa-trash-alt icon --delete icons"
           title="Eleminer cette photo"
@@ -29,14 +32,15 @@
         >
         </span>
       </div>
-      <template class="info-pop-up" v-if="showInfoMethod()">
-        <info-pop-up
-          :info="photoInfo"
-          :show="showInfoData"
-          @closeInfoPopUpEvent="removeInfoPhotoPopUp()"
-        >
-        </info-pop-up>
-      </template>
+      <transition name="mainTransition">
+        <template class="info-pop-up" v-if="showInfoMethod()">
+          <info-pop-up
+            :info="photoInfo"
+            @closeInfoPopUpEvent="removeInfoPhotoPopUp()"
+          >
+          </info-pop-up>
+        </template>
+      </transition>
       <img
         :class="photoToShowInPhotosContainer.horizontalOrVertical"
         class="images-to-show"

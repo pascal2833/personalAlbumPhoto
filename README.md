@@ -5,14 +5,16 @@
 ## At the moment, it's still a WIP but works. 
 
 ### TODO:
-- Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie (use OAuth?)
-- Pass front-end part in AWS: https://alligator.io/vuejs/deploy-vue-app-aws/
-- Pass loading like vue mixin.
-- From the back end part, send message if photo downloaded is > 4000000k and if format is not good.'
-- Add transitions / sidebar menu, hamburger, ...
-- Be able when search to filter not only by date (default) but by categories too.
-- Do unit testing!
-- Do an english version
+1. Do unit testing!
+2. Pass loading like vue mixin.
+2. Use slot 
+3. From the back end part, send message if photo downloaded is > 4000000k and if format is not good.
+4. Be able when search to filter not only by date (default) but by categories too.
+5. Quit header Access-Control-Allow-Origin: / API files, and put authentification, via cookie (use OAuth?)
+6. Pass front-end part in AWS: https://alligator.io/vuejs/deploy-vue-app-aws/
+7. Do an english version
+
+- ~~Add transitions / sidebar menu, hamburger, ...~~
 - ~~Alert / are you sure to delete :~~
   - ~~Improve design~~
   - ~~Typo is different~~

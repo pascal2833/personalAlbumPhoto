@@ -22,9 +22,6 @@ import { mapState } from 'vuex'
 export default {
   name: 'infoPopUp',
   props: {
-    show: {
-      type: Boolean
-    },
     info: {
       type: Object
     }
