@@ -1,5 +1,5 @@
 .app {
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Mukta Mahee', sans-serif; }
   @media screen and (max-width: 768px) {
     .app {
       font-size: 16px; } }
@@ -41,7 +41,7 @@
     .app .only-4-mobiles {
       display: none !important; } }
   .app .titles {
-    font-family: "Cabin", sans-serif !important; }
+    font-family: "Palanquin Dark", sans-serif !important; }
   .app .h3-perso {
     color: #e7e7e7; }
   .app .icons {
@@ -72,7 +72,7 @@
     border-radius: 0.2em;
     font-size: 1rem;
     height: 3em;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Mukta Mahee', sans-serif;
     padding: 0 0 0 1em; }
     .app .main-inputs.date_picker, .app .vdpComponent.vdpWithInput > input.date_picker {
       width: calc(100% - 1em); }
@@ -95,13 +95,13 @@
     border-style: none;
     background-color: #c28f78;
     margin-top: 1em;
-    font-family: 'Raleway', sans-serif; }
+    font-family: 'Mukta Mahee', sans-serif; }
     .app .main-submit-button:hover {
       background-color: #f2611e;
       color: #010819; }
   .app .vdpClearInput {
     display: none; }
   .app .swal2-title {
-    font-family: 'Raleway', sans-serif; }
+    font-family: 'Mukta Mahee', sans-serif; }
 
 /*# sourceMappingURL=app.css.map */

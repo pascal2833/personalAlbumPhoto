@@ -52,7 +52,7 @@
     }
   }
   .titles {
-    font-family: 'Cabin', sans-serif!important;
+    font-family: 'Palanquin Dark', sans-serif!important;
   }
   .h3-perso {
     color: $lightLightGrey;
@@ -91,7 +91,7 @@
     border-radius: $mainBorderRadius;
     font-size: 1rem;
     height: $heightInputs;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Mukta Mahee', sans-serif;
     padding: 0 0 0 $mainLateralSpace;
     &.date_picker {
       width: calc(100% - #{$mainLateralSpace});
@@ -110,14 +110,14 @@
   .main-submit-button {
     @include homeMadeButton(11em, 2.5em, white , $darkGrey, $colorBackgroundButton, $colorHoverText, .2em, .2em, 1em);
     margin-top: 1em;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Mukta Mahee', sans-serif;
   }
   // Adapt date-picker styles.
   .vdpClearInput {
     display: none;
   }
   .swal2-title {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Mukta Mahee', sans-serif;
   }
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Mukta Mahee', sans-serif;
 }

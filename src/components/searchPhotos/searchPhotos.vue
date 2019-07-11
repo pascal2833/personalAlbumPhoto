@@ -14,6 +14,7 @@
       </template>
       <label class="labels-4-inputs" for="photoDateInputEnd">Fin de la periode (*) :</label>
       <template>
+        {{form.endDate}}
         <date-pick
           v-model="form.endDate"
           class="main-inputs date_picker"
@@ -88,7 +89,11 @@ export default {
   methods: {
     getActualDateFormated () {
       const actualDate = new Date()
-      return `${actualDate.getFullYear()}-${actualDate.getMonth() + 1}-${actualDate.getDate()}`
+      let day = actualDate.getDate()
+      let month = actualDate.getMonth() + 1
+      day < 10 ? day = `0${day}` : day = `${day}`
+      month < 10 ? month = `0${month}` : month = `${month}`
+      return `${actualDate.getFullYear()}-${month}-${day}`
     },
     showAlert (text) {
       this.$swal(text)
@@ -106,8 +111,6 @@ export default {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
-      // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-      // axios.post(url, params)
         .then((response) => {
           this.$store.commit('keepParamsToDoSearchRequestMutation', params)
           this.$store.commit('setNumPhotosRetrievedBySearchMutation', response.data.length)

@@ -1,7 +1,7 @@
 <template>
 <div
   class="info-pop-up"
-  v-if="photoToShowInPhotosContainer.imageFile !== ''"
+  v-if="imageFile !== ''"
 >
   <i
     class="fas fa-times icons close-icon"
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     ...mapState({
-      photoToShowInPhotosContainer: state => state.photoToShowInPhotosContainer
+      imageFile: state => state.photoToShowInPhotosContainer.imageFile
     })
   },
   methods: {
