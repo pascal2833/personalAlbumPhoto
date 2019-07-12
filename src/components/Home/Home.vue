@@ -1,11 +1,7 @@
 <template>
     <div class="home">
-      <template>
-        <sidebar-menu></sidebar-menu>
-      </template>
-      <template>
-        <photos-container></photos-container>
-      </template>
+      <sidebar-menu></sidebar-menu>
+      <photos-container></photos-container>
     </div>
 </template>
 

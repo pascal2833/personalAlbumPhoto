@@ -6,6 +6,7 @@
 
 ### TODO:
 1. Do unit testing!
+2. Create actions to get data from api request (better than call api request directly in component)
 2. Pass loading like vue mixin.
 3. Use slot
 4. Use trim() to quit spaces : inputs in front part. 

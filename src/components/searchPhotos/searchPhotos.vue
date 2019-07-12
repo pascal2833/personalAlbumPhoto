@@ -14,7 +14,6 @@
       </template>
       <label class="labels-4-inputs" for="photoDateInputEnd">Fin de la periode (*) :</label>
       <template>
-        {{form.endDate}}
         <date-pick
           v-model="form.endDate"
           class="main-inputs date_picker"
